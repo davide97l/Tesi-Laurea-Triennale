@@ -1,1 +1,38 @@
-\section{Progetto}
+\section{Progettazione}
+\subsection{Algoritmo di frammentazione dell'immagine}
+Per quanto riguarda il problema della frammentazione dei frames in 4K è stato individuato un apposito algoritmo consistente di diversi steps.
+\subsubsection{Scomposizione del frame originale in regioni}
+Il frame in 4K viene scomposto in una matrice di n x m sotto-immagini chiamate regioni in modo tale che ogni regione sia efficacemente analizzabile da una Faster R-CNN. Per facilitare la detection da parte della rete ogni regione si sovrappone leggermente con le sue regioni adiacenti. Per definire la quantità di pixels da coinvolgere nella sovrapposizione viene definito uno stride\gls che indica quanti pixels della regione tralasciare, sia in verticale che in orizzontale, prima che cominci la regione successiva, ovviamente lo stride deve essere minore della larghezza di una regione.
+Una Faster R-CNN dopo aver elaborato singolarmente ogni regione darà in output una lista di labels con le seguenti caratteristiche:
+\begin{itemize}
+\item \textbf{(min-x, min-y)}: coordinate del vertice in basso a destra del rettangolo rappresentante la label dell'oggetto riconosciuto; 
+\item \textbf{(max-x, max-y)}: coordinate del vertice in alto a sinistra del rettangolo rappresentante la label dell'oggetto riconosciuto; 
+\item \textbf{Classe}: è un numero naturale che indica la categoria di appartenenza dell'elemento individuato;
+\item \textbf{Score\gls}: rappresenta la misura di probabilità che la classificazione sia effettivamente quella corretta.
+\end{itemize}
+Successivamente viene aggiustata la posizione delle labels individuate in modo da traslarle nella loro posizione corretta all'interno dell'immagine originale non frammentata. Questo viene fatto aggiungendo un adeguato offset alle coordinate dei vertici dei box delle labels sulla base della loro regione di appartenenza.
+(IMMAGINE)
+\subsubsection{Creazione di raggruppamenti di labels correlate} 
+A questo punto tutti gli elementi sono stati individuati e classificati ma rimane comunque il problema che a causa della precedente scomposizione gli oggetti situati in prossimità o all'interno delle aree di scomposizione risulterebbero individuati due o più volte, questo varia in base al numero di regione sulle quali giace l'oggetto figX. Il secondo problema è che due elementi "vicini"  , anche se classificati allo stesso modo, non è detto che necessariamente debbano rappresentare lo stesso elemento. Un esempio di questo caso lo si può notare in figX. Un caso ancora peggiore è quello mostrato in figX dove non solo l'elemento è situato su più regioni differenti ma sussiste anche il problema che ogni parte dell'elemento verrebbe classificata in modo diverso a causa della loro ambiguità. Infine, l'ultima figura (figX) mostra un oggetto che si distribuisce su molte regioni ed ogni sua label presenta dimensioni diverse.
+La soluzione individuata consiste nel raggruppare label correlate tra loro in insiemi di labels dette raggruppamenti\gls.
+Inizialmente vengono individuate tutte le labels situate in prossimità dei confini di regioni ovvero quelle labels che intersecano le aree di sovrapposizioni o che non distino più di un fissato numero di pixels, detto \gls{tolleranza}, da esse. 
+Per creare i raggruppamenti di labels è stato ideato il seguente algoritmo:
+\begin{enumerate}
+\item Vengono tenute solo le labels vicino ad un confine di regione;
+\item Seleziona una label libera e la fa diventare controllata;
+\item Per ogni label controllata controlla se ci sono altre labels che la intersecano o che siano distanti entro la tolleranza fissata e che rispettino una \textbf{condizione di verità};
+\item Le labels così trovate diventano a loro volta controllate;
+\item Si ripetono i punti 3 e 4 fino a che non sia più possibile trovare ulteriori labels;
+\item Tutte le label controllate vengono ora classificate come raggruppate e viene assegnato un numero progressivo ad ogni label controllata in modo da identificarne il gruppo di appartenenza;
+\item Si ripetono i punti da 2 a 6 fino a che tutte le labels non vengano raggruppate.
+\end{enumerate}
+\textbf{Condizione di verità}: Per effettuare un corretto raggruppamento delle labels viene anche tenuta in considerazione l'etichetta a loro associata tramite la classificazione e lo score assegnato. Per definire il risultato della condizione è inoltre necessario stabilire una soglia\gls di probabilità per considerare un'etichetta come affidabile o meno. Di seguito vengono riportati i vari casi per decidere se la condizione è vera o falsa.
+\begin{itemize}
+\item \textbf{True}: Le due label hanno la stessa etichetta ed entrambe con score uguale o maggiore della soglia;
+\item \textbf{True}: Le due label hanno la stessa etichetta ma almeno una delle due ha score minore della soglia;
+\item \textbf{True}: Le due label hanno la etichetta diversa ma almeno una delle due ha score minore della soglia;
+\item \textbf{False}: Le due label hanno la etichetta diversa ed entrambe con score uguale o maggiore della soglia;
+\end{itemize}
+In seguito bisogna trasformare ogni raggruppamento in una nuova label che ne racchiuda tutte le labels. Per fare questo vengono esaminate le coordinate di ogni vertice di tutte le labels di un raggruppamento in modo tale da trovare quattro nuovi vertici di un rettangolo che soddisfi i requisiti sopra discussi. Il nuovo box così creato andrà a sostituire le labels del rispettivo raggruppamento e come etichetta verrà tenuta l'etichetta posseduta dalla label con score maggiore. A questo punto l'algoritmo può dirsi concluso ed è in grado di riconoscere gli elementi in un'immagine in 4K con un'accuratezza accettabile e buona velocità. Tuttavia in casi particolari come quello mostrato in figura figX l'algoritmo commetterebbe un errore in quanto individuerebbe due individui con una sola label.
+\subsubsection{Raggruppamento di labels come region proposal}
+
