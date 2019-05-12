@@ -24,6 +24,12 @@
 \BOOKMARK [3][-]{subsubsection.6.1.1}{Implementazione}{subsection.6.1}% 24
 \BOOKMARK [3][-]{subsubsection.6.1.2}{Test di integrazione}{subsection.6.1}% 25
 \BOOKMARK [1][-]{section.7}{Risultati ottenuti}{}% 26
-\BOOKMARK [1][-]{section.8}{Glossario}{}% 27
-\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 28
-\BOOKMARK [1][-]{section.10}{Appendice}{}% 29
+\BOOKMARK [2][-]{subsection.7.1}{Metriche utilizzate per singole immagini}{section.7}% 27
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Precision}{subsection.7.1}% 28
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Recall}{subsection.7.1}% 29
+\BOOKMARK [3][-]{subsubsection.7.1.3}{Intersection over union}{subsection.7.1}% 30
+\BOOKMARK [3][-]{subsubsection.7.1.4}{Average Precision}{subsection.7.1}% 31
+\BOOKMARK [3][-]{subsubsection.7.1.5}{Mean Average Precision}{subsection.7.1}% 32
+\BOOKMARK [1][-]{section.8}{Glossario}{}% 33
+\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 34
+\BOOKMARK [1][-]{section.10}{Appendice}{}% 35

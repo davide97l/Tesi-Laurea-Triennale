@@ -1,7 +1,7 @@
 \section{Sviluppo}
 \subsection{Sviluppo algoritmo per riconoscimento di elementi in un'immagine frammentata}
 Al fine di implementare l'algoritmo è stata creata una libreria contenente numerose funzioni per lavorare con le labels ritornate dal modello come per esempio ottenerne la posizione o controllare le loro intersezioni con altre entità. Una labels è composta da un array formato da quattro numero interi caratterizzanti il vertice in alto a sinistra e quello in basso a destra del bounding box, un intero per rappresentare la categoria dell'elemento ed infine un numero decimale compreso tra 1 e 0 per indicarne lo score.
-Viene data la possibilità all'utente di ridefinire la propria \textit{condizione di correlazione} e la \textit{regola di classificazione} passandole come parametro direttamente nella funzione. Altri parametri passabili includono: le labels, le dimensioni delle regioni e dello stride e la quantità di overlap,sia in verticale che in orizzontale, e di tolleranza in pixels.
+Viene data la possibilità all'utente di ridefinire la propria \textit{condizione di correlazione} e la \textit{regola di classificazione} passandole come parametro direttamente nella funzione. Altri parametri passabili includono: le labels, le dimensioni delle regioni e dello stride e la quantità di overlap, sia in verticale che in orizzontale, e di tolleranza in pixels.
 Alla fine l'algoritmo ritornerà una lista di tutte le labels presenti nell'immagine.\\ Nella seguente sezione ne viene riportata una sua implementazione.
 \subsubsection{Implementazione}
 \begin{lstlisting}[language=Python, caption=Python example]
