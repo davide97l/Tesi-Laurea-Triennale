@@ -4,7 +4,17 @@ Il linguaggio di programmazione utilizzato per perseguire gli obiettivi del prog
 \begin{verbatim}
 pip install nome_modulo
 \end{verbatim}
-Altri moduli che sono stati utilizzati comprendono Numpy e Matplotlib.
+Per lanciare un programma viene utilizzato il comando:
+\begin{verbatim}
+python nome_file.py
+\end{verbatim}
+Altri moduli che sono stati utilizzati comprendono Numpy, Matplotlib e Pytest.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/logo-python.png}
+	\caption{Logo di Python}
+	\label{Logo di Python}
+\end{figure}
 \subsection{Pycharm}
 Pycharm è un IDE per programmare in Python sviluppato da JetBrains. Le sue caratteristiche più importanti includono: 
 \begin{itemize}
@@ -15,10 +25,26 @@ Pycharm è un IDE per programmare in Python sviluppato da JetBrains. Le sue cara
 \end{itemize}
 \subsection{Tensorflow}
 Tensorflow è un framework open-source per lo sviluppo e l'allenamento di modelli di machine learning. NON ANCORA USATO
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{images/logo-tensorflow.png}
+	\caption{Logo di Tensorflow}
+	\label{Logo di Tensorflow}
+\end{figure}
 \subsection{OpenCV}
 NON ANCORA USATO
 \subsection{Numpy}
 Numpy è un modulo di Python che fornisce il supporto per
-la gestione di matrici e array multidimensionali di grandi dimensioni. Dispone anche di una vasta collezione funzioni matematiche per lavorare ad alto livelli si di essi. Viene spesso utilizzato per operare su grandi quantità di dati in modo rapido ed efficiente.
+la gestione di matrici e array multidimensionali di grandi dimensioni. Dispone anche di una vasta collezione funzioni matematiche per lavorare ad alto livello su di essi. Viene spesso utilizzato per operare su grandi quantità di dati in modo rapido ed efficiente.
 \subsection{Matplotlib}
+Matplotlib è una libreria grafica sviluppata per Python impiegata principalmente per disegnare grafici o altre figure con lo scopo di rappresentare dei dati utilizzando il minor numero d righe di codice possibile. In fase di allenamento di una rete neurale viene spesso usato per mostrare l'andamento della variazione dell'errore e dell'accuratezza.
 \subsection{Pytest}
+Pytest è un framework per Python che permettere di scrivere dei test per testare il codice permettendone la loro esecuzione in modo automatico. Per installarlo viene utilizzato il comando:
+\begin{verbatim}
+pip install pytest
+\end{verbatim}
+mentre per lanciarne l'esecuzione viene usato il comando:
+\begin{verbatim}
+pytest nome_file
+\end{verbatim}
+Per convenzione il file contenente i test relativi ad un solo modulo è stato chiamato "nome\_modulo\_test.py" dove "nome\_modulo.py" è il modulo ad esso associato. I metodi che eseguono un test devono iniziare con "test\_", in caso contrario non verranno riconosciuti come tali e la loro esecuzione non verrà lanciata. Sono stati implementati dei test di unità per tutte le funzioni più complesse o critiche in modo da verificarne il corretto funzionamento. Sono anche stati sviluppati dei test di integrazione per ogni algoritmo implementato in modo da assicurarsi del loro corretto funzionamento. Per valutare l'esecuzione dell'intero sistema sono invece state utilizzate delle metriche per misurare la bontà del risultato in quanto i test di sistema non sarebbero stati adatti per misurare un risultato non deterministico come il riconoscimento di oggetti.

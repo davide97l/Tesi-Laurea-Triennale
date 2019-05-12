@@ -1,0 +1,48 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {section}{\numberline {1}Introduzione}{5}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Note esplicative}{5}{subsection.1.1}% 
+\contentsline {section}{\numberline {2}Ambiente Aziendale}{6}{section.2}% 
+\contentsline {section}{\numberline {3}Analisi dei problemi}{7}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Tecniche di computer vision}{7}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Computer vision applicata su immagini ad alta risoluzione}{8}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Frammentazione dell'immagine}{9}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}Progettazione}{11}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Progettazione algoritmo per riconoscimento di elementi in un'immagine frammentata}{11}{subsection.4.1}% 
+\contentsline {subsubsection}{\numberline {4.1.1}Scomposizione del frame originale in regioni}{11}{subsubsection.4.1.1}% 
+\contentsline {subsubsection}{\numberline {4.1.2}Rimozione degli elementi individuati pi\IeC {\`u} volte all'interno delle aree di sovrapposizione}{12}{subsubsection.4.1.2}% 
+\contentsline {subsubsection}{\numberline {4.1.3}Creazione di raggruppamenti di labels correlate}{12}{subsubsection.4.1.3}% 
+\contentsline {subsubsection}{\numberline {4.1.4}Raggruppamenti di labels utilizzati come region proposal}{14}{subsubsection.4.1.4}% 
+\contentsline {section}{\numberline {5}Tecnologie}{16}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Python}{16}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Pycharm}{16}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Tensorflow}{17}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}OpenCV}{17}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {5.5}Numpy}{17}{subsection.5.5}% 
+\contentsline {subsection}{\numberline {5.6}Matplotlib}{17}{subsection.5.6}% 
+\contentsline {subsection}{\numberline {5.7}Pytest}{18}{subsection.5.7}% 
+\contentsline {section}{\numberline {6}Sviluppo}{19}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Sviluppo algoritmo per riconoscimento di elementi in un'immagine frammentata}{19}{subsection.6.1}% 
+\contentsline {subsubsection}{\numberline {6.1.1}Implementazione}{19}{subsubsection.6.1.1}% 
+\contentsline {subsubsection}{\numberline {6.1.2}Test di integrazione}{21}{subsubsection.6.1.2}% 
+\contentsline {section}{\numberline {7}Risultati ottenuti}{22}{section.7}% 
+\contentsline {section}{\numberline {8}Glossario}{23}{section.8}% 
+\contentsline {paragraph}{B}{23}{section*.4}% 
+\contentsline {subparagraph}{Box}{23}{section*.5}% 
+\contentsline {paragraph}{C}{23}{section*.6}% 
+\contentsline {subparagraph}{Categoria}{23}{section*.7}% 
+\contentsline {paragraph}{L}{23}{section*.8}% 
+\contentsline {subparagraph}{Label}{23}{section*.9}% 
+\contentsline {paragraph}{O}{23}{section*.10}% 
+\contentsline {subparagraph}{Overlap}{23}{section*.11}% 
+\contentsline {paragraph}{R}{23}{section*.12}% 
+\contentsline {subparagraph}{Raggruppamento}{23}{section*.13}% 
+\contentsline {subparagraph}{Regione}{23}{section*.14}% 
+\contentsline {paragraph}{S}{23}{section*.15}% 
+\contentsline {subparagraph}{Score}{23}{section*.16}% 
+\contentsline {subparagraph}{Soglia}{24}{section*.17}% 
+\contentsline {subparagraph}{Stride}{24}{section*.18}% 
+\contentsline {paragraph}{T}{24}{section*.19}% 
+\contentsline {subparagraph}{Tolleranza}{24}{section*.20}% 
+\contentsline {section}{\numberline {9}Bibliografia}{25}{section.9}% 
+\contentsline {section}{\numberline {10}Appendice}{26}{section.10}% 

@@ -10,19 +10,20 @@ L'obiettivo della classificazione è quello di assegnare all'oggetto individuato
 
 \paragraph{L}
 \subparagraph{Label}
-Etichetta che viene data ad ogni elemento riconosciuto e ne indica la categoria di appartenenza, una detection box ed uno score.
+Etichetta che viene data ad ogni elemento riconosciuto e ne indica la categoria di appartenenza, una bounding box ed uno score.
 
 \paragraph{O}
-\subparagraph{Overlap} Si ha un overlap quando due regioni hanno un'area in comune. L'Overlap è anche un attributo da tenere conto in fase di frammentazione di un'immagine ed indica di quanto spazio una regione deve espandersi oltre alla sua area originale in modo da ottenere una sovrapposizione con le aree adiacenti.
+\subparagraph{Overlap} L'overlap indica lo spessore in pixels dei confini delle regioni. E' usato per sapere se un' entità interseca un confine o meno.
 
 \paragraph{R}
 \subparagraph{Raggruppamento}
-Insieme di labels correlate tra loro tale che da una qualsiasi label del gruppo sia possibile raggiungere qualsiasi altra label dello stesso insieme passando solo per label vicine \footnote{Due label sono considerate vicine se sono intersecate tra loro ed intersecano anche almeno una zona di sovrapposizione}.
+Insieme di labels correlate tra loro tale che da una qualsiasi label del gruppo sia possibile raggiungere qualsiasi altra label dello stesso insieme passando solo per label \textit{vicine} \footnote{Due label sono considerate vicine se sono intersecate tra di loro ed intersecano lo stesso confine di regione}.
 \subparagraph{Regione} Una sezione di un'immagine con un'area di dimensione minore dell'area dell'immagine originale.
 
 \paragraph{S}
 \subparagraph{Score} La probabilità che la categoria associata all'elemento riconosciuto sia quella corretta.
 \subparagraph{Soglia} E' il valore che lo score di una label deve eguagliare o superare per essere considerata affidabile.
+\subparagraph{Stride} E' un attributo da tenere conto in fase di frammentazione di un'immagine ed indica quanti pixels della regione tralasciare, sia in verticale che in orizzontale, prima che cominci quella successiva. Lo stride orizzontale può avere dimensione diversa da quello verticale. La sua applicazione ha come scopo quello di creare delle zone di sovrapposizione tra le varie regioni.
 
 \paragraph{T}
 \subparagraph{Tolleranza} La distanza in pixels per la quale una label può discostare da una zona di interesse per cui sia ancora considerata essere intersecata con la zona di interesse.
