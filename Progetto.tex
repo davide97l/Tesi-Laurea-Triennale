@@ -30,7 +30,13 @@ Per creare i raggruppamenti di labels è stato ideato il seguente algoritmo:
 \begin{enumerate}
 \item Vengono tenute solo le labels che intersecano almeno un confine di regione e sono inizializzate come \textit{non controllate};
 \item Viene selezionata una label qualsiasi \textit{non controllata} e la si imposta come \textit{controllata};
-\item Per ogni label \textit{controllata} ma non ancora \textit{Raggruppata} controlla se ci sono altre labels \textit{non controllate} che siano 	\textit{vicine} o che siano distanti entro la tolleranza\gls fissata, che rispettino la \textit{condizione di correlazione} e che la loro box non intersechi una regione comune al di fuori delle aree di sovrapposizione \footnote{Questo perché se due labels sono state individuate come elementi distinti all'interno di una regione allora è probabile che lo siano anche nell'immagine intera in quanto viene supposto che un modello non commetta errori di riconoscimento}.
+\item Per ogni label \textit{controllata} ma non ancora \textit{Raggruppata} controlla se ci sono altre labels \textit{non controllate} che rispettino ognuna delle seguenti condizioni:
+  \begin{itemize}
+  \item Devono essere \textit{vicine} o distanti entro la tolleranza\gls fissata;
+  \item Devono rispettare la \textit{condizione di correlazione};
+  \item La loro box non deve intersecare una regione al di fuori delle aree di sovrapposizione che sia già intersecata da una qualsiasi label \textit{controllata}\footnote{Questo perché se due labels sono state individuate come elementi distinti all'interno di una regione allora è probabile che lo siano anche nell'immagine intera in quanto viene supposto che un modello non commetta errori di riconoscimento};
+  \item La posizione delle loro aree deve essere compatibile entro una certa soglia ovvero che, i lati lungo il quale le due labels vengono unite siano tali che la differenza tra quello maggiore e quello minore sia inferiore ad una certa soglia che può essere sia definita come proporzione rispetto ad uno dei due lati oppure un valore in pixels.
+  \end{itemize}  
 \item Le labels così trovate diventano a loro volta \textit{controllate};
 \item Si ripetono i punti 3 e 4 fino a che non sia più possibile trovare ulteriori labels;
 \item Tutte le label \textit{controllate} vengono ora classificate come \textit{raggruppate} e viene assegnato un numero progressivo ad ogni label \textit{raggruppata} in modo da identificarne il gruppo di appartenenza;

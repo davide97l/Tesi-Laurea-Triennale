@@ -35,8 +35,9 @@ def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), 
                 for j in range(len(ne_boxes)):
                     if checked[j] and grouped[j] == -1:
                         for k in range(len(ne_boxes)):
-                            if not checked[k] and lb.intersection(ne_boxes[j, :], ne_boxes[k, :], tol) and condition(ne_boxes[j, :], ne_boxes[k, :]) and lb.intersect_common_edge(ne_boxes[j, :], ne_boxes[k, :], regions, tol, overlap) and not lb.belong_same_region_strict(ne_boxes[j, :], ne_boxes[k, :], regions, 0):
-                                # The new found label is set as checked
+                        # check for the conditions to be true
+                            if not checked[k] and lb.intersection(ne_boxes[j, :], ne_boxes[k, :], tol) and condition(ne_boxes[j, :], ne_boxes[k, :]) and lb.intersect_common_edge(ne_boxes[j, :], ne_boxes[k, :], regions, tol, overlap) and lb.matched(ne_boxes[j, :], ne_boxes[k, :]) and not lb.belong_same_region_strict_group(ne_boxes[k, :], checked_boxes, regions, tol):
+                                # The new label is set as checked
                                 checked[k] = True
                                 found += 1
                 # The cycle is repeated until no new labels can be found
