@@ -1,7 +1,7 @@
 \section{Sviluppo}
 \subsection{Sviluppo algoritmo per riconoscimento di elementi in un'immagine frammentata}
 Al fine di implementare l'algoritmo è stata creata una libreria contenente numerose funzioni per lavorare con le labels ritornate dal modello come per esempio ottenerne la posizione o controllare le loro intersezioni con altre entità. Una labels è composta da un array formato da quattro numero interi caratterizzanti il vertice in alto a sinistra e quello in basso a destra del bounding box, un intero per rappresentare la categoria dell'elemento ed infine un numero decimale compreso tra 1 e 0 per indicarne lo score.
-Viene data la possibilità all'utente di ridefinire la propria \textit{condizione di correlazione} e la \textit{regola di classificazione} passandole come parametro direttamente nella funzione. Altri parametri passabili includono: le labels, le dimensioni delle regioni e dello stride e la quantità di overlap, sia in verticale che in orizzontale, e di tolleranza in pixels.
+Viene data la possibilità all'utente di ridefinire la propria \textit{condizione di correlazione}, la \textit{regola di classificazione} e la \textit{condizione di matching} passandole come parametro direttamente nella funzione. Altri parametri passabili includono: le labels, le dimensioni delle regioni e dello stride e la quantità di overlap, sia in verticale che in orizzontale, e di tolleranza in pixels.
 Alla fine l'algoritmo ritornerà una lista di tutte le labels presenti nell'immagine.\\ Nella seguente sezione ne viene riportata una sua implementazione.
 \subsubsection{Implementazione}
 \begin{lstlisting}[language=Python, caption=Python example]
@@ -9,7 +9,7 @@ from faster_nms import faster_nms
 import numpy as np
 import labels as lb
 
-def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), overlap=(0, 0), tol=0, condition=None, find_category=None):
+def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), overlap=(0, 0), tol=0, condition=None, find_category=None, matching=None):
     if condition is None:
         condition = lb.condition
     if find_category is None:
@@ -36,7 +36,7 @@ def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), 
                     if checked[j] and grouped[j] == -1:
                         for k in range(len(ne_boxes)):
                         # check for the conditions to be true
-                            if not checked[k] and lb.intersection(ne_boxes[j, :], ne_boxes[k, :], tol) and condition(ne_boxes[j, :], ne_boxes[k, :]) and lb.intersect_common_edge(ne_boxes[j, :], ne_boxes[k, :], regions, tol, overlap) and lb.matched(ne_boxes[j, :], ne_boxes[k, :]) and not lb.belong_same_region_strict_group(ne_boxes[k, :], checked_boxes, regions, tol):
+                            if not checked[k] and lb.intersection(ne_boxes[j, :], ne_boxes[k, :], tol) and condition(ne_boxes[j, :], ne_boxes[k, :]) and lb.intersect_common_edge(ne_boxes[j, :], ne_boxes[k, :], regions, tol, overlap) and lb.matched(ne_boxes[j, :], ne_boxes[k, :]) and lb.matched(ne_boxes[j, :], ne_boxes[k, :]) and not lb.belong_same_region_strict_group(ne_boxes[k, :], checked_boxes, regions, tol):
                                 # The new label is set as checked
                                 checked[k] = True
                                 found += 1
@@ -79,5 +79,5 @@ def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), 
     return final_boxes
 \end{lstlisting}
 \subsubsection{Test di integrazione}
-Al fine di verificarne la correttezza sono stati implementati 80 test di integrazione. Essi hanno il compito di testare l'algoritmo su diverse disposizioni e quantità di labels impostando i parametri con differenti valori in modo tale da riconoscerne il maggior numero di errori possibile. Sono state testate in totale sei disposizioni di labels con due diversi valori di overlap, tolleranza, stride e dimensione delle regioni arrivando ad un totale 80 test passati tutti con esito positivo.
+Al fine di verificarne la correttezza sono stati implementati 80 test di integrazione. Essi hanno il compito di testare l'algoritmo su diverse disposizioni e quantità di labels impostando i parametri con differenti valori in modo tale da riconoscerne il maggior numero di errori possibile. Sono state in tutto testate in totale cinque disposizioni di labels differenti con due diversi valori di overlap, tolleranza, stride e dimensione delle regioni arrivando ad un totale 80 test passati tutti con esito positivo.
 

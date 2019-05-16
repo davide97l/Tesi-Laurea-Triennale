@@ -2,7 +2,9 @@
 \babel@toc {italian}{}
 \contentsline {figure}{\numberline {1}{\ignorespaces Logo di Studiomapp}}{6}{figure.1}% 
 \contentsline {figure}{\numberline {2}{\ignorespaces Esempio di un'immagine con box, categoria e probabilit\IeC {\`a} per ogni elemento riconosciuto in essa}}{7}{figure.2}% 
-\contentsline {figure}{\numberline {3}{\ignorespaces Esempio di un frame di un video in 4K}}{9}{figure.3}% 
-\contentsline {figure}{\numberline {4}{\ignorespaces Logo di Python}}{16}{figure.4}% 
-\contentsline {figure}{\numberline {5}{\ignorespaces Logo di Tensorflow}}{17}{figure.5}% 
-\contentsline {figure}{\numberline {6}{\ignorespaces Esempio di intersezione e di unione}}{23}{figure.6}% 
+\contentsline {figure}{\numberline {3}{\ignorespaces Esempio di object detection in un frame di un video in 4K}}{9}{figure.3}% 
+\contentsline {figure}{\numberline {4}{\ignorespaces Esempio di un'immagine in alta risoluzione suddivisa in regioni senza sovrapposizioni}}{10}{figure.4}% 
+\contentsline {figure}{\numberline {5}{\ignorespaces Esempi di labels erroneamente individuate a causa della frammentazione: nel primo caso la ricostruzione avviene correttamente, nel secondo caso \IeC {\`e} presente un errore.}}{14}{figure.5}% 
+\contentsline {figure}{\numberline {6}{\ignorespaces Logo di Python}}{17}{figure.6}% 
+\contentsline {figure}{\numberline {7}{\ignorespaces Logo di Tensorflow}}{18}{figure.7}% 
+\contentsline {figure}{\numberline {8}{\ignorespaces Esempio di intersezione e di unione}}{24}{figure.8}% 
