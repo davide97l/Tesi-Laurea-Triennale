@@ -9,49 +9,52 @@
 \contentsline {subsection}{\numberline {3.3}Frammentazione dell'immagine}{9}{subsection.3.3}% 
 \contentsline {subsection}{\numberline {3.4}Tecniche di object tracking}{11}{subsection.3.4}% 
 \contentsline {subsection}{\numberline {3.5}Object tracking con continue object detections}{12}{subsection.3.5}% 
-\contentsline {section}{\numberline {4}Progettazione}{13}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Progettazione algoritmo per riconoscimento di elementi in un'immagine frammentata}{13}{subsection.4.1}% 
-\contentsline {subsubsection}{\numberline {4.1.1}Scomposizione del frame originale in regioni}{13}{subsubsection.4.1.1}% 
-\contentsline {subsubsection}{\numberline {4.1.2}Rimozione degli elementi individuati pi\IeC {\`u} volte all'interno delle aree di sovrapposizione}{14}{subsubsection.4.1.2}% 
-\contentsline {subsubsection}{\numberline {4.1.3}Creazione di raggruppamenti di labels correlate}{14}{subsubsection.4.1.3}% 
-\contentsline {subsubsection}{\numberline {4.1.4}Raggruppamenti di labels utilizzati come region proposal}{17}{subsubsection.4.1.4}% 
-\contentsline {subsection}{\numberline {4.2}Progettazione algoritmo per tracciamento di elementi}{17}{subsection.4.2}% 
-\contentsline {section}{\numberline {5}Tecnologie}{18}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Python}{18}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Pycharm}{18}{subsection.5.2}% 
-\contentsline {subsection}{\numberline {5.3}Tensorflow}{19}{subsection.5.3}% 
-\contentsline {subsection}{\numberline {5.4}OpenCV}{19}{subsection.5.4}% 
-\contentsline {subsection}{\numberline {5.5}Numpy}{19}{subsection.5.5}% 
-\contentsline {subsection}{\numberline {5.6}Matplotlib}{20}{subsection.5.6}% 
-\contentsline {subsection}{\numberline {5.7}Pytest}{20}{subsection.5.7}% 
-\contentsline {section}{\numberline {6}Sviluppo}{21}{section.6}% 
-\contentsline {subsection}{\numberline {6.1}Sviluppo algoritmo per riconoscimento di elementi in un'immagine frammentata}{21}{subsection.6.1}% 
-\contentsline {subsubsection}{\numberline {6.1.1}Implementazione}{21}{subsubsection.6.1.1}% 
-\contentsline {subsubsection}{\numberline {6.1.2}Test di integrazione}{23}{subsubsection.6.1.2}% 
-\contentsline {section}{\numberline {7}Risultati ottenuti}{24}{section.7}% 
-\contentsline {subsection}{\numberline {7.1}Metriche utilizzate per singole immagini}{24}{subsection.7.1}% 
-\contentsline {subsubsection}{\numberline {7.1.1}Precision}{24}{subsubsection.7.1.1}% 
-\contentsline {subsubsection}{\numberline {7.1.2}Recall}{24}{subsubsection.7.1.2}% 
-\contentsline {subsubsection}{\numberline {7.1.3}Intersection over union}{25}{subsubsection.7.1.3}% 
-\contentsline {subsubsection}{\numberline {7.1.4}Average Precision}{25}{subsubsection.7.1.4}% 
-\contentsline {subsubsection}{\numberline {7.1.5}Mean Average Precision}{26}{subsubsection.7.1.5}% 
-\contentsline {section}{\numberline {8}Glossario}{27}{section.8}% 
-\contentsline {paragraph}{B}{27}{section*.4}% 
-\contentsline {subparagraph}{Box}{27}{section*.5}% 
-\contentsline {paragraph}{C}{27}{section*.6}% 
-\contentsline {subparagraph}{Categoria}{27}{section*.7}% 
-\contentsline {paragraph}{L}{27}{section*.8}% 
-\contentsline {subparagraph}{Label}{27}{section*.9}% 
-\contentsline {paragraph}{O}{27}{section*.10}% 
-\contentsline {subparagraph}{Overlap}{27}{section*.11}% 
-\contentsline {paragraph}{R}{27}{section*.12}% 
-\contentsline {subparagraph}{Raggruppamento}{27}{section*.13}% 
-\contentsline {subparagraph}{Regione}{27}{section*.14}% 
-\contentsline {paragraph}{S}{27}{section*.15}% 
-\contentsline {subparagraph}{Score}{27}{section*.16}% 
-\contentsline {subparagraph}{Soglia}{28}{section*.17}% 
-\contentsline {subparagraph}{Stride}{28}{section*.18}% 
-\contentsline {paragraph}{T}{28}{section*.19}% 
-\contentsline {subparagraph}{Tolleranza}{28}{section*.20}% 
-\contentsline {section}{\numberline {9}Bibliografia}{29}{section.9}% 
-\contentsline {section}{\numberline {10}Appendice}{31}{section.10}% 
+\contentsline {section}{\numberline {4}Progettazione}{14}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Progettazione algoritmo per riconoscimento di elementi in un'immagine frammentata}{14}{subsection.4.1}% 
+\contentsline {subsubsection}{\numberline {4.1.1}Scomposizione del frame originale in regioni}{14}{subsubsection.4.1.1}% 
+\contentsline {subsubsection}{\numberline {4.1.2}Rimozione degli elementi individuati pi\IeC {\`u} volte all'interno delle aree di sovrapposizione}{15}{subsubsection.4.1.2}% 
+\contentsline {subsubsection}{\numberline {4.1.3}Creazione di raggruppamenti di labels correlate}{15}{subsubsection.4.1.3}% 
+\contentsline {subsubsection}{\numberline {4.1.4}miglioramento: Raggruppamenti di labels utilizzati come region proposal}{18}{subsubsection.4.1.4}% 
+\contentsline {subsection}{\numberline {4.2}Progettazione algoritmo per tracciamento di elementi}{19}{subsection.4.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1}Filtro di Kalman}{19}{subsubsection.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.2}Assegnazione detection-tracker}{19}{subsubsection.4.2.2}% 
+\contentsline {subsubsection}{\numberline {4.2.3}miglioramento: Utilizzo dell'hash dell'immagine come metrica di supporto}{19}{subsubsection.4.2.3}% 
+\contentsline {section}{\numberline {5}Tecnologie}{20}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Python}{20}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Pycharm}{20}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Tensorflow}{21}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}OpenCV}{21}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {5.5}Numpy}{21}{subsection.5.5}% 
+\contentsline {subsection}{\numberline {5.6}Matplotlib}{22}{subsection.5.6}% 
+\contentsline {subsection}{\numberline {5.7}Pytest}{22}{subsection.5.7}% 
+\contentsline {section}{\numberline {6}Sviluppo}{23}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Sviluppo algoritmo per riconoscimento di elementi in un'immagine frammentata}{23}{subsection.6.1}% 
+\contentsline {subsubsection}{\numberline {6.1.1}Implementazione}{23}{subsubsection.6.1.1}% 
+\contentsline {subsubsection}{\numberline {6.1.2}Test di integrazione}{25}{subsubsection.6.1.2}% 
+\contentsline {section}{\numberline {7}Risultati ottenuti}{26}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Metriche utilizzate per singole immagini}{26}{subsection.7.1}% 
+\contentsline {subsubsection}{\numberline {7.1.1}Precision}{26}{subsubsection.7.1.1}% 
+\contentsline {subsubsection}{\numberline {7.1.2}Recall}{26}{subsubsection.7.1.2}% 
+\contentsline {subsubsection}{\numberline {7.1.3}Intersection over union}{27}{subsubsection.7.1.3}% 
+\contentsline {subsubsection}{\numberline {7.1.4}Average Precision}{27}{subsubsection.7.1.4}% 
+\contentsline {subsubsection}{\numberline {7.1.5}Mean Average Precision}{28}{subsubsection.7.1.5}% 
+\contentsline {section}{\numberline {8}Glossario}{29}{section.8}% 
+\contentsline {paragraph}{B}{29}{section*.4}% 
+\contentsline {subparagraph}{Box}{29}{section*.5}% 
+\contentsline {paragraph}{C}{29}{section*.6}% 
+\contentsline {subparagraph}{Categoria}{29}{section*.7}% 
+\contentsline {paragraph}{L}{29}{section*.8}% 
+\contentsline {subparagraph}{Label}{29}{section*.9}% 
+\contentsline {paragraph}{O}{29}{section*.10}% 
+\contentsline {subparagraph}{Overlap}{29}{section*.11}% 
+\contentsline {paragraph}{R}{29}{section*.12}% 
+\contentsline {subparagraph}{Raggruppamento}{29}{section*.13}% 
+\contentsline {subparagraph}{Regione}{29}{section*.14}% 
+\contentsline {paragraph}{S}{29}{section*.15}% 
+\contentsline {subparagraph}{Score}{29}{section*.16}% 
+\contentsline {subparagraph}{Soglia}{30}{section*.17}% 
+\contentsline {subparagraph}{Stride}{30}{section*.18}% 
+\contentsline {paragraph}{T}{30}{section*.19}% 
+\contentsline {subparagraph}{Tolleranza}{30}{section*.20}% 
+\contentsline {section}{\numberline {9}Bibliografia}{31}{section.9}% 
+\contentsline {section}{\numberline {10}Appendice}{33}{section.10}% 
