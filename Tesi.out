@@ -16,26 +16,27 @@
 \BOOKMARK [2][-]{subsection.4.2}{Progettazione algoritmo per tracciamento di elementi}{section.4}% 16
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Filtro di Kalman}{subsection.4.2}% 17
 \BOOKMARK [3][-]{subsubsection.4.2.2}{Assegnazione detection-tracker}{subsection.4.2}% 18
-\BOOKMARK [3][-]{subsubsection.4.2.3}{miglioramento: Utilizzo dell'hash dell'immagine come metrica di supporto}{subsection.4.2}% 19
-\BOOKMARK [1][-]{section.5}{Tecnologie}{}% 20
-\BOOKMARK [2][-]{subsection.5.1}{Python}{section.5}% 21
-\BOOKMARK [2][-]{subsection.5.2}{Pycharm}{section.5}% 22
-\BOOKMARK [2][-]{subsection.5.3}{Tensorflow}{section.5}% 23
-\BOOKMARK [2][-]{subsection.5.4}{OpenCV}{section.5}% 24
-\BOOKMARK [2][-]{subsection.5.5}{Numpy}{section.5}% 25
-\BOOKMARK [2][-]{subsection.5.6}{Matplotlib}{section.5}% 26
-\BOOKMARK [2][-]{subsection.5.7}{Pytest}{section.5}% 27
-\BOOKMARK [1][-]{section.6}{Sviluppo}{}% 28
-\BOOKMARK [2][-]{subsection.6.1}{Sviluppo algoritmo per riconoscimento di elementi in un'immagine frammentata}{section.6}% 29
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Implementazione}{subsection.6.1}% 30
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Test di integrazione}{subsection.6.1}% 31
-\BOOKMARK [1][-]{section.7}{Risultati ottenuti}{}% 32
-\BOOKMARK [2][-]{subsection.7.1}{Metriche utilizzate per singole immagini}{section.7}% 33
-\BOOKMARK [3][-]{subsubsection.7.1.1}{Precision}{subsection.7.1}% 34
-\BOOKMARK [3][-]{subsubsection.7.1.2}{Recall}{subsection.7.1}% 35
-\BOOKMARK [3][-]{subsubsection.7.1.3}{Intersection over union}{subsection.7.1}% 36
-\BOOKMARK [3][-]{subsubsection.7.1.4}{Average Precision}{subsection.7.1}% 37
-\BOOKMARK [3][-]{subsubsection.7.1.5}{Mean Average Precision}{subsection.7.1}% 38
-\BOOKMARK [1][-]{section.8}{Glossario}{}% 39
-\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 40
-\BOOKMARK [1][-]{section.10}{Appendice}{}% 41
+\BOOKMARK [2][-]{subsection.4.3}{Gestione delle detections e dei trackers non assegnati}{section.4}% 19
+\BOOKMARK [3][-]{subsubsection.4.3.1}{miglioramento: Utilizzo dell'hash dell'immagine come metrica di supporto}{subsection.4.3}% 20
+\BOOKMARK [1][-]{section.5}{Tecnologie}{}% 21
+\BOOKMARK [2][-]{subsection.5.1}{Python}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.2}{Pycharm}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.3}{Tensorflow}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.4}{OpenCV}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.5}{Numpy}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.6}{Matplotlib}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.7}{Pytest}{section.5}% 28
+\BOOKMARK [1][-]{section.6}{Sviluppo}{}% 29
+\BOOKMARK [2][-]{subsection.6.1}{Sviluppo algoritmo per riconoscimento di elementi in un'immagine frammentata}{section.6}% 30
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Implementazione}{subsection.6.1}% 31
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Test di integrazione}{subsection.6.1}% 32
+\BOOKMARK [1][-]{section.7}{Risultati ottenuti}{}% 33
+\BOOKMARK [2][-]{subsection.7.1}{Metriche utilizzate per singole immagini}{section.7}% 34
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Precision}{subsection.7.1}% 35
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Recall}{subsection.7.1}% 36
+\BOOKMARK [3][-]{subsubsection.7.1.3}{Intersection over union}{subsection.7.1}% 37
+\BOOKMARK [3][-]{subsubsection.7.1.4}{Average Precision}{subsection.7.1}% 38
+\BOOKMARK [3][-]{subsubsection.7.1.5}{Mean Average Precision}{subsection.7.1}% 39
+\BOOKMARK [1][-]{section.8}{Glossario}{}% 40
+\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 41
+\BOOKMARK [1][-]{section.10}{Appendice}{}% 42
