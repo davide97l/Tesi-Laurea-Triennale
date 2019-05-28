@@ -12,12 +12,12 @@
 \BOOKMARK [3][-]{subsubsection.4.1.1}{Scomposizione del frame originale in regioni}{subsection.4.1}% 12
 \BOOKMARK [3][-]{subsubsection.4.1.2}{Rimozione degli elementi individuati pi\371 volte all'interno delle aree di sovrapposizione}{subsection.4.1}% 13
 \BOOKMARK [3][-]{subsubsection.4.1.3}{Creazione di raggruppamenti di labels correlate}{subsection.4.1}% 14
-\BOOKMARK [3][-]{subsubsection.4.1.4}{miglioramento: Raggruppamenti di labels utilizzati come region proposal}{subsection.4.1}% 15
+\BOOKMARK [3][-]{subsubsection.4.1.4}{Miglioramento: raggruppamenti di labels utilizzati come region proposal}{subsection.4.1}% 15
 \BOOKMARK [2][-]{subsection.4.2}{Progettazione algoritmo per tracciamento di elementi}{section.4}% 16
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Filtro di Kalman}{subsection.4.2}% 17
 \BOOKMARK [3][-]{subsubsection.4.2.2}{Assegnazione detection-tracker}{subsection.4.2}% 18
-\BOOKMARK [2][-]{subsection.4.3}{Gestione delle detections e dei trackers non assegnati}{section.4}% 19
-\BOOKMARK [3][-]{subsubsection.4.3.1}{miglioramento: Utilizzo dell'hash dell'immagine come metrica di supporto}{subsection.4.3}% 20
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Gestione delle detections e dei trackers non assegnati}{subsection.4.2}% 19
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Miglioramento: utilizzo dell'hash dell'immagine come metrica di supporto}{subsection.4.2}% 20
 \BOOKMARK [1][-]{section.5}{Tecnologie}{}% 21
 \BOOKMARK [2][-]{subsection.5.1}{Python}{section.5}% 22
 \BOOKMARK [2][-]{subsection.5.2}{Pycharm}{section.5}% 23

@@ -5,51 +5,62 @@ Viene data la possibilità all'utente di ridefinire la propria \textit{condizion
 Alla fine l'algoritmo ritornerà una lista di tutte le labels presenti nell'immagine.\\ Nella seguente sezione ne viene riportata una sua implementazione.
 \subsubsection{Implementazione}
 \begin{lstlisting}[language=Python, caption=Python example]
-from faster_nms import faster_nms
+from modules.faster_nms import faster_nms
 import numpy as np
-import labels as lb
+import modules.labels as lb
 
-def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), overlap=(0, 0), tol=0, condition=None, find_category=None, matching=None):
-    if condition is None:
+
+def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), overlap=(0, 0), tol=0, threshold_match=50, correlation_condition=None, find_category=None, find_group_label=None):
+
+    # set user defined conditions
+    if correlation_condition is None:
         condition = lb.condition
     if find_category is None:
         find_category = lb.find_category
+    if find_group_label is None:
+        find_group_label = lb.find_group_label
         
     w, h = lb.img_dim_from_boxes(boxes)
     regions = lb.generate_regions(w, h, region_size, stride_size)
     boxes = faster_nms(boxes, overlapThresh=0.8)
 
-    # Keeps only the labels intersecting one or more region edges
-    lb.get_intersect_edges_labels(boxes, regions, tol, overlap)
+    # Keeps only the labels intersecting one or more region edges (ne_boxes = near edges boxes)
+    ne_boxes, ne_boxes_indexes = lb.get_intersect_edges_labels(boxes, regions, tol, overlap)
     # All labels are set as not-checked and not-grouped
     checked = np.zeros((np.ma.size(ne_boxes, 0)))
     grouped = np.ones((np.ma.size(ne_boxes, 0))) * (-1)
+    # number of label groups
     n_group = 0
     for i in range(len(ne_boxes)):
+        checked_boxes = np.zeros((0, 6))
         # Select a label and sets it as checked
         if not checked[i]:
             checked[i] = True
+            checked_boxes = np.vstack([checked_boxes, ne_boxes[i]])
             while True:
                 found = 0
-                # If a label is checked then it means it is not-grouped
+                # If a label is checked then it means it is also not-grouped
+                # For each label checked but not-grouped:
                 for j in range(len(ne_boxes)):
                     if checked[j] and grouped[j] == -1:
                         for k in range(len(ne_boxes)):
-                        # check for the conditions to be true
-                            if not checked[k] and lb.intersection(ne_boxes[j, :], ne_boxes[k, :], tol) and condition(ne_boxes[j, :], ne_boxes[k, :]) and lb.intersect_common_edge(ne_boxes[j, :], ne_boxes[k, :], regions, tol, overlap) and lb.matched(ne_boxes[j, :], ne_boxes[k, :]) and lb.matched(ne_boxes[j, :], ne_boxes[k, :]) and not lb.belong_same_region_strict_group(ne_boxes[k, :], checked_boxes, regions, tol):
-                                # The new label is set as checked
+                             # join conditions
+                            if not checked[k] and lb.intersection(ne_boxes[j, :], ne_boxes[k, :], tol) and condition(ne_boxes[j, :], ne_boxes[k, :]) and lb.intersect_common_edge(ne_boxes[j, :], ne_boxes[k, :], regions, tol, overlap) and lb.matched(ne_boxes[j, :], ne_boxes[k, :], threshold_match) and not lb.belong_same_region_strict_group(ne_boxes[k, :], checked_boxes, regions, tol):
+                                # The new found label is set as checked
                                 checked[k] = True
                                 found += 1
+                                checked_boxes = np.vstack([checked_boxes, ne_boxes[k]])
                 # The cycle is repeated until no new labels can be found
                 if found == 0:
                     break
-            # All the checked labels are set as grouped and is them assigned a number with the purpose of identify their group ID
+            # All the checked labels are set as grouped and is them assigned a number with the
+            # purpose to identify their group ID
             for j in range(len(ne_boxes)):
                 if checked[j] and grouped[j] == -1:
                     grouped[j] = n_group
             n_group += 1
-    # Now we have that each label only belongs to a single group
 
+    # Now we have that each label only belong to a single group
     # Now that we have grouped the labels each group is merged into a label containing all of them
     new_boxes = np.zeros((0, 6))
     for i in range(n_group):
@@ -58,22 +69,19 @@ def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), 
         count = 0
         for j in range(len(ne_boxes)):
             if grouped[j] == i:
-                v = np.append(v, ne_boxes[j, :])
+                v = np.vstack((v, ne_boxes[j, :]))
                 count += 1
-        v = v.reshape(count, 6)
         # Find the coordinates of the labels containing the whole group
-        xx1 = np.amin(v, axis=0)[0]
-        yy1 = np.amin(v, axis=0)[1]
-        xx2 = np.amax(v, axis=0)[2]
-        yy2 = np.amax(v, axis=0)[3]
-        # find_category can be redefined by the user
+        (xx1, yy1), (xx2, yy2) = find_group_label(v)
+        # find_category can be redefined by the user, it is based on the category and score of the labels of the group
         categories, scores = find_category(v)
         for j in range(len(categories)):
-            new_boxes = np.append(new_boxes, np.array([xx1, yy1, xx2, yy2, categories[j], scores[j]]))
+            new_boxes = np.vstack((new_boxes, np.array([xx1, yy1, xx2, yy2, categories[j], scores[j]])))
     # new_boxes are the labels resulting from grouping algorithm
-    new_boxes = new_boxes.reshape(int(len(new_boxes) / 6), 6)
 
     # The algorithm is over now thus we can return the results
+    ne_boxes_indexes = ne_boxes_indexes.astype(int)
+    old_boxes = np.delete(boxes, ne_boxes_indexes, 0)
     final_boxes = np.append(new_boxes, old_boxes, 0)
 
     return final_boxes
