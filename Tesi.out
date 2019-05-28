@@ -27,16 +27,21 @@
 \BOOKMARK [2][-]{subsection.5.6}{Matplotlib}{section.5}% 27
 \BOOKMARK [2][-]{subsection.5.7}{Pytest}{section.5}% 28
 \BOOKMARK [1][-]{section.6}{Sviluppo}{}% 29
-\BOOKMARK [2][-]{subsection.6.1}{Sviluppo algoritmo per riconoscimento di elementi in un'immagine frammentata}{section.6}% 30
+\BOOKMARK [2][-]{subsection.6.1}{Sviluppo algoritmo per ricomposizione delle labels in un'immagine frammentata}{section.6}% 30
 \BOOKMARK [3][-]{subsubsection.6.1.1}{Implementazione}{subsection.6.1}% 31
 \BOOKMARK [3][-]{subsubsection.6.1.2}{Test di integrazione}{subsection.6.1}% 32
 \BOOKMARK [1][-]{section.7}{Risultati ottenuti}{}% 33
-\BOOKMARK [2][-]{subsection.7.1}{Metriche utilizzate per singole immagini}{section.7}% 34
+\BOOKMARK [2][-]{subsection.7.1}{Metriche utilizzate per detection su singole immagini}{section.7}% 34
 \BOOKMARK [3][-]{subsubsection.7.1.1}{Precision}{subsection.7.1}% 35
 \BOOKMARK [3][-]{subsubsection.7.1.2}{Recall}{subsection.7.1}% 36
-\BOOKMARK [3][-]{subsubsection.7.1.3}{Intersection over union}{subsection.7.1}% 37
-\BOOKMARK [3][-]{subsubsection.7.1.4}{Average Precision}{subsection.7.1}% 38
-\BOOKMARK [3][-]{subsubsection.7.1.5}{Mean Average Precision}{subsection.7.1}% 39
-\BOOKMARK [1][-]{section.8}{Glossario}{}% 40
-\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 41
-\BOOKMARK [1][-]{section.10}{Appendice}{}% 42
+\BOOKMARK [3][-]{subsubsection.7.1.3}{F1}{subsection.7.1}% 37
+\BOOKMARK [3][-]{subsubsection.7.1.4}{Intersection over union}{subsection.7.1}% 38
+\BOOKMARK [3][-]{subsubsection.7.1.5}{Average Precision}{subsection.7.1}% 39
+\BOOKMARK [3][-]{subsubsection.7.1.6}{Mean Average Precision}{subsection.7.1}% 40
+\BOOKMARK [2][-]{subsection.7.2}{Dataset utilizzato per detection su singole immagini}{section.7}% 41
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Impostazione parametri}{subsection.7.2}% 42
+\BOOKMARK [2][-]{subsection.7.3}{Risultati ottenuti nella detection su singole immagini}{section.7}% 43
+\BOOKMARK [2][-]{subsection.7.4}{Metriche utilizzate per tracking su video}{section.7}% 44
+\BOOKMARK [1][-]{section.8}{Glossario}{}% 45
+\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 46
+\BOOKMARK [1][-]{section.10}{Appendice}{}% 47

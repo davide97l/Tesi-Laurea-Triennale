@@ -20,10 +20,10 @@ A questo punto tutti gli elementi sono stati individuati e classificati ma riman
 \begin{center}
 \includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-1.jpg}
 \includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-4.jpg}
-\includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-2.jpg}
-\includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-3.jpg}
+\includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-6.jpg}
+\includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-5.jpg}
 \end{center}
-\caption{Esempi di labels erroneamente individuate a causa della frammentazione: nel primo caso la ricostruzione avviene correttamente, nel secondo caso è presente un errore.}
+\caption{Esempi di labels erroneamente individuate a causa della frammentazione e relativa corretta ricostruzione}
 \end{figure}
 La soluzione individuata consiste nel raggruppare labels correlate tra loro in insiemi di labels dette raggruppamenti\gls per poi racchiuderli in una label che identifica l'elemento rappresentato dal raggruppamento. Due labels sono in correlazione tra di loro se soddisfano una condizione di correlazione sotto riportata.\\
 \textbf{Condizione di correlazione}: Per effettuare un corretto raggruppamento delle labels viene anche tenuta in considerazione la categoria a loro associata tramite la classificazione insieme allo score assegnato. Per definire il risultato della condizione è inoltre necessario stabilire una \textbf{soglia di affidabilità} che indica lo score minimo che una label deve possedere per poter considerare la sua classificazione come affidabile o meno. Di seguito vengono riportati i vari casi per decidere se la condizione è vera o falsa.
@@ -53,7 +53,17 @@ Per creare i raggruppamenti di labels è stato ideato il seguente algoritmo:
 \end{enumerate}
 E' da notare che labels intersecanti ma interamente comprese in una sola regione non sono motivo di interesse in quanto l'algoritmo di Non-Maximum Suppression utilizzato dalla rete in fase di post-processing ci assicura che labels intersecanti nella stessa regione individuino elementi diversi.
 In seguito bisogna trasformare ogni raggruppamento in una nuova label che racchiuda tutte le labels che lo compongono. Per fare questo vengono esaminate le coordinate di ogni vertice di tutte le bounding boxes di un raggruppamento in modo tale da trovare quattro nuovi vertici di un rettangolo che soddisfi i requisiti sopra discussi. La nuova label così creata andrà a sostituire le labels del rispettivo raggruppamento e per deciderne la categoria e lo score viene applicata una \textbf{regola di classificazione}: categoria e score assegnati saranno pari alla categoria e allo score posseduti dalla label appartenente al raggruppamento con score maggiore.\\
-A questo punto l'algoritmo può dirsi concluso ed è in grado di riconoscere gli elementi in un'immagine in 4K con un'accuratezza accettabile e buona velocità. Tuttavia in casi particolari come quello mostrato in figura 6 l'algoritmo commetterebbe un errore di classificazione in quanto individuerebbe due elementi distinti con una sola label comune.
+A questo punto l'algoritmo può dirsi concluso ed è in grado di riconoscere gli elementi in un'immagine in 4K con un'accuratezza accettabile e buona velocità. Tuttavia in casi particolari come quello mostrato in figura 7 l'algoritmo commetterebbe un errore di classificazione in quanto individuerebbe due elementi distinti con una sola label comune.
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-2.jpg}
+\includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-3.jpg}
+\includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-8.jpg}
+\includegraphics[width=0.2\textwidth, height=0.25\textheight]{images/esempio-frammentazione-7.jpg}
+\end{center}
+\caption{Esempi di labels erroneamente individuate a causa della frammentazione e relativa errata ricostruzione}
+\end{figure}
+In questi casi non c'è modo di sapere se le due labels effettivamente appartengono a due oggetti distinti o se rappresentano lo stesso oggetto.
 \subsubsection{Miglioramento: raggruppamenti di labels utilizzati come region proposal}
 Un ulteriore miglioramento dell'algoritmo potrebbe essere ottenuto utilizzando le labels ottenute dal procedimento descritto in precedenza come nuove regioni sulle quali applicare nuovamente una detection per identificare gli elementi contenuti nella regione ma con maggiore precisione in quanto questa volta l'area non verrà affetta da problemi di frammentazione dando quindi la possibilità alla rete di esaminare l'area per intero. La regione viene prima inizializzata rimuovendo la sua label e poi ripopolata con le nuove labels identificate dalla rete.
 Il primo problema che salta fuori è che durante questo procedimento la rete identificherà nuovamente anche quegli elementi che casualmente si trovavano dentro la regione coinvolta ma che erano già stati trovati anche in precedenza. Tuttavia questo problema viene tranquillamente risolto applicando un algoritmo di Average Non-Max Suppression, utilizzato già in precedenza, per eliminare oggetti quasi completamente sovrapposti. Il secondo problema riguarda ancora gli oggetti che stanno a cavallo tra la regione interessata e l'immagine originale, questa volta però, avendoli già individuati nella loro interezza durante la prima fase è quindi solamente necessario unire la nuova label con quella già trovata in precedenza in modo da ottenerne una nuova con precisione maggiore. 
@@ -84,7 +94,7 @@ Dove x\ped{k}\ap{'} è la nuova stima della posizione ottenuta dopo aver effettu
 \subsubsection{Assegnazione detection-tracker}
 Il passo successivo è quello di abbinare ognuno dei bounding box stimati dai filtri dei trackers con le bounding boxes individuate da una detection.
 Questo risultato viene ottenuto tramite un algoritmo di assegnazione conosciuto anche come algoritmo di Kuhn-Munkres. La metrica utilizzata dall'algoritmo è l'IoU tra i bounding boxes stimati dai trackers e quelli individuati dalla detection, tale metrica viene spiegata in dettaglio nella sezione \textit{7.1.3}. L'obiettivo dell'algoritmo è quello di assegnare le detections ai trackers massimizzando la somma dell'IoU delle bounding boxes associate. Questa soluzione si basa sul ragionamento che più due bounding boxes sono sovrapposte, più è probabile che esse rappresentino lo stesso oggetto. Inoltre, perchè due bounding boxes possano essere associate, il loro IoU deve anche essere maggiore o uguale di una certa soglia, detta \textbf{soglia di IoU}, in quanto tra due boxes poco sovrapposte è probabile che non vi sia alcuna correlazione.
-Il primo passo dell'algoritmo consiste nel creare una matrice di dimensioni \textit{n} x \textit{m} dove \textit{n} è il numero di oggetti individuati dalla detection e \textit{m} è il numero di trackers. In ogni cella della matrice viene calcolato il valore dell'IoU tra la box predetta dal tracker \textit{i} ed il box \textit{j} individuato dalla detection, con 0\textless\textit{i}\textless m e 0\textless\textit{i}\textless n.
+Il primo passo dell'algoritmo consiste nel creare una matrice di dimensioni \textit{n} x \textit{m} dove \textit{n} è il numero di oggetti individuati dalla detection e \textit{m} è il numero di trackers. In ogni cella della matrice viene calcolato il valore dell'IoU tra la box predetta dal tracker \textit{i} ed il box \textit{j} individuato dalla detection, con 1\textless = \textit{i}\textless =m e 1\textless =\textit{i}\textless =n.
 Se le colonne sono minori delle righe allora bisogna ruotare la matrice in modo tale che le colonne siano tante almeno quante sono le righe.
 In seguito vengono ripetuti i seguenti passi:
 \begin{enumerate}

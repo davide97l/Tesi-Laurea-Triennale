@@ -1,31 +1,28 @@
 \section{Sviluppo}
-\subsection{Sviluppo algoritmo per riconoscimento di elementi in un'immagine frammentata}
-Al fine di implementare l'algoritmo è stata creata una libreria contenente numerose funzioni per lavorare con le labels ritornate dal modello come per esempio ottenerne la posizione o controllare le loro intersezioni con altre entità. Una labels è composta da un array formato da quattro numero interi caratterizzanti il vertice in alto a sinistra e quello in basso a destra del bounding box, un intero per rappresentare la categoria dell'elemento ed infine un numero decimale compreso tra 1 e 0 per indicarne lo score.
-Viene data la possibilità all'utente di ridefinire la propria \textit{condizione di correlazione}, la \textit{regola di classificazione} e la \textit{condizione di matching} passandole come parametro direttamente nella funzione. Altri parametri passabili includono: le labels, le dimensioni delle regioni e dello stride e la quantità di overlap, sia in verticale che in orizzontale, e di tolleranza in pixels.
-Alla fine l'algoritmo ritornerà una lista di tutte le labels presenti nell'immagine.\\ Nella seguente sezione ne viene riportata una sua implementazione.
+\subsection{Sviluppo algoritmo per ricomposizione delle labels in un'immagine frammentata}
+Al fine di implementare l'algoritmo è stata creata una libreria contenente numerose funzioni per lavorare con le labels ritornate dal modello come per esempio ottenerne la posizione o controllare le loro intersezioni con altre entità. Una labels è composta da un array di tipo numpy formato da quattro numero interi caratterizzanti le coordinate del vertice in alto a sinistra e quello in basso a destra del bounding box, un intero per rappresentare la categoria di appartenenza dell'elemento ed infine un numero decimale compreso tra 1 e 0 per indicarne lo score.\\
+Al fine di rendere l'algoritmo più flessibile viene data la possibilità ad un utente di ridefinire alcune funzioni in modo da adattarle alle proprie esigenze adottando un design pattern di tipo template. In particolare le funzioni ridefinibili sono la \textbf{condizione di correlazione}, la \textbf{regola di classificazione} più un'altra funzione che dato in input un gruppo di bounding boxes, ritorna come output la bounding box risultante dalla loro unione. Tutte e tre le funzioni ridefinite possono essere passate come direttamente tra i parametri dell'algoritmo, altrimenti verranno utilizzate alcune funzioni di default il cui comportamento è quello descritto nella sezione \textit{4.1}.\\
+Altri parametri passabili includono: la lista delle labels, le dimensioni delle regioni, dello stride e della quantità di overlap, sia in verticale che in orizzontale, il valore della tolleranza in pixels e della soglia di matching in percentuale.
+Alla fine l'algoritmo ritornerà una lista di tutte le labels presenti nell'immagine dopo l'elaborazione.\\ Nella seguente sezione ne viene riportata una sua implementazione.
 \subsubsection{Implementazione}
 \begin{lstlisting}[language=Python, caption=Python example]
-from modules.faster_nms import faster_nms
 import numpy as np
 import modules.labels as lb
 
+def process_image_labels(boxes, region_size=(300, 300), stride_size=(300, 300), overlap=(0, 0), tol=0, threshold_match=50, group_condition=None, find_category=None, find_group_label=None):
 
-def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), overlap=(0, 0), tol=0, threshold_match=50, correlation_condition=None, find_category=None, find_group_label=None):
-
-    # set user defined conditions
-    if correlation_condition is None:
-        condition = lb.condition
+    # set default functions
+    if group_condition is None:
+        group_condition = lb.group_condition
     if find_category is None:
         find_category = lb.find_category
     if find_group_label is None:
         find_group_label = lb.find_group_label
-        
-    w, h = lb.img_dim_from_boxes(boxes)
-    regions = lb.generate_regions(w, h, region_size, stride_size)
-    boxes = faster_nms(boxes, overlapThresh=0.8)
 
-    # Keeps only the labels intersecting one or more region edges (ne_boxes = near edges boxes)
-    ne_boxes, ne_boxes_indexes = lb.get_intersect_edges_labels(boxes, regions, tol, overlap)
+    w, h = lb.get_img_dim_from_boxes(boxes)
+    regions = lb.generate_regions(w, h, region_size, stride_size)
+    # Keeps only the labels intersecting one or more region edges
+    ne_boxes, ne_boxes_indexes = lb.get_intersect_edge_labels(boxes, regions, tol, overlap)
     # All labels are set as not-checked and not-grouped
     checked = np.zeros((np.ma.size(ne_boxes, 0)))
     grouped = np.ones((np.ma.size(ne_boxes, 0))) * (-1)
@@ -39,41 +36,34 @@ def process_image_labels(boxes, region_size=(300, 300), stride_size=(270, 270), 
             checked_boxes = np.vstack([checked_boxes, ne_boxes[i]])
             while True:
                 found = 0
-                # If a label is checked then it means it is also not-grouped
                 # For each label checked but not-grouped:
                 for j in range(len(ne_boxes)):
                     if checked[j] and grouped[j] == -1:
                         for k in range(len(ne_boxes)):
-                             # join conditions
-                            if not checked[k] and lb.intersection(ne_boxes[j, :], ne_boxes[k, :], tol) and condition(ne_boxes[j, :], ne_boxes[k, :]) and lb.intersect_common_edge(ne_boxes[j, :], ne_boxes[k, :], regions, tol, overlap) and lb.matched(ne_boxes[j, :], ne_boxes[k, :], threshold_match) and not lb.belong_same_region_strict_group(ne_boxes[k, :], checked_boxes, regions, tol):
-                                # The new found label is set as checked
+                            if not checked[k] and lb.intersection(ne_boxes[j], ne_boxes[k], tol) and group_condition(ne_boxes[j], ne_boxes[k]) and lb.intersect_common_edge(ne_boxes[j], ne_boxes[k], regions, tol, overlap) and lb.matched(ne_boxes[j], ne_boxes[k], threshold_match) and not lb.belong_same_region_strict_group(ne_boxes[k], checked_boxes, regions, 0):
+                                # The new label is set as checked
                                 checked[k] = True
                                 found += 1
                                 checked_boxes = np.vstack([checked_boxes, ne_boxes[k]])
                 # The cycle is repeated until no new labels can be found
                 if found == 0:
                     break
-            # All the checked labels are set as grouped and is them assigned a number with the
-            # purpose to identify their group ID
+            # All the checked labels are set as grouped and is them assigned a number with the purpose to identify their group ID
             for j in range(len(ne_boxes)):
                 if checked[j] and grouped[j] == -1:
                     grouped[j] = n_group
             n_group += 1
 
-    # Now we have that each label only belong to a single group
-    # Now that we have grouped the labels each group is merged into a label containing all of them
+    # Now that we have grouped the labels, each group is merged into a label containing all of them
     new_boxes = np.zeros((0, 6))
     for i in range(n_group):
-        # For each group
         v = np.zeros((0, 6))
-        count = 0
         for j in range(len(ne_boxes)):
             if grouped[j] == i:
-                v = np.vstack((v, ne_boxes[j, :]))
-                count += 1
-        # Find the coordinates of the labels containing the whole group
+                v = np.vstack((v, ne_boxes[j]))
+        # Find the coordinates of the label containing the whole group
         (xx1, yy1), (xx2, yy2) = find_group_label(v)
-        # find_category can be redefined by the user, it is based on the category and score of the labels of the group
+        # Find the category and the score of the label containing the whole group
         categories, scores = find_category(v)
         for j in range(len(categories)):
             new_boxes = np.vstack((new_boxes, np.array([xx1, yy1, xx2, yy2, categories[j], scores[j]])))

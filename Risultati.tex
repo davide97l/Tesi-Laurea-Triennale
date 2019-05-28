@@ -1,12 +1,12 @@
 \section{Risultati ottenuti}
-\subsection{Metriche utilizzate per singole immagini}
+\subsection{Metriche utilizzate per detection su singole immagini}
 Nell'ambito della computer vision vengono tipicamente utilizzate due tipi di metriche per misurare due diverse proprietà:
 \begin{itemize}
 \item Corretta determinazione della posizione degli oggetti;
-\item Rilevamento l'esistenza degli oggetti nell'immagine e la loro corretta classificazione.
+\item Rilevamento dell'esistenza degli oggetti nell'immagine e la loro corretta classificazione.
 \end{itemize}
-Le metriche utilizzate per misurare la bontà dei risultati del progetto sono AP (Average Precision) e mAp (mean Average Precision) le quali misurano la seconda proprietà sopra elencata.
-Prima di iniziare a descrivere le due metriche è necessario definire tre concetti che saranno poi coinvolti per il calcolo dei valori delle metriche.
+Le metriche utilizzate per misurare la bontà dei risultati del progetto sono F1, AP (Average Precision) e mAp (mean Average Precision) le quali misurano la seconda proprietà sopra elencata.
+Prima di iniziare a descrivere le tre metriche è necessario definire alcuni concetti che saranno poi coinvolti per il calcolo dei valori delle metriche.
 \subsubsection{Precision}
 La precision misura l'accuratezza delle classificazioni ed indica la percentuale di classificazioni corrette sulla base di quelle totali e viene calcolata come:
 \[
@@ -16,15 +16,20 @@ Dove TP (True Positives) è il numero di classificazioni corrette e FP (False Po
 \subsubsection{Recall}
 La recall misura quanti oggetti sono stati individuati e classificati correttamente sulla base degli oggetti totali, viene calcolata come:
 \[
-    precision = \frac{TP}{TP + FN}
+    recall = \frac{TP}{TP + FN}
 \]
-Dove TP (True Positives) è sempre il numero di classificazioni corrette mentre FN (False Negatives) è il numero di di oggetti che non sono stati individuati ma che se sarebbero stato corretto individuare. Questa metrica fornisce un'idea sulla completezza dei risultati.
+Dove TP (True Positives) è sempre il numero di classificazioni corrette mentre FN (False Negatives) è il numero di di oggetti che non sono stati individuati ma che se sarebbe stato corretto individuare. Questa metrica fornisce un'idea sulla completezza dei risultati.
+\subsubsection{F1}
+F1 è una metrica che combina la precision con il recall e può essere interpretata come la media pesata tra la precision e la recall. Il valore massimo ottenibile è 1 raggiungibile nel caso in cui sia la precision che la recall siano pari ad 1 mentre il valore minimo è 0 ottenuto quando entrambe le metriche che lo compongono assumono valore pari a 0. Viene calcolato come:
+\[
+    F1 = 2 \times \frac{precision \times recall}{precision + recall}
+\]
 \subsubsection{Intersection over union}
-L'intersection over union (IoU) misura il grado di sovrapposizione tra due aree e viene usato per misuare il grado di sovrapposizione tra la box dell'oggetto individuato e la box dell'oggetto reale. Viene calcolata come:
+L'intersection over union (IoU) misura il grado di sovrapposizione tra due aree e viene usato per misurare il grado di sovrapposizione tra la box dell'oggetto individuato e la box dell'oggetto reale. Viene calcolata come:
 \[
     IoU = \frac{AI}{AU}
 \]
-Dove AI (Area dell'Intersezione) corrisponde all'area dell'intersezione tra le due box e AU (Area dell'Unione) corrisponde all'area dell'unione tra le due box.
+Dove AI (Area dell'Intersezione) corrisponde all'area dell'intersezione tra le due bounding boxes e AU (Area dell'Unione) corrisponde all'area dell'unione tra le due bounding boxes.
 Una label per essere considerata come corretta deve avere un valore di IoU maggiore di una soglia stabilità (per esempio 0.5).
 \begin{figure}[H]
 	\centering
@@ -33,11 +38,11 @@ Una label per essere considerata come corretta deve avere un valore di IoU maggi
 	\label{Esempio di intersezione e di unione}
 \end{figure}
 \subsubsection{Average Precision}
-Una delle due metriche utilizzate è l'average precision (AP) e per calcolarla si fa la media delle precisioni di undici diversi valori di recall equamente distribuiti. Questa metrica viene applicata ad una sola categoria di elementi e viene calcolata tramite la seguente formula:
+Un'altra delle metriche utilizzate è l'average precision (AP) e per calcolarla si fa la media delle precisioni di undici diversi valori di recall equamente distribuiti. Questa metrica viene applicata ad una sola categoria di elementi e viene calcolata tramite la seguente formula:
 \[
     AP = \frac{1}{11}\sum_{Recall\ped{i}}^{} Precision(Recall\ped{i})
 \]
-Dove \textit{i}=[0, 0.1, 0.2, …, 1.0] in quanto 0 \textless  recall\textless 1. Inoltre la precisione di uno specifico valore di recall viene calcolata nel seguente modo:
+Dove \textit{i}=[0, 0.1, 0.2, …, 1.0] in quanto 0 \textless =recall\textless =1. Inoltre la precisione di uno specifico valore di recall viene calcolata nel seguente modo:
 \[
     Precision(Recall\ped{i}) = max\,Precision(Recall\ped{j}) \quad \textrm{and} \quad j>=i
 \]
@@ -48,6 +53,94 @@ La mean average precision (mAP) è la media delle AP di tutte le categorie calco
     mAP\ped{IoU=x\%} = \frac{1}{n}\sum_{i=0}^{n}AP\ped{i}
 \]
 Dove \textit{i} è il numero totale di categorie sulle quali è stata calcolata la propria AP e \textit{x} rappresenta diverse soglie di IoU.
+
+\subsection{Dataset utilizzato per detection su singole immagini}
+I test sono stati eseguiti su un dataset di immagini satellitari in alta risoluzione con circa 3000 pixels di altezza e 4000 di larghezza. Il modello di rete è stato allenato per riconoscere oggetti appartenenti alle sessanta categorie mostrate nella seguente tabella:
+
+\begin{center}
+\begin{longtable}{|c|l|}
+\caption{Lista delle categorie del dataset utilizzato per effettuare i test}
+\label{lista categorie} \\
+
+\hline \multicolumn{1}{|c|}{\textbf{Numero}} &\multicolumn{1}{c|}{\textbf{Categoria}} \\ \hline\endfirsthead
+
+\hline \multicolumn{1}{|c|}{\textbf{Numero}} & \multicolumn{1}{c|}{\textbf{Categoria}} \\ \hline \endhead
+
+\hline \multicolumn{2}{|c|}{{------ Continua nella pagina successiva ------}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+1 & Fixed-wing Aircraft \\
+2 & Small Aircraft \\
+3 & Cargo Plane \\
+4 & Helicopter \\
+5 & Passenger Vehicle \\
+6 & Small Car \\
+7 & Bus \\
+8 & Pickup Truck \\
+9 & Utility Truck \\
+10 & Truck \\
+11 & Cargo Truck \\
+12 & Truck w/Box \\
+13 & Truck Tractor \\
+14 & Trailer \\
+15 & Truck w/Flatbed \\
+16 & Truck w/Liquid \\
+17 & Crane Truck \\
+18 & Railway Vehicle \\
+19 & Passenger Car \\
+20 & Cargo Car \\
+21 & Flat Car \\
+22 & Tank car \\
+23 & Locomotive \\
+24 & Maritime Vessel \\
+25 & Motorboat \\
+26 & Sailboat \\
+27 & Tugboat \\
+28 & Barge \\
+29 & Fishing Vessel \\
+30 & Ferry \\
+31 & Yacht \\
+32 & Container Ship \\
+33 & Oil Tanker \\
+34 & Engineering Vehicle \\
+35 & Tower Crane \\
+36 & Container Crane \\
+37 & Reach Stacker \\
+38 & Straddle Carrier \\
+39 & Mobile Crane \\
+40 & Dump Truck \\
+41 & Haul Truck \\
+42 & Scraper/Tractor \\
+43 & Front Loader/Bulldozer \\
+44 & Excavator \\
+45 & Cement Mixer \\
+46 & Ground Grader \\
+47 & Hut/Tent \\
+48 & Shed \\
+49 & Building \\
+50 & Aircraft Hangar \\
+51 & Damaged Building \\
+52 & Facility \\
+53 & Construction Site \\
+54 & Vehicle Lot \\
+55 & Helipad \\
+56 & Storage Tank \\
+57 & Shipping Container Lot \\
+58 & Shipping Container \\
+59 & Pylon \\
+60 & Tower \\
+\end{longtable}
+\end{center}
+
+\subsubsection{Impostazione parametri}
+Ogni immagine è stata suddivisa in regioni da 300x300 pixels.
+
+\subsection{Risultati ottenuti nella detection su singole immagini}
+
+\subsection{Metriche utilizzate per tracking su video}
 
 
 
