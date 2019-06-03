@@ -1,13 +1,13 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces Logo di Studiomapp}}{6}{figure.1}% 
-\contentsline {figure}{\numberline {2}{\ignorespaces Esempio di un'immagine con box, categoria e probabilit\IeC {\`a} per ogni elemento riconosciuto in essa}}{7}{figure.2}% 
-\contentsline {figure}{\numberline {3}{\ignorespaces Esempio di object detection in un frame di un video in 4K}}{9}{figure.3}% 
-\contentsline {figure}{\numberline {4}{\ignorespaces Esempio di un'immagine in alta risoluzione suddivisa in regioni senza sovrapposizioni}}{10}{figure.4}% 
-\contentsline {figure}{\numberline {5}{\ignorespaces Frames di un video nei quali viene tracciata un' auto (ordinati da sinistra a destra e dall'alto al basso)}}{12}{figure.5}% 
-\contentsline {figure}{\numberline {6}{\ignorespaces Esempi di labels erroneamente individuate a causa della frammentazione e relativa corretta ricostruzione}}{16}{figure.6}% 
-\contentsline {figure}{\numberline {7}{\ignorespaces Esempi di labels erroneamente individuate a causa della frammentazione e relativa errata ricostruzione}}{18}{figure.7}% 
-\contentsline {figure}{\numberline {8}{\ignorespaces Esempio di assegnazione detection-tracker}}{22}{figure.8}% 
-\contentsline {figure}{\numberline {9}{\ignorespaces Logo di Python}}{24}{figure.9}% 
-\contentsline {figure}{\numberline {10}{\ignorespaces Logo di Tensorflow}}{25}{figure.10}% 
-\contentsline {figure}{\numberline {11}{\ignorespaces Esempio di intersezione e di unione}}{31}{figure.11}% 
+\contentsline {figure}{\numberline {1}{\ignorespaces Logo di Studiomapp}}{7}{figure.1}% 
+\contentsline {figure}{\numberline {2}{\ignorespaces Esempio di un'immagine con box, categoria e probabilit\IeC {\`a} per ogni elemento riconosciuto in essa}}{9}{figure.2}% 
+\contentsline {figure}{\numberline {3}{\ignorespaces Esempio di object detection in un frame di un video in 4K}}{11}{figure.3}% 
+\contentsline {figure}{\numberline {4}{\ignorespaces Esempio di un'immagine in alta risoluzione suddivisa in regioni senza sovrapposizioni}}{12}{figure.4}% 
+\contentsline {figure}{\numberline {5}{\ignorespaces Frames di un video nei quali viene tracciata un' auto (ordinati da sinistra a destra e dall'alto al basso)}}{14}{figure.5}% 
+\contentsline {figure}{\numberline {6}{\ignorespaces Esempi di labels erroneamente individuate a causa della frammentazione e relativa corretta ricostruzione}}{18}{figure.6}% 
+\contentsline {figure}{\numberline {7}{\ignorespaces Esempi di labels erroneamente individuate a causa della frammentazione e relativa errata ricostruzione}}{20}{figure.7}% 
+\contentsline {figure}{\numberline {8}{\ignorespaces Esempio di assegnazione detection-tracker}}{24}{figure.8}% 
+\contentsline {figure}{\numberline {9}{\ignorespaces Logo di Python}}{26}{figure.9}% 
+\contentsline {figure}{\numberline {10}{\ignorespaces Logo di Tensorflow}}{27}{figure.10}% 
+\contentsline {figure}{\numberline {11}{\ignorespaces Esempio di intersezione e di unione}}{33}{figure.11}% 
