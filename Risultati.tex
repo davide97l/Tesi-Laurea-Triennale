@@ -6,7 +6,7 @@ Nell'ambito della computer vision vengono tipicamente utilizzate due tipi di met
 \item Rilevamento dell'esistenza degli oggetti nell'immagine e la loro corretta classificazione.
 \end{itemize}
 Le metriche utilizzate per misurare la bontà dei risultati del progetto sono F1, AP (Average Precision) e mAp (mean Average Precision) le quali misurano la seconda proprietà sopra elencata.
-Prima di iniziare a descrivere le tre metriche è necessario definire alcuni concetti che saranno poi coinvolti per il calcolo dei valori delle metriche.
+Prima di iniziare a descrivere le metriche è necessario definire alcuni concetti che saranno poi coinvolti per il calcolo dei valori delle metriche.
 \subsubsection{Precision}
 La precision misura l'accuratezza delle classificazioni ed indica la percentuale di classificazioni corrette sulla base di quelle totali e viene calcolata come:
 \[
@@ -20,7 +20,7 @@ La recall misura quanti oggetti sono stati individuati e classificati correttame
 \]
 Dove TP (True Positives) è sempre il numero di classificazioni corrette mentre FN (False Negatives) è il numero di di oggetti che non sono stati individuati ma che se sarebbe stato corretto individuare. Questa metrica fornisce un'idea sulla completezza dei risultati.
 \subsubsection{F1}
-F1 è una metrica che combina la precision con il recall e può essere interpretata come la media pesata tra la precision e la recall. Il valore massimo ottenibile è 1 raggiungibile nel caso in cui sia la precision che la recall siano pari ad 1 mentre il valore minimo è 0 ottenuto quando entrambe le metriche che lo compongono assumono valore pari a 0. Viene calcolato come:
+F1 è una metrica che combina la precision con il recall e può essere interpretata come la media armonica tra la precision e la recall. Il valore massimo ottenibile è 1 raggiungibile nel caso in cui sia la precision che la recall siano pari ad 1 mentre il valore minimo è 0 ottenuto quando entrambe le metriche che lo compongono assumono valore pari a 0. Viene calcolato come:
 \[
     F1 = 2 \times \frac{precision \times recall}{precision + recall}
 \]
@@ -57,6 +57,10 @@ Dove \textit{i} è il numero totale di categorie sulle quali è stata calcolata 
 \subsection{Dataset utilizzato per detection su singole immagini}
 I test sono stati eseguiti su un dataset di immagini satellitari in alta risoluzione con circa 3000 pixels di altezza e 4000 di larghezza. Il modello di rete è stato allenato per riconoscere oggetti appartenenti alle sessanta categorie mostrate nella seguente tabella:
 
+\subsubsection{Impostazione parametri detection}
+Ogni immagine è stata suddivisa in regioni da 300x300 pixels.
+
+\subsection{Risultati ottenuti nella detection su singole immagini}
 \begin{center}
 \begin{longtable}{|c|l|}
 \caption{Lista delle categorie del dataset utilizzato per effettuare i test}
@@ -135,20 +139,44 @@ I test sono stati eseguiti su un dataset di immagini satellitari in alta risoluz
 \end{longtable}
 \end{center}
 
-\subsubsection{Impostazione parametri}
-Ogni immagine è stata suddivisa in regioni da 300x300 pixels.
-
-\subsection{Risultati ottenuti nella detection su singole immagini}
-
 \subsection{Metriche utilizzate per tracking su video}
+L'obiettivo del tracking è quello di identificare tutti gli oggetti in un video e tracciarli nel tempo. Quest'ultimo compito viene svolto assegnando un ID unico a ciascun oggetto assicurandosi che esso rimanga lo stesso per tutta la durata del video. Di conseguenza nel tracking sono due gli aspetti fondamentali di cui tenere conto:
+\begin{itemize}
+\item Precisione con cui viene determinata la locazione di un oggetto;
+\item Correttezza del tracciamento (anche in presenza di occultamento, perdita di qualità, etc...)
+\end{itemize}
+In seguito vengono descritte le metriche utilizzare per valutare la qualità del tracciamento.
+
 \subsubsection{Mostly Tracked Trajectories}
-\subsubsection{Most Lost Trajectories}
-\subsubsection{Partially Tracked Trajectories}
+Mostly Tracked Trajectories (MT), misura la percentuale di elementi, rispetto a quelli totali, che sono stati tracciati correttamente per almeno l'80\% della loro traiettoria. Indica quindi la correttezza del tracciamento, valori più alti sono considerati migliori.
+\subsubsection{Mostly Lost Trajectories}
+Mostly Lost Trajectories (ML), misura la percentuale di elementi, rispetto a quelli totali, che sono stati tracciati correttamente per non più del 20\% della loro traiettoria. Al contrario di MT, valori più bassi sono considerati migliori.
 \subsubsection{ID switches}
+ID switches (IDs), viene definito come il numero di volte che un oggetto tracciato cambia il suo ID assegnato. Questo può accadere per esempio nel momento in cui due elementi simili incrociano le loro traiettorie ed i trackers non sono in grado di distinguerli. Anche in questo caso, valori minori esprimono risultati migliori.
+\subsubsection{Fragments}
+Fragments (FM) conta il numero di volte che una traiettoria viene interrotta durante il tracciamento. Può accadere per esempio a seguito di un occultamento di un elemento, in questo caso un oggetto verrebbe momentaneamente perso e di conseguenza la sua traiettoria risulterebbe frammentata. Valori minori sono considerati migliori. 
 \subsubsection{MOTP}
+MOTP (Multiple Object Tracking Precision) rappresenta la capacità del sistema di tracking nello stimare con precisione la posizione degli elementi del video attraverso tutti i suoi frames. Viene calcolata nel seguente modo:
+\[
+MOTP = \frac{\sum_{t}^{}\sum_{i}^{}d\ped{t}\ap{i}}{\sum_{t}^{}c\ped{t}}
+\]
+Dove \textit{t}=[1,...,n] è l'indice dei frames del video ed \textit{n} è il numero di frames totali, \textit{i}=[1,...,\textit{c\ped{t}}] è l'indice delle associazioni detection-tracker effettuate nel frame \textit{t}, \textit{d\ped{t}\ap{i}} è la distanza tra la posizione reale dell'oggetto \textit{i} e la sua corrispondente posizione stimata nel frame \textit{t}, \textit{c\ped{t}} è il numero di associazioni detection-tracker effettuate nel frame \textit{t}.
 \subsubsection{MOTA}
+MOTA (Multiple Object Tracking Accuracy) fornisce una misura delle prestazioni del sistema di tracking nel riconoscere gli oggetti presenti nel video e costruire le loro traiettorie. Viene calcolata nel seguente modo:
+\[
+MOTA = 1-\frac{\sum_{t}^{}(fn\ped{t}+fp\ped{t}+mme\ped{t})}{\sum_{t}^{}g\ped{t}}
+\]
+Dove \textit{fn\ped{t}} è il numero di falsi negativi, fp\ped{t} è il numero di falsi positivi, mme\ped{t} è il numero di mismatches. Un mismatch avviene quando durante l'associazione detection-tracker un tracker viene associato ad una detection che rappresenta un oggetto diverso da quello associato nel frame precedente. Infine  \textit{g\ped{t}} è il numero di oggetti presenti nel frame \textit{t}.
 \subsubsection{IDF1}
+IDF1 è una metrica molto simile ad F1 utilizzata come metrica per singole immagini. Questa metrica applicata nell'ambito del tracking fornisce un bilanciamento tra la \textit{precision} media e la \textit{recall} media attraverso la loro media armonica. 
+\[
+IDF1 = \frac{2IDTP}{2IDTP+IDFP+IDFN}
+\]
+Dove IDTP, IDFP, IDFN rispettivamente sono la media del numero di detections avvenute correttamente, falsi positivi e falsi negativi calcolati su tutti i frames. 
+
+\subsection{Dataset utilizzato per tracking su video}
+
+\subsubsection{Impostazione parametri tracking}
 
 
-
-
+\subsection{Risultati ottenuti nel tracking su video}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.5)  3 JUN 2019 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.5)  5 JUN 2019 11:05
 entering extended mode
 **./Tesi.tex
 (Tesi.tex
@@ -474,7 +474,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 "
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images/unipd_logo.png, id=191, 198.14024pt x 199.947pt>
+<images/unipd_logo.png, id=235, 198.14024pt x 199.947pt>
 File: images/unipd_logo.png Graphic file (type png)
 <use images/unipd_logo.png>
 Package pdftex.def Info: images/unipd_logo.png  used on input line 51.
@@ -486,7 +486,7 @@ nipd_logo.png>]) (Tesi.tocpdfTeX warning (ext4): destination with the same iden
 tifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.33 ...}Implementazione}{28}{subsubsection.6.1.1}
+l.33 ...'immagine frammentata}{29}{subsection.6.1}
                                                   % [1])
 \tf@toc=\write4
 \openout4 = `Tesi.toc'.
@@ -517,7 +517,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
 ) [5] [6] (Azienda.tex
-<images/studiomapp.jpg, id=318, 387.69844pt x 77.53969pt>
+<images/studiomapp.jpg, id=372, 387.69844pt x 77.53969pt>
 File: images/studiomapp.jpg Graphic file (type jpg)
 <use images/studiomapp.jpg>
 Package pdftex.def Info: images/studiomapp.jpg  used on input line 5.
@@ -539,7 +539,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--14
                                                   \fi \fi 
 l.16 	\newpage
                <./images/studiomapp.jpg>] (Analisi.tex
-<images/esempio-detection.jpg, id=324, 602.25pt x 401.5pt>
+<images/esempio-detection.jpg, id=378, 602.25pt x 401.5pt>
 File: images/esempio-detection.jpg Graphic file (type jpg)
 <use images/esempio-detection.jpg>
 Package pdftex.def Info: images/esempio-detection.jpg  used on input line 8.
@@ -552,14 +552,14 @@ Package pdftex.def Info: images/esempio-detection.jpg  used on input line 8.
 l.17 \subsection
                 {Computer vision applicata su immagini ad alta risoluzione} <./
 images/esempio-detection.jpg>]
-<images/Esempio-4K-video-frame.png, id=337, 853.1875pt x 479.7925pt>
+<images/Esempio-4K-video-frame.png, id=391, 853.1875pt x 479.7925pt>
 File: images/Esempio-4K-video-frame.png Graphic file (type png)
 <use images/Esempio-4K-video-frame.png>
 Package pdftex.def Info: images/Esempio-4K-video-frame.png  used on input line 
 22.
 (pdftex.def)             Requested size: 328.82706pt x 184.922pt.
  [10]
-<images/esempio-frammentazione.jpg, id=348, 4015.0pt x 3011.25pt>
+<images/esempio-frammentazione.jpg, id=402, 4015.0pt x 3011.25pt>
 File: images/esempio-frammentazione.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione.jpg>
 Package pdftex.def Info: images/esempio-frammentazione.jpg  used on input line 
@@ -587,7 +587,7 @@ ed
 l.37 \subsection
                 {Tecniche di object tracking} <./images/esempio-frammentazione.
 jpg>]
-<images/esempio-tracking.jpg, id=361, 1542.36224pt x 443.85825pt>
+<images/esempio-tracking.jpg, id=415, 1542.36224pt x 443.85825pt>
 File: images/esempio-tracking.jpg Graphic file (type jpg)
 <use images/esempio-tracking.jpg>
 Package pdftex.def Info: images/esempio-tracking.jpg  used on input line 41.
@@ -599,25 +599,25 @@ ure.5}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.18 	\newpage
                <./images/esempio-tracking.jpg>] [15] (Progetto.tex [16]
-<images/esempio-frammentazione-1.jpg, id=385, 135.50626pt x 196.93575pt>
+<images/esempio-frammentazione-1.jpg, id=439, 135.50626pt x 196.93575pt>
 File: images/esempio-frammentazione-1.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-1.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-1.jpg  used on input lin
 e 21.
 (pdftex.def)             Requested size: 93.95221pt x 137.13286pt.
-<images/esempio-frammentazione-4.jpg, id=386, 122.859pt x 186.6975pt>
+<images/esempio-frammentazione-4.jpg, id=440, 122.859pt x 186.6975pt>
 File: images/esempio-frammentazione-4.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-4.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-4.jpg  used on input lin
 e 22.
 (pdftex.def)             Requested size: 93.95493pt x 137.13127pt.
-<images/esempio-frammentazione-6.jpg, id=387, 123.46124pt x 165.61874pt>
+<images/esempio-frammentazione-6.jpg, id=441, 123.46124pt x 165.61874pt>
 File: images/esempio-frammentazione-6.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-6.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-6.jpg  used on input lin
 e 23.
 (pdftex.def)             Requested size: 93.95395pt x 137.12993pt.
-<images/esempio-frammentazione-5.jpg, id=388, 125.268pt x 171.039pt>
+<images/esempio-frammentazione-5.jpg, id=442, 125.268pt x 171.039pt>
 File: images/esempio-frammentazione-5.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-5.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-5.jpg  used on input lin
@@ -633,25 +633,25 @@ l.39 \begin{enumerate}
                        <./images/esempio-frammentazione-1.jpg> <./images/esempi
 o-frammentazione-4.jpg> <./images/esempio-frammentazione-6.jpg> <./images/esemp
 io-frammentazione-5.jpg>]
-<images/esempio-frammentazione-2.jpg, id=402, 154.176pt x 193.32225pt>
+<images/esempio-frammentazione-2.jpg, id=456, 154.176pt x 193.32225pt>
 File: images/esempio-frammentazione-2.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-2.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-2.jpg  used on input lin
 e 59.
 (pdftex.def)             Requested size: 93.95074pt x 137.12996pt.
-<images/esempio-frammentazione-3.jpg, id=403, 127.677pt x 193.9245pt>
+<images/esempio-frammentazione-3.jpg, id=457, 127.677pt x 193.9245pt>
 File: images/esempio-frammentazione-3.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-3.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-3.jpg  used on input lin
 e 60.
 (pdftex.def)             Requested size: 93.95152pt x 137.12512pt.
-<images/esempio-frammentazione-8.jpg, id=404, 146.34676pt x 208.98074pt>
+<images/esempio-frammentazione-8.jpg, id=458, 146.34676pt x 208.98074pt>
 File: images/esempio-frammentazione-8.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-8.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-8.jpg  used on input lin
 e 61.
 (pdftex.def)             Requested size: 93.94966pt x 137.13051pt.
-<images/esempio-frammentazione-7.jpg, id=405, 145.14224pt x 212.59425pt>
+<images/esempio-frammentazione-7.jpg, id=459, 145.14224pt x 212.59425pt>
 File: images/esempio-frammentazione-7.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-7.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-7.jpg  used on input lin
@@ -676,7 +676,7 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 97.
 
 [22]
-<images/detection-tracker-assignment.png, id=437, 755.82375pt x 509.905pt>
+<images/detection-tracker-assignment.png, id=491, 755.82375pt x 509.905pt>
 File: images/detection-tracker-assignment.png Graphic file (type png)
 <use images/detection-tracker-assignment.png>
 Package pdftex.def Info: images/detection-tracker-assignment.png  used on input
@@ -690,12 +690,12 @@ re.8}) has been already used, duplicate ignored
 l.119 \subsubsection
                     {Miglioramento: utilizzo dell'hash dell'immagine come me...
  <./images/detection-tracker-assignment.png (PNG copy)>]) [25] (Tecnologie.tex
-<images/logo-python.png, id=459, 582.175pt x 164.615pt>
+<images/logo-python.png, id=513, 582.175pt x 164.615pt>
 File: images/logo-python.png Graphic file (type png)
 <use images/logo-python.png>
 Package pdftex.def Info: images/logo-python.png  used on input line 14.
 (pdftex.def)             Requested size: 328.82706pt x 92.98001pt.
-<images/logo-tensorflow.png, id=460, 225.84375pt x 225.84375pt>
+<images/logo-tensorflow.png, id=514, 225.84375pt x 225.84375pt>
 File: images/logo-tensorflow.png Graphic file (type png)
 <use images/logo-tensorflow.png>
 Package pdftex.def Info: images/logo-tensorflow.png  used on input line 30.
@@ -726,7 +726,7 @@ nput line 8.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
  [30]) [31] (Risultati.tex [32]
-<images/unione-intersezione.jpg, id=571, 1606.0pt x 780.9175pt>
+<images/unione-intersezione.jpg, id=625, 1606.0pt x 780.9175pt>
 File: images/unione-intersezione.jpg Graphic file (type jpg)
 <use images/unione-intersezione.jpg>
 Package pdftex.def Info: images/unione-intersezione.jpg  used on input line 36.
@@ -738,36 +738,30 @@ Package pdftex.def Info: images/unione-intersezione.jpg  used on input line 36.
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.44 \]
-        <./images/unione-intersezione.jpg>] [34] [35]) [36] [37] (Glossario.tex
-[38]) [39] (Bibliografia.tex [40]) [41] (Appendice.tex)
+        <./images/unione-intersezione.jpg>] [34] [35] [36] [37]) [38]
+(Glossario.tex [39]) [40] (Bibliografia.tex [41]) [42] (Appendice.tex)
 
 AED: lastpage setting LastPage
-[42]
+[43]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 33.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 33.
  (Tesi.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 33.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 33.
+Package rerunfilecheck Info: File `Tesi.out' has not changed.
+(rerunfilecheck)             Checksum: E33C3FF9A26C28CCE8F78F655E17BAAC;4638.
 
-
-Package rerunfilecheck Warning: File `Tesi.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Tesi.out':
-(rerunfilecheck)             Before: 16C65D5B096EC1123E12572C1F639C03;3770
-(rerunfilecheck)             After:  B03F60B4A1C5DE4DF80F5DCDD5AE7584;4282.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 33.
  ) 
 Here is how much of TeX's memory you used:
- 9414 strings out of 492946
- 134781 string characters out of 3125823
- 691246 words of memory out of 3000000
- 12894 multiletter control sequences out of 15000+200000
- 14484 words of font info for 55 fonts, out of 3000000 for 9000
+ 9432 strings out of 492946
+ 135089 string characters out of 3125823
+ 691252 words of memory out of 3000000
+ 12906 multiletter control sequences out of 15000+200000
+ 14836 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  31i,12n,43p,3607b,2049s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Davide/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
@@ -788,10 +782,11 @@ fb><C:/Users/Davide/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmsy6.pfb><C:/Users/Davide/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb><C:/Users/Davide/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Davide/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Tesi.pdf (43 pages, 5597772 bytes).
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/Davide/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Tesi.pdf (44 pages, 5617734 bytes).
 PDF statistics:
- 770 PDF objects out of 1000 (max. 8388607)
- 234 named destinations out of 1000 (max. 500000)
- 467 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 828 PDF objects out of 1000 (max. 8388607)
+ 239 named destinations out of 1000 (max. 500000)
+ 555 words of extra memory for PDF output out of 10000 (max. 10000000)
 

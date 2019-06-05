@@ -40,15 +40,19 @@
 \BOOKMARK [3][-]{subsubsection.7.1.5}{Average Precision}{subsection.7.1}% 40
 \BOOKMARK [3][-]{subsubsection.7.1.6}{Mean Average Precision}{subsection.7.1}% 41
 \BOOKMARK [2][-]{subsection.7.2}{Dataset utilizzato per detection su singole immagini}{section.7}% 42
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Impostazione parametri}{subsection.7.2}% 43
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Impostazione parametri detection}{subsection.7.2}% 43
 \BOOKMARK [2][-]{subsection.7.3}{Risultati ottenuti nella detection su singole immagini}{section.7}% 44
 \BOOKMARK [2][-]{subsection.7.4}{Metriche utilizzate per tracking su video}{section.7}% 45
 \BOOKMARK [3][-]{subsubsection.7.4.1}{Mostly Tracked Trajectories}{subsection.7.4}% 46
-\BOOKMARK [3][-]{subsubsection.7.4.2}{Most Lost Trajectories}{subsection.7.4}% 47
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Mostly Lost Trajectories}{subsection.7.4}% 47
 \BOOKMARK [3][-]{subsubsection.7.4.3}{ID switches}{subsection.7.4}% 48
-\BOOKMARK [3][-]{subsubsection.7.4.4}{MOTP}{subsection.7.4}% 49
-\BOOKMARK [3][-]{subsubsection.7.4.5}{MOTA}{subsection.7.4}% 50
-\BOOKMARK [3][-]{subsubsection.7.4.6}{IDF1}{subsection.7.4}% 51
-\BOOKMARK [1][-]{section.8}{Glossario}{}% 52
-\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 53
-\BOOKMARK [1][-]{section.10}{Appendice}{}% 54
+\BOOKMARK [3][-]{subsubsection.7.4.4}{Fragments}{subsection.7.4}% 49
+\BOOKMARK [3][-]{subsubsection.7.4.5}{MOTP}{subsection.7.4}% 50
+\BOOKMARK [3][-]{subsubsection.7.4.6}{MOTA}{subsection.7.4}% 51
+\BOOKMARK [3][-]{subsubsection.7.4.7}{IDF1}{subsection.7.4}% 52
+\BOOKMARK [2][-]{subsection.7.5}{Dataset utilizzato per tracking su video}{section.7}% 53
+\BOOKMARK [3][-]{subsubsection.7.5.1}{Impostazione parametri tracking}{subsection.7.5}% 54
+\BOOKMARK [2][-]{subsection.7.6}{Risultati ottenuti nel tracking su video}{section.7}% 55
+\BOOKMARK [1][-]{section.8}{Glossario}{}% 56
+\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 57
+\BOOKMARK [1][-]{section.10}{Appendice}{}% 58

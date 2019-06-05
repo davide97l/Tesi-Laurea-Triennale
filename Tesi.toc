@@ -42,32 +42,36 @@
 \contentsline {subsubsection}{\numberline {7.1.5}Average Precision}{33}{subsubsection.7.1.5}% 
 \contentsline {subsubsection}{\numberline {7.1.6}Mean Average Precision}{34}{subsubsection.7.1.6}% 
 \contentsline {subsection}{\numberline {7.2}Dataset utilizzato per detection su singole immagini}{34}{subsection.7.2}% 
-\contentsline {subsubsection}{\numberline {7.2.1}Impostazione parametri}{36}{subsubsection.7.2.1}% 
-\contentsline {subsection}{\numberline {7.3}Risultati ottenuti nella detection su singole immagini}{37}{subsection.7.3}% 
-\contentsline {subsection}{\numberline {7.4}Metriche utilizzate per tracking su video}{37}{subsection.7.4}% 
+\contentsline {subsubsection}{\numberline {7.2.1}Impostazione parametri detection}{34}{subsubsection.7.2.1}% 
+\contentsline {subsection}{\numberline {7.3}Risultati ottenuti nella detection su singole immagini}{34}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}Metriche utilizzate per tracking su video}{36}{subsection.7.4}% 
 \contentsline {subsubsection}{\numberline {7.4.1}Mostly Tracked Trajectories}{37}{subsubsection.7.4.1}% 
-\contentsline {subsubsection}{\numberline {7.4.2}Most Lost Trajectories}{37}{subsubsection.7.4.2}% 
+\contentsline {subsubsection}{\numberline {7.4.2}Mostly Lost Trajectories}{37}{subsubsection.7.4.2}% 
 \contentsline {subsubsection}{\numberline {7.4.3}ID switches}{37}{subsubsection.7.4.3}% 
-\contentsline {subsubsection}{\numberline {7.4.4}MOTP}{37}{subsubsection.7.4.4}% 
-\contentsline {subsubsection}{\numberline {7.4.5}MOTA}{37}{subsubsection.7.4.5}% 
-\contentsline {subsubsection}{\numberline {7.4.6}IDF1}{37}{subsubsection.7.4.6}% 
-\contentsline {section}{\numberline {8}Glossario}{38}{section.8}% 
-\contentsline {paragraph}{B}{38}{section*.4}% 
-\contentsline {subparagraph}{Box}{38}{section*.5}% 
-\contentsline {paragraph}{C}{38}{section*.6}% 
-\contentsline {subparagraph}{Categoria}{38}{section*.7}% 
-\contentsline {paragraph}{L}{38}{section*.8}% 
-\contentsline {subparagraph}{Label}{38}{section*.9}% 
-\contentsline {paragraph}{O}{38}{section*.10}% 
-\contentsline {subparagraph}{Overlap}{38}{section*.11}% 
-\contentsline {paragraph}{R}{38}{section*.12}% 
-\contentsline {subparagraph}{Raggruppamento}{38}{section*.13}% 
-\contentsline {subparagraph}{Regione}{38}{section*.14}% 
-\contentsline {paragraph}{S}{38}{section*.15}% 
-\contentsline {subparagraph}{Score}{38}{section*.16}% 
-\contentsline {subparagraph}{Soglia}{39}{section*.17}% 
-\contentsline {subparagraph}{Stride}{39}{section*.18}% 
-\contentsline {paragraph}{T}{39}{section*.19}% 
-\contentsline {subparagraph}{Tolleranza}{39}{section*.20}% 
-\contentsline {section}{\numberline {9}Bibliografia}{40}{section.9}% 
-\contentsline {section}{\numberline {10}Appendice}{42}{section.10}% 
+\contentsline {subsubsection}{\numberline {7.4.4}Fragments}{37}{subsubsection.7.4.4}% 
+\contentsline {subsubsection}{\numberline {7.4.5}MOTP}{37}{subsubsection.7.4.5}% 
+\contentsline {subsubsection}{\numberline {7.4.6}MOTA}{38}{subsubsection.7.4.6}% 
+\contentsline {subsubsection}{\numberline {7.4.7}IDF1}{38}{subsubsection.7.4.7}% 
+\contentsline {subsection}{\numberline {7.5}Dataset utilizzato per tracking su video}{38}{subsection.7.5}% 
+\contentsline {subsubsection}{\numberline {7.5.1}Impostazione parametri tracking}{38}{subsubsection.7.5.1}% 
+\contentsline {subsection}{\numberline {7.6}Risultati ottenuti nel tracking su video}{38}{subsection.7.6}% 
+\contentsline {section}{\numberline {8}Glossario}{39}{section.8}% 
+\contentsline {paragraph}{B}{39}{section*.4}% 
+\contentsline {subparagraph}{Box}{39}{section*.5}% 
+\contentsline {paragraph}{C}{39}{section*.6}% 
+\contentsline {subparagraph}{Categoria}{39}{section*.7}% 
+\contentsline {paragraph}{L}{39}{section*.8}% 
+\contentsline {subparagraph}{Label}{39}{section*.9}% 
+\contentsline {paragraph}{O}{39}{section*.10}% 
+\contentsline {subparagraph}{Overlap}{39}{section*.11}% 
+\contentsline {paragraph}{R}{39}{section*.12}% 
+\contentsline {subparagraph}{Raggruppamento}{39}{section*.13}% 
+\contentsline {subparagraph}{Regione}{39}{section*.14}% 
+\contentsline {paragraph}{S}{39}{section*.15}% 
+\contentsline {subparagraph}{Score}{39}{section*.16}% 
+\contentsline {subparagraph}{Soglia}{40}{section*.17}% 
+\contentsline {subparagraph}{Stride}{40}{section*.18}% 
+\contentsline {paragraph}{T}{40}{section*.19}% 
+\contentsline {subparagraph}{Tolleranza}{40}{section*.20}% 
+\contentsline {section}{\numberline {9}Bibliografia}{41}{section.9}% 
+\contentsline {section}{\numberline {10}Appendice}{43}{section.10}% 
