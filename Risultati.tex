@@ -55,89 +55,148 @@ La mean average precision (mAP) è la media delle AP di tutte le categorie calco
 Dove \textit{i} è il numero totale di categorie sulle quali è stata calcolata la propria AP e \textit{x} rappresenta diverse soglie di IoU.
 
 \subsection{Dataset utilizzato per detection su singole immagini}
-I test sono stati eseguiti su un dataset di immagini satellitari in alta risoluzione con circa 3000 pixels di altezza e 4000 di larghezza. Il modello di rete è stato allenato per riconoscere oggetti appartenenti alle sessanta categorie mostrate nella seguente tabella:
+I test sono stati eseguiti su un dataset di immagini satellitari in alta risoluzione con circa 3000 pixels di altezza e 4000 di larghezza. Il modello di rete è stato allenato per riconoscere elementi appartenenti a sessanta categorie, le quali, verranno riportate nella tabella 1 insieme ai loro relativi risultati. Il dataset utilizzato è particolarmente impegnativo da analizzare a causa delle ambiguità tra molte delle sue categorie in quanto molte di esse rappresentano lo stesso elemento ma sotto forma di tipologie diverse. Per esempio, gli oggetti appartenenti alle categorie dalla 8 alla 17 sono tutti dei camion, ma di diversa tipologia, tanto che perfino un essere umano, se non esperto in materia, farebbe fatica a distinguerli. La seconda difficoltà viene aggiunta dal fatto che le immagini sono state prese da satelliti i quali orbitano ad un'altezza di migliaia di kilometri dalla superficie terrestre. Data l'enorme distanza, gli oggetti di dimensioni minori come le automobili sono molto difficili da individuare ed ancora più complesso lo è classificarli nella loro corretta categoria. E' per questo motivo che viene applicata la frammentazione visto che risulta fondamentale non perdere risoluzione durante la detection. In seguito, svolge un ruolo fondamentale l'algoritmo di ricostruzione dell'immagine frammentata in quanto permette di ricomporre le bounding boxes di quegli elementi che sono stati suddivisi su più regioni. In seguito viene mostrata una delle immagini presa dal dataset utilizzato per calcolare le metriche.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/immagine-satellite.jpg}
+	\caption{Immagine satellitare appartenente al dataset utilizzato}
+	\label{Immagine satellitare appartenente al dataset utilizzato}
+\end{figure}
 
 \subsubsection{Impostazione parametri detection}
-Ogni immagine è stata suddivisa in regioni da 300x300 pixels.
+Il parametro utilizzato per determinare quali labels tenere tra tutte quelle risultanti da una detection è
+l' \textbf{affidabilità}.\\
+Nella seguente listea vengono elencati i parametri che intervengono in fase di ricostruzione delle labels a seguito della detection:
+\begin{itemize}
+\item \textbf{Dimensione regioni};
+\item \textbf{Dimensione stride};
+\item \textbf{Overlap};
+\item \textbf{Tolleranza};
+\item \textbf{Soglia di matching}.
+\end{itemize}
+Una spiegazione più dettagliata riguardo alle metriche la si può trovare in sezione \textit{4.1} o nel \textit{Glossario}.
+Ogni immagine è stata suddivisa in regioni da 640x640 pixels. A causa della difficoltà nell'individuazione degli elementi, il loro score sarà relativamente basso risultando quindi in una scarsa affidabilità. La \textbf{soglia di affidabilità} per la \textbf{condizione di correlazione} necessaria per effettuare un match è stata perciò impostata a 0. Di conseguenza, due labels di diversa categoria non potranno mai venire unite. Le altre funzioni ridefinibili sono state lasciate con il loro comportamento di default descritto in sezione \textit{4.1}. I restanti parametri sono invece variabili e ne sono state testate diverse combinazioni ai fini di ricercare quelle combinazioni di parametri in grado di fornire i risultati migliori.
+\\
+In totale sono state testate 4 soglie diverse di \textbf{affidabilità}=[0.01, 0.1, 0.2, 0.3], 3 valori di \textbf{overlap}=[0, 1, 2], 3 di \textbf{tolleranza}=[0, 1, 2], 4 \textbf{soglie di matching}=[20\%, 40\%, 60\%, 80\%] per un totale di 144 combinazioni di parametri diverse. Le metriche sono state calcolate come media delle metriche per ogni combinazione di parametri e per ogni singola immagine.\\
+(STRIDE?, AFFIDABILITA'?, da finire)
+Per quanto riguarda il test, una bounding box individuata tramite detection è considerata come corretta solo se la sua IoU con la bounding box reale è maggiore di una certa soglia di Iou. Questa soglia è la stessa soglia utilizzata per il calcolo di dell'mAP. Per effettuare i test questa soglia è stata fissata al 50\%.
 
 \subsection{Risultati ottenuti nella detection su singole immagini}
+Nella seguente sezione vengono riportati i risultati ottenuti per misurare la qualità della detection e della frammentazione.
+\subsubsection{Risultati per categoria}
+Nella tabella sottostante vengono riportate tutte le 60 categorie coinvolte nel test insieme al loro AP. I valori mostrati sono quelli relativi alla migliore combinazione di parametri per ogni specifica categoria. La detection è stata effettuata con \textbf{affidabilità} 0.01 in quanto questo è il valore che massimizza i valori di AP e mAP.
 \begin{center}
-\begin{longtable}{|c|l|}
-\caption{Lista delle categorie del dataset utilizzato per effettuare i test}
-\label{lista categorie} \\
+\begin{longtable}{|c|l|c|c|c|c|}
 
-\hline \multicolumn{1}{|c|}{\textbf{Numero}} &\multicolumn{1}{c|}{\textbf{Categoria}} \\ \hline\endfirsthead
+\hline \multicolumn{1}{|c|}{\textbf{Numero}} &\multicolumn{1}{c|}{\textbf{Categoria}} &\multicolumn{1}{c|}{\textbf{Precision}} &\multicolumn{1}{c|}{\textbf{Recall}} &\multicolumn{1}{c|}{\textbf{F1}} &\multicolumn{1}{c|}{\textbf{AP}} \\ \hline\endfirsthead
 
-\hline \multicolumn{1}{|c|}{\textbf{Numero}} & \multicolumn{1}{c|}{\textbf{Categoria}} \\ \hline \endhead
+\hline \multicolumn{1}{|c|}{\textbf{Numero}} &\multicolumn{1}{c|}{\textbf{Categoria}} &\multicolumn{1}{c|}{\textbf{Precision}} &\multicolumn{1}{c|}{\textbf{Recall}} &\multicolumn{1}{c|}{\textbf{F1}} &\multicolumn{1}{c|}{\textbf{AP}}\\ \hline \endhead
 
-\hline \multicolumn{2}{|c|}{{------ Continua nella pagina successiva ------}} \\ \hline
+\hline \multicolumn{6}{|c|}{{------ Continua nella pagina successiva ------}} \\ \hline
 \endfoot
 
-\hline \hline
+\hline
+
+\caption{Lista delle categorie del dataset utilizzato per effettuare i test con relativo AP}
+\label{lista categorie} \\
+
 \endlastfoot
 
-1 & Fixed-wing Aircraft \\
-2 & Small Aircraft \\
-3 & Cargo Plane \\
-4 & Helicopter \\
-5 & Passenger Vehicle \\
-6 & Small Car \\
-7 & Bus \\
-8 & Pickup Truck \\
-9 & Utility Truck \\
-10 & Truck \\
-11 & Cargo Truck \\
-12 & Truck w/Box \\
-13 & Truck Tractor \\
-14 & Trailer \\
-15 & Truck w/Flatbed \\
-16 & Truck w/Liquid \\
-17 & Crane Truck \\
-18 & Railway Vehicle \\
-19 & Passenger Car \\
-20 & Cargo Car \\
-21 & Flat Car \\
-22 & Tank car \\
-23 & Locomotive \\
-24 & Maritime Vessel \\
-25 & Motorboat \\
-26 & Sailboat \\
-27 & Tugboat \\
-28 & Barge \\
-29 & Fishing Vessel \\
-30 & Ferry \\
-31 & Yacht \\
-32 & Container Ship \\
-33 & Oil Tanker \\
-34 & Engineering Vehicle \\
-35 & Tower Crane \\
-36 & Container Crane \\
-37 & Reach Stacker \\
-38 & Straddle Carrier \\
-39 & Mobile Crane \\
-40 & Dump Truck \\
-41 & Haul Truck \\
-42 & Scraper/Tractor \\
-43 & Front Loader/Bulldozer \\
-44 & Excavator \\
-45 & Cement Mixer \\
-46 & Ground Grader \\
-47 & Hut/Tent \\
-48 & Shed \\
-49 & Building \\
-50 & Aircraft Hangar \\
-51 & Damaged Building \\
-52 & Facility \\
-53 & Construction Site \\
-54 & Vehicle Lot \\
-55 & Helipad \\
-56 & Storage Tank \\
-57 & Shipping Container Lot \\
-58 & Shipping Container \\
-59 & Pylon \\
-60 & Tower \\
+
+1 & Fixed-wing Aircraft & 0.0000 & 0.0000 & 0.0000 & 0.0000\\
+2 & Small Aircraft & 0.000 & 0.000 & 0.000 & 0.000\\
+3 & Cargo Plane & 0.000 & 0.000 & 0.000 & 0.000\\
+4 & Helicopter & 0.000 & 0.000 & 0.000 & 0.000\\
+5 & Passenger Vehicle & 0.000 & 0.000 & 0.000 & 0.000\\
+6 & Small Car & 0.000 & 0.000 & 0.000 & 0.000\\
+7 & Bus & 0.000 & 0.000 & 0.000 & 0.000\\
+8 & Pickup Truck & 0.000 & 0.000 & 0.000 & 0.000\\
+9 & Utility Truck & 0.000 & 0.000 & 0.000 & 0.000\\
+10 & Truck & 0.000 & 0.000 & 0.000 & 0.000\\
+11 & Cargo Truck & 0.000 & 0.000 & 0.000 & 0.000\\
+12 & Truck w/Box & 0.000 & 0.000 & 0.000 & 0.000\\
+13 & Truck Tractor & 0.000 & 0.000 & 0.000 & 0.000\\
+14 & Trailer & 0.000 & 0.000 & 0.000 & 0.000\\
+15 & Truck w/Flatbed & 0.000 & 0.000 & 0.000 & 0.000\\
+16 & Truck w/Liquid & 0.000 & 0.000 & 0.000 & 0.000\\
+17 & Crane Truck & 0.000 & 0.000 & 0.000 & 0.000\\
+18 & Railway Vehicle & 0.000 & 0.000 & 0.000 & 0.000\\
+19 & Passenger Car & 0.000 & 0.000 & 0.000 & 0.000\\
+20 & Cargo Car & 0.000 & 0.000 & 0.000 & 0.000\\
+21 & Flat Car & 0.000 & 0.000 & 0.000 & 0.000\\
+22 & Tank Car & 0.000 & 0.000 & 0.000 & 0.000\\
+23 & Locomotive & 0.000 & 0.000 & 0.000 & 0.000\\
+24 & Maritime Vessel & 0.000 & 0.000 & 0.000 & 0.000\\
+25 & Motorboat & 0.000 & 0.000 & 0.000 & 0.000\\
+26 & Sailboat & 0.000 & 0.000 & 0.000 & 0.000\\
+27 & Tugboat & 0.000 & 0.000 & 0.000 & 0.000\\
+28 & Barge & 0.000 & 0.000 & 0.000 & 0.000\\
+29 & Fishing Vessel & 0.000 & 0.000 & 0.000 & 0.000\\
+30 & Ferry & 0.000 & 0.000 & 0.000 & 0.000\\
+31 & Yacht & 0.000 & 0.000 & 0.000 & 0.000\\
+32 & Container Ship & 0.000 & 0.000 & 0.000 & 0.000\\
+33 & Oil Tanker & 0.000 & 0.000 & 0.000 & 0.000\\
+34 & Engineering Vehicle & 0.000 & 0.000 & 0.000 & 0.000\\
+35 & Tower Crane & 0.000 & 0.000 & 0.000 & 0.000\\
+36 & Container Crane & 0.000 & 0.000 & 0.000 & 0.000\\
+37 & Reach Stacker & 0.000 & 0.000 & 0.000 & 0.000\\
+38 & Straddle Carrier & 0.000 & 0.000 & 0.000 & 0.000\\
+39 & Mobile Crane & 0.000 & 0.000 & 0.000 & 0.000\\
+40 & Dump Truck & 0.000 & 0.000 & 0.000 & 0.000\\
+41 & Haul Truck & 0.000 & 0.000 & 0.000 & 0.000\\
+42 & Scraper/Tractor & 0.000 & 0.000 & 0.000 & 0.000\\
+43 & Front Loader/Bulldozer & 0.000 & 0.000 & 0.000 & 0.000\\
+44 & Excavator & 0.000 & 0.000 & 0.000 & 0.000\\
+45 & Cement Mixer & 0.000 & 0.000 & 0.000 & 0.000\\
+46 & Ground Grader & 0.000 & 0.000 & 0.000 & 0.000\\
+47 & Hut/Tent & 0.000 & 0.000 & 0.000 & 0.000\\
+48 & Shed & 0.000 & 0.000 & 0.000 & 0.000\\
+49 & Building & 0.000 & 0.000 & 0.000 & 0.000\\
+50 & Aircraft Hangar & 0.000 & 0.000 & 0.000 & 0.000\\
+51 & Damaged Building & 0.000 & 0.000 & 0.000 & 0.000\\
+52 & Facility & 0.000 & 0.000 & 0.000 & 0.000\\
+53 & Construction Site & 0.000 & 0.000 & 0.000 & 0.000\\
+54 & Vehicle Lot & 0.000 & 0.000 & 0.000 & 0.000\\
+55 & Helipad & 0.000 & 0.000 & 0.000 & 0.000\\
+56 & Storage Tank & 0.000 & 0.000 & 0.000 & 0.000\\
+57 & Shipping Container Lot & 0.000 & 0.000 & 0.000 & 0.000\\
+58 & Shipping Container & 0.000 & 0.000 & 0.000 & 0.000\\
+59 & Pylon & 0.000 & 0.000 & 0.000 & 0.000\\
+60 & Tower & 0.000 & 0.000 & 0.000 & 0.000\\
 \end{longtable}
 \end{center}
+
+\clearpage
+\subsubsection{Risultati per parametri}
+La seguente tabella mostra riporta i risultati ottenuti con diverse combinazioni di parametri mostrando i valori di F1 e mAP. mAP(NMS) indica il valore dell'mAp calcolato dopo aver effettuato NMS sull'immagine frammentata mentre mAP è il valore dell'mAP calcolato dopo aver applicato all'algoritmo di ricostruzione dell'immagine frammentata riportandone anche l'aumento in percentuale.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|} 
+\hline
+Stride & Overlap & Tolleranza & Match & F1 & mAP(NMS) & mAP\\ [0.5ex] 
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+\hline
+\end{tabular}
+\caption{Risultati generali detection con diversi parametri}
+\label{lista risultati}
+\end{table}
 
 \subsection{Metriche utilizzate per tracking su video}
 L'obiettivo del tracking è quello di identificare tutti gli oggetti in un video e tracciarli nel tempo. Quest'ultimo compito viene svolto assegnando un ID unico a ciascun oggetto assicurandosi che esso rimanga lo stesso per tutta la durata del video. Di conseguenza nel tracking sono due gli aspetti fondamentali di cui tenere conto:

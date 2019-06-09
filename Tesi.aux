@@ -27,7 +27,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3}Analisi dei problemi}{8}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Tecniche di computer vision}{8}{subsection.3.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Esempio di un'immagine con box, categoria e probabilit\IeC {\`a} per ogni elemento riconosciuto in essa}}{9}{figure.2}\protected@file@percent }
-\newlabel{Esempio di un frame di un video in 4K}{{2}{9}{Esempio di un'immagine con box, categoria e probabilità per ogni elemento riconosciuto in essa}{figure.2}{}}
+\newlabel{Esempio di detection ideale}{{2}{9}{Esempio di un'immagine con box, categoria e probabilità per ogni elemento riconosciuto in essa}{figure.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Computer vision applicata su immagini ad alta risoluzione}{10}{subsection.3.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Esempio di object detection in un frame di un video in 4K}}{11}{figure.3}\protected@file@percent }
 \newlabel{Esempio di object detection in un frame di un video in 4K}{{3}{11}{Esempio di object detection in un frame di un video in 4K}{figure.3}{}}
@@ -52,71 +52,83 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Esempio di assegnazione detection-tracker}}{24}{figure.8}\protected@file@percent }
 \newlabel{Esempio di assegnazione detection-tracker}{{8}{24}{Esempio di assegnazione detection-tracker}{figure.8}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Gestione delle detections e dei trackers non assegnati}{24}{subsubsection.4.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Miglioramento: utilizzo dell'hash dell'immagine come metrica di supporto}{25}{subsubsection.4.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Tecnologie}{26}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Python}{26}{subsection.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Logo di Python}}{26}{figure.9}\protected@file@percent }
-\newlabel{Logo di Python}{{9}{26}{Logo di Python}{figure.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Pycharm}{26}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Tensorflow}{27}{subsection.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Logo di Tensorflow}}{27}{figure.10}\protected@file@percent }
-\newlabel{Logo di Tensorflow}{{10}{27}{Logo di Tensorflow}{figure.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}OpenCV}{27}{subsection.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Numpy}{27}{subsection.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Matplotlib}{28}{subsection.5.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Pytest}{28}{subsection.5.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Sviluppo}{29}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Sviluppo algoritmo per ricomposizione delle labels in un'immagine frammentata}{29}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Implementazione}{29}{subsubsection.6.1.1}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}Python example}{29}{lstlisting.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}Test di integrazione}{31}{subsubsection.6.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Risultati ottenuti}{32}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Metriche utilizzate per detection su singole immagini}{32}{subsection.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}Precision}{32}{subsubsection.7.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}Recall}{32}{subsubsection.7.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.3}F1}{33}{subsubsection.7.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.4}Intersection over union}{33}{subsubsection.7.1.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Esempio di intersezione e di unione}}{33}{figure.11}\protected@file@percent }
-\newlabel{Esempio di intersezione e di unione}{{11}{33}{Esempio di intersezione e di unione}{figure.11}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.5}Average Precision}{33}{subsubsection.7.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.6}Mean Average Precision}{34}{subsubsection.7.1.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Dataset utilizzato per detection su singole immagini}{34}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}Impostazione parametri detection}{34}{subsubsection.7.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Risultati ottenuti nella detection su singole immagini}{34}{subsection.7.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{Lista delle categorie del dataset utilizzato per effettuare i test}}{35}{table.1}\protected@file@percent }
-\newlabel{lista categorie}{{1}{35}{Lista delle categorie del dataset utilizzato per effettuare i test}{table.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Utilizzo di metriche di supporto per l'assegnazione detection-tracker}{25}{subsubsection.4.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Tecnologie}{27}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Python}{27}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Logo di Python}}{27}{figure.9}\protected@file@percent }
+\newlabel{Logo di Python}{{9}{27}{Logo di Python}{figure.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Pycharm}{27}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Tensorflow}{28}{subsection.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Logo di Tensorflow}}{28}{figure.10}\protected@file@percent }
+\newlabel{Logo di Tensorflow}{{10}{28}{Logo di Tensorflow}{figure.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}OpenCV}{28}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Numpy}{28}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Matplotlib}{29}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Pytest}{29}{subsection.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Sviluppo}{30}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Sviluppo algoritmo per ricomposizione delle labels in un'immagine frammentata}{30}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Implementazione}{30}{subsubsection.6.1.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}Python example}{30}{lstlisting.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}Test di integrazione}{32}{subsubsection.6.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Risultati ottenuti}{33}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Metriche utilizzate per detection su singole immagini}{33}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}Precision}{33}{subsubsection.7.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}Recall}{33}{subsubsection.7.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.3}F1}{34}{subsubsection.7.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.4}Intersection over union}{34}{subsubsection.7.1.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Esempio di intersezione e di unione}}{34}{figure.11}\protected@file@percent }
+\newlabel{Esempio di intersezione e di unione}{{11}{34}{Esempio di intersezione e di unione}{figure.11}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.5}Average Precision}{34}{subsubsection.7.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.6}Mean Average Precision}{35}{subsubsection.7.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Dataset utilizzato per detection su singole immagini}{35}{subsection.7.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Immagine satellitare appartenente al dataset utilizzato}}{36}{figure.12}\protected@file@percent }
+\newlabel{Immagine satellitare appartenente al dataset utilizzato}{{12}{36}{Immagine satellitare appartenente al dataset utilizzato}{figure.12}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}Impostazione parametri detection}{36}{subsubsection.7.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Risultati ottenuti nella detection su singole immagini}{37}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.1}Risultati per categoria}{37}{subsubsection.7.3.1}\protected@file@percent }
 \gdef \LT@i {\LT@entry 
     {1}{59.72919pt}\LT@entry 
-    {3}{174.73517pt}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Metriche utilizzate per tracking su video}{36}{subsection.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.1}Mostly Tracked Trajectories}{37}{subsubsection.7.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.2}Mostly Lost Trajectories}{37}{subsubsection.7.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.3}ID switches}{37}{subsubsection.7.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.4}Fragments}{37}{subsubsection.7.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.5}MOTP}{37}{subsubsection.7.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.6}MOTA}{38}{subsubsection.7.4.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.7}IDF1}{38}{subsubsection.7.4.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Dataset utilizzato per tracking su video}{38}{subsection.7.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.1}Impostazione parametri tracking}{38}{subsubsection.7.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}Risultati ottenuti nel tracking su video}{38}{subsection.7.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Glossario}{39}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{B}{39}{section*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Box}{39}{section*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{C}{39}{section*.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Categoria}{39}{section*.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{L}{39}{section*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Label}{39}{section*.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{O}{39}{section*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Overlap}{39}{section*.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{R}{39}{section*.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Raggruppamento}{39}{section*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Regione}{39}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{S}{39}{section*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Score}{39}{section*.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Soglia}{40}{section*.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Stride}{40}{section*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{T}{40}{section*.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {subparagraph}{Tolleranza}{40}{section*.20}\protected@file@percent }
+    {7}{133.89877pt}\LT@entry 
+    {1}{65.97086pt}\LT@entry 
+    {1}{48.29167pt}\LT@entry 
+    {5}{44.63855pt}\LT@entry 
+    {5}{44.63855pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{Lista delle categorie del dataset utilizzato per effettuare i test con relativo AP}}{39}{table.1}\protected@file@percent }
+\newlabel{lista categorie}{{1}{39}{Lista delle categorie del dataset utilizzato per effettuare i test con relativo AP}{table.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.2}Risultati per parametri}{40}{subsubsection.7.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Risultati generali detection con diversi parametri}}{40}{table.2}\protected@file@percent }
+\newlabel{lista risultati}{{2}{40}{Risultati generali detection con diversi parametri}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Metriche utilizzate per tracking su video}{40}{subsection.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.1}Mostly Tracked Trajectories}{41}{subsubsection.7.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.2}Mostly Lost Trajectories}{41}{subsubsection.7.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.3}ID switches}{41}{subsubsection.7.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.4}Fragments}{41}{subsubsection.7.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.5}MOTP}{41}{subsubsection.7.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.6}MOTA}{42}{subsubsection.7.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.7}IDF1}{42}{subsubsection.7.4.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Dataset utilizzato per tracking su video}{42}{subsection.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.1}Impostazione parametri tracking}{42}{subsubsection.7.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}Risultati ottenuti nel tracking su video}{42}{subsection.7.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Glossario}{43}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{A}{43}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Affidabilit\IeC {\`a}}{43}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{B}{43}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Bounding box}{43}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{C}{43}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Categoria}{43}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{L}{43}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Label}{43}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{O}{43}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Overlap}{43}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{R}{43}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Raggruppamento}{43}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Regione}{43}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{S}{44}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Score}{44}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Soglia di matching}{44}{section*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Stride}{44}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{T}{44}{section*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Tolleranza}{44}{section*.22}\protected@file@percent }
 \bibcite{studiomapp}{1}
 \bibcite{CNN}{2}
 \bibcite{RCNN}{3}
@@ -131,10 +143,10 @@
 \bibcite{opencv}{12}
 \bibcite{metriche}{13}
 \bibcite{tracking1}{14}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Bibliografia}{41}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Bibliografia}{45}{section.9}\protected@file@percent }
 \bibcite{kalman}{15}
 \bibcite{hungarian}{16}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Appendice}{43}{section.10}\protected@file@percent }
-\newlabel{LastPage}{{}{43}{}{page.43}{}}
-\xdef\lastpage@lastpage{43}
-\xdef\lastpage@lastpageHy{43}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Appendice}{47}{section.10}\protected@file@percent }
+\newlabel{LastPage}{{}{47}{}{page.47}{}}
+\xdef\lastpage@lastpage{47}
+\xdef\lastpage@lastpageHy{47}
