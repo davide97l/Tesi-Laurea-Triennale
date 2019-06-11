@@ -31,30 +31,32 @@
 \BOOKMARK [2][-]{subsection.6.1}{Sviluppo algoritmo per ricomposizione delle labels in un'immagine frammentata}{section.6}% 31
 \BOOKMARK [3][-]{subsubsection.6.1.1}{Implementazione}{subsection.6.1}% 32
 \BOOKMARK [3][-]{subsubsection.6.1.2}{Test di integrazione}{subsection.6.1}% 33
-\BOOKMARK [1][-]{section.7}{Risultati ottenuti}{}% 34
-\BOOKMARK [2][-]{subsection.7.1}{Metriche utilizzate per detection su singole immagini}{section.7}% 35
-\BOOKMARK [3][-]{subsubsection.7.1.1}{Precision}{subsection.7.1}% 36
-\BOOKMARK [3][-]{subsubsection.7.1.2}{Recall}{subsection.7.1}% 37
-\BOOKMARK [3][-]{subsubsection.7.1.3}{F1}{subsection.7.1}% 38
-\BOOKMARK [3][-]{subsubsection.7.1.4}{Intersection over union}{subsection.7.1}% 39
-\BOOKMARK [3][-]{subsubsection.7.1.5}{Average Precision}{subsection.7.1}% 40
-\BOOKMARK [3][-]{subsubsection.7.1.6}{Mean Average Precision}{subsection.7.1}% 41
-\BOOKMARK [2][-]{subsection.7.2}{Dataset utilizzato per detection su singole immagini}{section.7}% 42
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Impostazione parametri detection}{subsection.7.2}% 43
-\BOOKMARK [2][-]{subsection.7.3}{Risultati ottenuti nella detection su singole immagini}{section.7}% 44
-\BOOKMARK [3][-]{subsubsection.7.3.1}{Risultati per categoria}{subsection.7.3}% 45
-\BOOKMARK [3][-]{subsubsection.7.3.2}{Risultati per parametri}{subsection.7.3}% 46
-\BOOKMARK [2][-]{subsection.7.4}{Metriche utilizzate per tracking su video}{section.7}% 47
-\BOOKMARK [3][-]{subsubsection.7.4.1}{Mostly Tracked Trajectories}{subsection.7.4}% 48
-\BOOKMARK [3][-]{subsubsection.7.4.2}{Mostly Lost Trajectories}{subsection.7.4}% 49
-\BOOKMARK [3][-]{subsubsection.7.4.3}{ID switches}{subsection.7.4}% 50
-\BOOKMARK [3][-]{subsubsection.7.4.4}{Fragments}{subsection.7.4}% 51
-\BOOKMARK [3][-]{subsubsection.7.4.5}{MOTP}{subsection.7.4}% 52
-\BOOKMARK [3][-]{subsubsection.7.4.6}{MOTA}{subsection.7.4}% 53
-\BOOKMARK [3][-]{subsubsection.7.4.7}{IDF1}{subsection.7.4}% 54
-\BOOKMARK [2][-]{subsection.7.5}{Dataset utilizzato per tracking su video}{section.7}% 55
-\BOOKMARK [3][-]{subsubsection.7.5.1}{Impostazione parametri tracking}{subsection.7.5}% 56
-\BOOKMARK [2][-]{subsection.7.6}{Risultati ottenuti nel tracking su video}{section.7}% 57
-\BOOKMARK [1][-]{section.8}{Glossario}{}% 58
-\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 59
-\BOOKMARK [1][-]{section.10}{Appendice}{}% 60
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Pipeline completa}{subsection.6.1}% 34
+\BOOKMARK [2][-]{subsection.6.2}{Sviluppo sistema di tracking}{section.6}% 35
+\BOOKMARK [1][-]{section.7}{Risultati ottenuti}{}% 36
+\BOOKMARK [2][-]{subsection.7.1}{Metriche utilizzate per detection su singole immagini}{section.7}% 37
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Precision}{subsection.7.1}% 38
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Recall}{subsection.7.1}% 39
+\BOOKMARK [3][-]{subsubsection.7.1.3}{F1}{subsection.7.1}% 40
+\BOOKMARK [3][-]{subsubsection.7.1.4}{Intersection over union}{subsection.7.1}% 41
+\BOOKMARK [3][-]{subsubsection.7.1.5}{Average Precision}{subsection.7.1}% 42
+\BOOKMARK [3][-]{subsubsection.7.1.6}{Mean Average Precision}{subsection.7.1}% 43
+\BOOKMARK [2][-]{subsection.7.2}{Dataset utilizzato per detection su singole immagini}{section.7}% 44
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Impostazione parametri detection}{subsection.7.2}% 45
+\BOOKMARK [2][-]{subsection.7.3}{Risultati ottenuti nella detection su singole immagini}{section.7}% 46
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Risultati per categoria}{subsection.7.3}% 47
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Risultati per parametri}{subsection.7.3}% 48
+\BOOKMARK [2][-]{subsection.7.4}{Metriche utilizzate per tracking su video}{section.7}% 49
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Mostly Tracked Trajectories}{subsection.7.4}% 50
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Mostly Lost Trajectories}{subsection.7.4}% 51
+\BOOKMARK [3][-]{subsubsection.7.4.3}{ID switches}{subsection.7.4}% 52
+\BOOKMARK [3][-]{subsubsection.7.4.4}{Fragments}{subsection.7.4}% 53
+\BOOKMARK [3][-]{subsubsection.7.4.5}{MOTP}{subsection.7.4}% 54
+\BOOKMARK [3][-]{subsubsection.7.4.6}{MOTA}{subsection.7.4}% 55
+\BOOKMARK [3][-]{subsubsection.7.4.7}{IDF1}{subsection.7.4}% 56
+\BOOKMARK [2][-]{subsection.7.5}{Dataset utilizzato per tracking su video}{section.7}% 57
+\BOOKMARK [3][-]{subsubsection.7.5.1}{Impostazione parametri tracking}{subsection.7.5}% 58
+\BOOKMARK [2][-]{subsection.7.6}{Risultati ottenuti nel tracking su video}{section.7}% 59
+\BOOKMARK [1][-]{section.8}{Glossario}{}% 60
+\BOOKMARK [1][-]{section.9}{Bibliografia}{}% 61
+\BOOKMARK [1][-]{section.10}{Appendice}{}% 62

@@ -33,49 +33,51 @@
 \contentsline {subsection}{\numberline {6.1}Sviluppo algoritmo per ricomposizione delle labels in un'immagine frammentata}{30}{subsection.6.1}% 
 \contentsline {subsubsection}{\numberline {6.1.1}Implementazione}{30}{subsubsection.6.1.1}% 
 \contentsline {subsubsection}{\numberline {6.1.2}Test di integrazione}{32}{subsubsection.6.1.2}% 
-\contentsline {section}{\numberline {7}Risultati ottenuti}{33}{section.7}% 
-\contentsline {subsection}{\numberline {7.1}Metriche utilizzate per detection su singole immagini}{33}{subsection.7.1}% 
-\contentsline {subsubsection}{\numberline {7.1.1}Precision}{33}{subsubsection.7.1.1}% 
-\contentsline {subsubsection}{\numberline {7.1.2}Recall}{33}{subsubsection.7.1.2}% 
-\contentsline {subsubsection}{\numberline {7.1.3}F1}{34}{subsubsection.7.1.3}% 
-\contentsline {subsubsection}{\numberline {7.1.4}Intersection over union}{34}{subsubsection.7.1.4}% 
-\contentsline {subsubsection}{\numberline {7.1.5}Average Precision}{34}{subsubsection.7.1.5}% 
-\contentsline {subsubsection}{\numberline {7.1.6}Mean Average Precision}{35}{subsubsection.7.1.6}% 
-\contentsline {subsection}{\numberline {7.2}Dataset utilizzato per detection su singole immagini}{35}{subsection.7.2}% 
-\contentsline {subsubsection}{\numberline {7.2.1}Impostazione parametri detection}{36}{subsubsection.7.2.1}% 
-\contentsline {subsection}{\numberline {7.3}Risultati ottenuti nella detection su singole immagini}{37}{subsection.7.3}% 
-\contentsline {subsubsection}{\numberline {7.3.1}Risultati per categoria}{37}{subsubsection.7.3.1}% 
-\contentsline {subsubsection}{\numberline {7.3.2}Risultati per parametri}{40}{subsubsection.7.3.2}% 
-\contentsline {subsection}{\numberline {7.4}Metriche utilizzate per tracking su video}{40}{subsection.7.4}% 
-\contentsline {subsubsection}{\numberline {7.4.1}Mostly Tracked Trajectories}{41}{subsubsection.7.4.1}% 
-\contentsline {subsubsection}{\numberline {7.4.2}Mostly Lost Trajectories}{41}{subsubsection.7.4.2}% 
-\contentsline {subsubsection}{\numberline {7.4.3}ID switches}{41}{subsubsection.7.4.3}% 
-\contentsline {subsubsection}{\numberline {7.4.4}Fragments}{41}{subsubsection.7.4.4}% 
-\contentsline {subsubsection}{\numberline {7.4.5}MOTP}{41}{subsubsection.7.4.5}% 
-\contentsline {subsubsection}{\numberline {7.4.6}MOTA}{42}{subsubsection.7.4.6}% 
-\contentsline {subsubsection}{\numberline {7.4.7}IDF1}{42}{subsubsection.7.4.7}% 
-\contentsline {subsection}{\numberline {7.5}Dataset utilizzato per tracking su video}{42}{subsection.7.5}% 
-\contentsline {subsubsection}{\numberline {7.5.1}Impostazione parametri tracking}{42}{subsubsection.7.5.1}% 
-\contentsline {subsection}{\numberline {7.6}Risultati ottenuti nel tracking su video}{42}{subsection.7.6}% 
-\contentsline {section}{\numberline {8}Glossario}{43}{section.8}% 
-\contentsline {paragraph}{A}{43}{section*.4}% 
-\contentsline {subparagraph}{Affidabilit\IeC {\`a}}{43}{section*.5}% 
-\contentsline {paragraph}{B}{43}{section*.6}% 
-\contentsline {subparagraph}{Bounding box}{43}{section*.7}% 
-\contentsline {paragraph}{C}{43}{section*.8}% 
-\contentsline {subparagraph}{Categoria}{43}{section*.9}% 
-\contentsline {paragraph}{L}{43}{section*.10}% 
-\contentsline {subparagraph}{Label}{43}{section*.11}% 
-\contentsline {paragraph}{O}{43}{section*.12}% 
-\contentsline {subparagraph}{Overlap}{43}{section*.13}% 
-\contentsline {paragraph}{R}{43}{section*.14}% 
-\contentsline {subparagraph}{Raggruppamento}{43}{section*.15}% 
-\contentsline {subparagraph}{Regione}{43}{section*.16}% 
-\contentsline {paragraph}{S}{44}{section*.17}% 
-\contentsline {subparagraph}{Score}{44}{section*.18}% 
-\contentsline {subparagraph}{Soglia di matching}{44}{section*.19}% 
-\contentsline {subparagraph}{Stride}{44}{section*.20}% 
-\contentsline {paragraph}{T}{44}{section*.21}% 
-\contentsline {subparagraph}{Tolleranza}{44}{section*.22}% 
-\contentsline {section}{\numberline {9}Bibliografia}{45}{section.9}% 
-\contentsline {section}{\numberline {10}Appendice}{47}{section.10}% 
+\contentsline {subsubsection}{\numberline {6.1.3}Pipeline completa}{32}{subsubsection.6.1.3}% 
+\contentsline {subsection}{\numberline {6.2}Sviluppo sistema di tracking}{34}{subsection.6.2}% 
+\contentsline {section}{\numberline {7}Risultati ottenuti}{36}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Metriche utilizzate per detection su singole immagini}{36}{subsection.7.1}% 
+\contentsline {subsubsection}{\numberline {7.1.1}Precision}{36}{subsubsection.7.1.1}% 
+\contentsline {subsubsection}{\numberline {7.1.2}Recall}{36}{subsubsection.7.1.2}% 
+\contentsline {subsubsection}{\numberline {7.1.3}F1}{37}{subsubsection.7.1.3}% 
+\contentsline {subsubsection}{\numberline {7.1.4}Intersection over union}{37}{subsubsection.7.1.4}% 
+\contentsline {subsubsection}{\numberline {7.1.5}Average Precision}{37}{subsubsection.7.1.5}% 
+\contentsline {subsubsection}{\numberline {7.1.6}Mean Average Precision}{38}{subsubsection.7.1.6}% 
+\contentsline {subsection}{\numberline {7.2}Dataset utilizzato per detection su singole immagini}{38}{subsection.7.2}% 
+\contentsline {subsubsection}{\numberline {7.2.1}Impostazione parametri detection}{39}{subsubsection.7.2.1}% 
+\contentsline {subsection}{\numberline {7.3}Risultati ottenuti nella detection su singole immagini}{40}{subsection.7.3}% 
+\contentsline {subsubsection}{\numberline {7.3.1}Risultati per categoria}{40}{subsubsection.7.3.1}% 
+\contentsline {subsubsection}{\numberline {7.3.2}Risultati per parametri}{44}{subsubsection.7.3.2}% 
+\contentsline {subsection}{\numberline {7.4}Metriche utilizzate per tracking su video}{44}{subsection.7.4}% 
+\contentsline {subsubsection}{\numberline {7.4.1}Mostly Tracked Trajectories}{45}{subsubsection.7.4.1}% 
+\contentsline {subsubsection}{\numberline {7.4.2}Mostly Lost Trajectories}{45}{subsubsection.7.4.2}% 
+\contentsline {subsubsection}{\numberline {7.4.3}ID switches}{45}{subsubsection.7.4.3}% 
+\contentsline {subsubsection}{\numberline {7.4.4}Fragments}{45}{subsubsection.7.4.4}% 
+\contentsline {subsubsection}{\numberline {7.4.5}MOTP}{45}{subsubsection.7.4.5}% 
+\contentsline {subsubsection}{\numberline {7.4.6}MOTA}{46}{subsubsection.7.4.6}% 
+\contentsline {subsubsection}{\numberline {7.4.7}IDF1}{46}{subsubsection.7.4.7}% 
+\contentsline {subsection}{\numberline {7.5}Dataset utilizzato per tracking su video}{46}{subsection.7.5}% 
+\contentsline {subsubsection}{\numberline {7.5.1}Impostazione parametri tracking}{46}{subsubsection.7.5.1}% 
+\contentsline {subsection}{\numberline {7.6}Risultati ottenuti nel tracking su video}{46}{subsection.7.6}% 
+\contentsline {section}{\numberline {8}Glossario}{47}{section.8}% 
+\contentsline {paragraph}{A}{47}{section*.4}% 
+\contentsline {subparagraph}{Affidabilit\IeC {\`a}}{47}{section*.5}% 
+\contentsline {paragraph}{B}{47}{section*.6}% 
+\contentsline {subparagraph}{Bounding box}{47}{section*.7}% 
+\contentsline {paragraph}{C}{47}{section*.8}% 
+\contentsline {subparagraph}{Categoria}{47}{section*.9}% 
+\contentsline {paragraph}{L}{47}{section*.10}% 
+\contentsline {subparagraph}{Label}{47}{section*.11}% 
+\contentsline {paragraph}{O}{47}{section*.12}% 
+\contentsline {subparagraph}{Overlap}{47}{section*.13}% 
+\contentsline {paragraph}{R}{47}{section*.14}% 
+\contentsline {subparagraph}{Raggruppamento}{47}{section*.15}% 
+\contentsline {subparagraph}{Regione}{47}{section*.16}% 
+\contentsline {paragraph}{S}{48}{section*.17}% 
+\contentsline {subparagraph}{Score}{48}{section*.18}% 
+\contentsline {subparagraph}{Soglia di matching}{48}{section*.19}% 
+\contentsline {subparagraph}{Stride}{48}{section*.20}% 
+\contentsline {paragraph}{T}{48}{section*.21}% 
+\contentsline {subparagraph}{Tolleranza}{48}{section*.22}% 
+\contentsline {section}{\numberline {9}Bibliografia}{49}{section.9}% 
+\contentsline {section}{\numberline {10}Appendice}{51}{section.10}% 
