@@ -75,9 +75,9 @@ Nella seguente listea vengono elencati i parametri che intervengono in fase di r
 \item \textbf{Soglia di matching}.
 \end{itemize}
 Una spiegazione più dettagliata riguardo ai parametri la si può trovare in sezione \textit{4.1} o nel \textit{Glossario}.
-Ogni immagine è stata suddivisa in regioni da 640x640 pixels. A causa della difficoltà nell'individuazione degli elementi, il loro score sarà relativamente basso risultando quindi in una scarsa affidabilità. La \textbf{soglia di affidabilità} per la \textbf{condizione di correlazione} necessaria per effettuare un match è stata perciò impostata a 0. Di conseguenza, due labels di diversa categoria non potranno mai venire unite. Le altre funzioni ridefinibili sono state lasciate con il loro comportamento di default descritto in sezione \textit{4.1}. I restanti parametri sono invece variabili e ne sono state testate diverse combinazioni ai fini di ricercare quelle combinazioni di parametri in grado di fornire i risultati migliori.
+Ogni immagine è stata suddivisa in regioni di dimensioni fisse da 640x640 pixels. A causa della difficoltà nell'individuazione degli elementi, il loro score sarà relativamente basso risultando quindi in una scarsa affidabilità. La \textbf{soglia di affidabilità} per la \textbf{condizione di correlazione} necessaria per effettuare un match è stata perciò impostata a 0. Di conseguenza, due labels di diversa categoria non potranno mai venire unite. Le altre funzioni ridefinibili sono state lasciate con il loro comportamento di default descritto in sezione \textit{4.1}. I restanti parametri sono invece variabili e ne sono state testate diverse combinazioni ai fini di ricercare quelle combinazioni di parametri in grado di fornire i risultati migliori.
 \\
-In totale sono state testate 4 soglie diverse di \textbf{affidabilità}=[0.01, 0.1, 0.2, 0.3], 3 valori di \textbf{overlap}=[0, 1, 2], 3 di \textbf{tolleranza}=[0, 1, 2], 4 \textbf{soglie di matching}=[20\%, 40\%, 60\%, 80\%] per un totale di 144 combinazioni di parametri diverse. Le metriche sono state calcolate come media delle metriche per ogni combinazione di parametri e per ogni singola immagine.\\
+La detection è stata effettuata su 100 immagini dove per ciascuna sono state testate 4 soglie diverse di \textbf{affidabilità}=[0.01, 0.1, 0.2, 0.3], 5 valori di \textbf{overlap}=[0, 1, 2, 3, 4], 5 di \textbf{tolleranza}=[0, 1, 2, 4, 4], 4 \textbf{soglie di matching}=[20\%, 40\%, 60\%, 80\%] per un totale di 625 combinazioni di parametri diverse. Le metriche sono state calcolate come media delle metriche per ogni combinazione di parametri e per ogni singola immagine.\\
 Per quanto riguarda il test, una bounding box individuata tramite detection è considerata come corretta solo se la sua IoU con la bounding box reale è maggiore di una certa soglia di Iou. Questa soglia è la stessa soglia utilizzata per il calcolo di dell'mAP. Per effettuare i test questa soglia è stata fissata al 50\%.
 
 \subsection{Risultati ottenuti nella detection su singole immagini}
@@ -180,30 +180,32 @@ Osservando i risultati si può subito notare che per ogni categoria si ha che AP
 
 \clearpage
 \subsubsection{Risultati per parametri}
-La seguente tabella mostra riporta i risultati ottenuti con diverse combinazioni di parametri mostrando i valori di F1 e mAP. mAP(NMS) indica il valore dell'mAp calcolato dopo aver effettuato NMS sull'immagine frammentata mentre mAP è il valore dell'mAP calcolato dopo aver applicato l'algoritmo di ricostruzione dell'immagine frammentata riportandone anche l'aumento in percentuale.
+La seguente tabella mostra riporta alcuni dei risultati ottenuti con diverse combinazioni di parametri mostrando i valori di F1 e mAP. mAP(NMS) indica il valore dell'mAp calcolato dopo aver effettuato NMS sull'immagine frammentata mentre mAP è il valore dell'mAP calcolato dopo aver applicato l'algoritmo di ricostruzione dell'immagine frammentata riportandone anche l'aumento in percentuale. Affidabilità è il valore della \textbf{soglia di affidabilità} sopra la quale non scartare una detection.
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{|c|c|c|c|c|c|c|} 
+\begin{tabular}{|c|c|c|c|c|c|c|c|} 
 \hline
-Stride & Overlap & Tolleranza & Match & F1 & mAP(NMS) & mAP\\ [0.5ex] 
+Affidabilità & Stride & Overlap & Tolleranza & Match(\%) & F1 & mAP(NMS) & mAP\\ [0.5ex] 
 \hline
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 0 & 0 & 50 & 0 & 0.249199 & 0.250742(+0.0\%)\\
+0.2 & 640 & 2 & 4 & 60 & 0 & 0.249199 & 0.253616(+0.0\%)\\
+0.2 & 640 & 4 & 4 & 80 & 0 & 0.249199 & 0.252815(+0.0\%)\\
+0.2 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
 \hline
 \end{tabular}
 \caption{Risultati generali detection con diversi parametri}
@@ -246,8 +248,80 @@ IDF1 = \frac{2IDTP}{2IDTP+IDFP+IDFN}
 Dove IDTP, IDFP, IDFN rispettivamente sono la media del numero di detections avvenute correttamente, falsi positivi e falsi negativi calcolati su tutti i frames. 
 
 \subsection{Dataset utilizzato per tracking su video}
+Per testare la correttezza del tracciamento sono stati utilizzati alcuni video messi a disposizione dalla sfida VisDrone2019, così come lo è anche lo script utilizzato per calcolare le metriche. I video sono stati girati da alcune telecamere montate su dei droni fatti volare riprendendo diversi scenari che spaziano da aree urbane a zone rurali. I video sono stati girati sotto diverse condizioni meteo, di luminosità a diverse altezze ed angolazioni rendendo quindi particolarmente impegnativi sia il tracking che la detection. Un' ulteriore difficoltà è dovuta al fatto che alcuni frames presentano effetti di sfocatura causata dal movimento. Le dimensioni dei frames variano da video a video così come varia la lunghezza in frames di ogni video. Questa volta sono presenti solamente 5 categorie di oggetti diversi e facilmente distinguibili tra loro:
+\begin{itemize}
+\item Auto;
+\item Bus;
+\item Camion;
+\item Persona;
+\item Furgone.
+\end{itemize}
+E' da notare la categoria Persona è l'unica categoria che non rappresenta un mezzo di trasporto.
 
 \subsubsection{Impostazione parametri tracking}
-
+Nel tracking entrano in gioco 3 parametri variabili ovvero:
+\begin{itemize}
+\item \textbf{Soglia di cancellazione};
+\item \textbf{Soglia di validazione};
+\item \textbf{Soglia di assegnazione}.
+\end{itemize}
+Una spiegazione più dettagliata riguardo ai parametri la si può trovare in sezione \textit{4.2} o nel \textit{Glossario}.
+Per effettuare i test, durante la detection è stata tenuta una \textbf{Soglia di affidabilità} pari a 0.3 e non è stata applicata la frammentazione ai singoli frames in quanto l'operazione sarebbe stata troppo onerosa in termini di tempo mentre usando una Faster-RCNN su ogni frame completo si possono raggiungere qualità di frame-rate accettabili anche per elaborazioni in tempo reale (circa 2 frames al secondo senza utilizzare GPU e con CPU Intel core i5).
+Il test è stato effettuato su 7 video, con 3 valori di \textbf{soglia di validazione}=[1, 3, 5], 3 valori di \textbf{soglia di cancellazione}=[1, 5, 10] e due valori di \textbf{soglia di assegnazione}=[0.1, 0.5] per un totale di 18 combinazioni di parametri diverse. Le metriche sono state calcolate su ogni video, su ogni categoria e come media delle metriche per ogni combinazione di parametri.\\
+Per quanto riguarda questione dello scambio dell'ID, è da sottolineare che se due oggetti che, incrociando le loro traiettorie, si dovessero ritrovare con un ID diverso, questo evento conterà come 2 scambi di ID invece di 1.
 
 \subsection{Risultati ottenuti nel tracking su video}
+Nella seguente sezione vengono riportati i risultati ottenuti per misurare la qualità del sistema di tracking. In quanto l'obiettivo è quello di misurare l'efficacia del tracking e non della detection, quest'ultima non è stata effettuata ma le labels di ogni frames sono state lette da un file di testo contenente le detections esatte, uguali a quelle contenute nel file con il quale vengono confrontati i risultati del tracking ottenuti ai fini di ricavarne le metriche. Successivamente verranno mostrati dei risultati eseguendo le detections con un modello vero e proprio. Le metriche IDF1, Rcll, Prcn, MT, ML, MOTA e MOTP sono espresse sotto forma di percentuali e, ad eccezione di ML, indicano risultati migliori per valori maggiori. Al contrario, le metriche FP, FN, IDs ed FM sono espresse in valore quantitativo ed indicano risultati migliori per valori minori.
+
+\subsubsection{Risultati per categoria}
+Nella seguente tabella vengono riportate tutte le cinque categorie insieme ai relativi risultati. Le due metriche Rcll (recall) e Prcn (precision) sono le stesse che sono state utilizzate nella detection su singole immagini ma in questo ambito sono state calcolate come recall e precisione media su ogni frame e su ogni video. I seguenti valori sono stati ottenuti impostando una \textbf{soglia di cancellazione}=1, \textbf{soglia di validazione}=1 e \textbf{soglia di assegnazione}=0.1 in quanto questa combinazione di parametri ha permesso di ottenere risultati migliori rispetto alle altre per quanto riguarda la maggior parte delle metriche.
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|} 
+\hline
+Categoria & IDF1 & Rcll & Prcn & MT & LT & FP & FN & IDs & FM & MOTA & MOTP\\ [0.5ex] 
+\hline
+Auto & 91.0 & 98.4 & 98.8 & 96.0 & 1.5 & 380 & 505 & 312 & 119 & 96.2 & 93.1 \\
+Bus & 93.6 & 95.5 & 99.6 & 100.0 & 0 & 1 & 12 & 7 & 7 & 92.4 & 95.6 \\
+Camion & 98.7 & 99.3 & 99.6 & 100.0 & 0 & 6 & 10 & 5 & 2 & 98.5 & 95.0 \\
+Persona & 84.7 & 97.8 & 98.7 & 92.4 & 2.2 & 420 & 704 & 462 & 200 & 95.0 & 90.1 \\
+Furgone & 93.4 & 98.6 & 99.1 & 95.0 & 0 & 58 & 97 & 32 & 21 & 97.2 & 93.5\\
+\hline
+\end{tabular}
+\caption{Risultati tracking per categoria}
+\label{risultati tracking categoria}
+\end{table}
+In generale è la categoria Persona quella più difficile da tracciare sia per la numerosità delle persone stesse sia per il numero di sovrapposizioni che si verificano tra di esse, lo si può notare dal fatto che le relative metriche sono leggermente più basse rispetto a quelle delle altre categorie.  Le categorie Auto e Persona sono le più frequenti sia nei video sia nel mondo reale perciò è più difficile tracciarle ed aumenta la probabilità che vengano commessi degli errori.
+
+\clearpage
+\subsubsection{Risultati per parametri}
+La tabella sottostante riporta i risultati ottenuti nel tracking  utilizzando diverse combinazioni parametri SC (\textbf{soglia di cancellazione}), SV (\textbf{soglia di validazione}) ed SA (\textbf{soglia di assegnazione}).
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+SV & SC & SA & IDF1 & Rcll & Prcn & MT & ML & FP & FN & IDs & FM & MOTA & MOTP\\ [0.5ex] 
+\hline
+1 & 1 & 0.1 & 88.6 & 98.2 & 98.8 & 94.3 & 1.7 & 865 & 1328 & 818 & 349 & 95.8 & 91.9\\
+1 & 1 & 0.5 & 87.7 & 98.1 & 98.8 & 94.3 & 1.9 & 875 & 1359 & 834 & 371 & 95.7 & 91.9\\
+1 & 5 & 0.1 & 86.9 & 98.2 & 95.0 & 94.7 & 1.5 & 3684 & 1289 & 889 & 335 & 91.8 & 91.9\\
+1 & 5 & 0.5 & 86.3 & 98.2 & 94.8 & 94.7 & 1.7 & 3833 & 1318 & 898 & 368 & 91.6 & 91.9\\
+1 & 10 & 0.1 & 84.8 & 98.2 & 90.8 & 95.0 & 1.3 & 7144 & 1265 & 927 & 359 & 87.0 & 91.9\\
+1 & 10 & 0.5 & 84.3 & 98.2 & 90.4 & 95.0 & 1.5 & 7463 & 1279 & 956 & 370 & 86.5 & 91.9\\
+3 & 1 & 0.1 & 88.5 & 95.9 & 99.1 & 88.7 & 3.2 & 638 & 2948 & 459 & 270 & 94.4 & 92.0\\
+3 & 1 & 0.5 & 87.8 & 95.8 & 99.1 & 88.7 & 3.2 & 633 & 3025 & 461 & 275 & 94.3 & 92.0\\
+3 & 5 & 0.1 & 87.3 & 96.0 & 96.3 & 89.1 & 3.2 & 2678 & 2903 & 513 & 285 & 91.5 & 92.0\\
+3 & 5 & 0.5 & 86.7 & 95.9 & 96.2 & 89.1 & 3.2 & 2734 & 2954 & 522 & 294 & 91.4 & 92.0\\
+3 & 10 & 0.1 & 85.7 & 96.0 & 93.0 & 89.1 & 2.7 & 5216 & 2883 & 541 & 298 & 88.0 & 91.9\\
+3 & 10 & 0.5 & 85.3 & 95.9 & 92.8 & 89.1 & 2.9 & 5337 & 2921 & 565 & 304 & 87.7 & 92.0\\
+5 & 1 & 0.1 & 88.2 & 94.1 & 99.2 & 81.3 & 5.0 & 557 & 4240 & 362 & 233 & 92.8 & 92.1\\
+5 & 1 & 0.5 & 87.3 & 94.0 & 99.2 & 80.9 & 5.3 & 553 & 4340 & 366 & 236 & 92.7 & 92.1\\
+5 & 5 & 0.1 & 87.1 & 94.2 & 96.7 & 81.7 & 4.8 & 2287 & 4189 & 400 & 254 & 90.4 & 92.0\\
+5 & 5 & 0.5 & 86.5 & 94.1 & 96.7 & 81.5 & 4.8 & 2340 & 4239 & 413 & 258 & 90.3 & 92.1\\
+5 & 10 & 0.1 & 85.8 & 94.2 & 93.8 & 81.7 & 4.6 & 4437 & 4172 & 423 & 263 & 87.4 & 92.0\\
+5 & 10 & 0.5 & 85.3 & 94.1 & 93.6 & 81.7 & 4.6 & 4594 & 4214 & 440 & 265 & 87.1 & 92.1\\
+\hline
+\end{tabular}
+\caption{Risultati tracking per parametri}
+\label{risultati tracking per parametri}
+\end{table}

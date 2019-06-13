@@ -1,83 +1,85 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
-\contentsline {section}{\numberline {1}Introduzione}{5}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Note esplicative}{5}{subsection.1.1}% 
-\contentsline {subsection}{\numberline {1.2}Struttura del documento}{5}{subsection.1.2}% 
-\contentsline {section}{\numberline {2}Ambiente Aziendale}{7}{section.2}% 
-\contentsline {section}{\numberline {3}Analisi dei problemi}{8}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Tecniche di computer vision}{8}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}Computer vision applicata su immagini ad alta risoluzione}{10}{subsection.3.2}% 
-\contentsline {subsection}{\numberline {3.3}Frammentazione dell'immagine}{11}{subsection.3.3}% 
-\contentsline {subsection}{\numberline {3.4}Tecniche di object tracking}{13}{subsection.3.4}% 
-\contentsline {subsection}{\numberline {3.5}Object tracking con continue object detections}{14}{subsection.3.5}% 
-\contentsline {section}{\numberline {4}Progettazione}{16}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Progettazione algoritmo per riconoscimento di elementi in un'immagine frammentata}{16}{subsection.4.1}% 
-\contentsline {subsubsection}{\numberline {4.1.1}Scomposizione del frame originale in regioni}{16}{subsubsection.4.1.1}% 
-\contentsline {subsubsection}{\numberline {4.1.2}Rimozione degli elementi individuati pi\IeC {\`u} volte all'interno delle aree di sovrapposizione}{17}{subsubsection.4.1.2}% 
-\contentsline {subsubsection}{\numberline {4.1.3}Creazione di raggruppamenti di labels correlate}{17}{subsubsection.4.1.3}% 
-\contentsline {subsubsection}{\numberline {4.1.4}Miglioramento: raggruppamenti di labels utilizzati come region proposal}{20}{subsubsection.4.1.4}% 
-\contentsline {subsection}{\numberline {4.2}Progettazione algoritmo per tracciamento di elementi}{21}{subsection.4.2}% 
-\contentsline {subsubsection}{\numberline {4.2.1}Filtro di Kalman}{21}{subsubsection.4.2.1}% 
-\contentsline {subsubsection}{\numberline {4.2.2}Assegnazione detection-tracker}{22}{subsubsection.4.2.2}% 
-\contentsline {subsubsection}{\numberline {4.2.3}Gestione delle detections e dei trackers non assegnati}{24}{subsubsection.4.2.3}% 
-\contentsline {subsubsection}{\numberline {4.2.4}Utilizzo di metriche di supporto per l'assegnazione detection-tracker}{25}{subsubsection.4.2.4}% 
-\contentsline {section}{\numberline {5}Tecnologie}{27}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Python}{27}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Pycharm}{27}{subsection.5.2}% 
-\contentsline {subsection}{\numberline {5.3}Tensorflow}{28}{subsection.5.3}% 
-\contentsline {subsection}{\numberline {5.4}OpenCV}{28}{subsection.5.4}% 
-\contentsline {subsection}{\numberline {5.5}Numpy}{28}{subsection.5.5}% 
-\contentsline {subsection}{\numberline {5.6}Matplotlib}{29}{subsection.5.6}% 
-\contentsline {subsection}{\numberline {5.7}Pytest}{29}{subsection.5.7}% 
-\contentsline {section}{\numberline {6}Sviluppo}{30}{section.6}% 
-\contentsline {subsection}{\numberline {6.1}Sviluppo algoritmo per ricomposizione delle labels in un'immagine frammentata}{30}{subsection.6.1}% 
-\contentsline {subsubsection}{\numberline {6.1.1}Implementazione}{30}{subsubsection.6.1.1}% 
-\contentsline {subsubsection}{\numberline {6.1.2}Test di integrazione}{32}{subsubsection.6.1.2}% 
-\contentsline {subsubsection}{\numberline {6.1.3}Pipeline completa}{32}{subsubsection.6.1.3}% 
-\contentsline {subsection}{\numberline {6.2}Sviluppo sistema di tracking}{34}{subsection.6.2}% 
-\contentsline {section}{\numberline {7}Risultati ottenuti}{36}{section.7}% 
-\contentsline {subsection}{\numberline {7.1}Metriche utilizzate per detection su singole immagini}{36}{subsection.7.1}% 
-\contentsline {subsubsection}{\numberline {7.1.1}Precision}{36}{subsubsection.7.1.1}% 
-\contentsline {subsubsection}{\numberline {7.1.2}Recall}{36}{subsubsection.7.1.2}% 
-\contentsline {subsubsection}{\numberline {7.1.3}F1}{37}{subsubsection.7.1.3}% 
-\contentsline {subsubsection}{\numberline {7.1.4}Intersection over union}{37}{subsubsection.7.1.4}% 
-\contentsline {subsubsection}{\numberline {7.1.5}Average Precision}{37}{subsubsection.7.1.5}% 
-\contentsline {subsubsection}{\numberline {7.1.6}Mean Average Precision}{38}{subsubsection.7.1.6}% 
-\contentsline {subsection}{\numberline {7.2}Dataset utilizzato per detection su singole immagini}{38}{subsection.7.2}% 
-\contentsline {subsubsection}{\numberline {7.2.1}Impostazione parametri detection}{39}{subsubsection.7.2.1}% 
-\contentsline {subsection}{\numberline {7.3}Risultati ottenuti nella detection su singole immagini}{40}{subsection.7.3}% 
-\contentsline {subsubsection}{\numberline {7.3.1}Risultati per categoria}{40}{subsubsection.7.3.1}% 
-\contentsline {subsubsection}{\numberline {7.3.2}Risultati per parametri}{44}{subsubsection.7.3.2}% 
-\contentsline {subsection}{\numberline {7.4}Metriche utilizzate per tracking su video}{44}{subsection.7.4}% 
-\contentsline {subsubsection}{\numberline {7.4.1}Mostly Tracked Trajectories}{45}{subsubsection.7.4.1}% 
-\contentsline {subsubsection}{\numberline {7.4.2}Mostly Lost Trajectories}{45}{subsubsection.7.4.2}% 
-\contentsline {subsubsection}{\numberline {7.4.3}ID switches}{45}{subsubsection.7.4.3}% 
-\contentsline {subsubsection}{\numberline {7.4.4}Fragments}{45}{subsubsection.7.4.4}% 
-\contentsline {subsubsection}{\numberline {7.4.5}MOTP}{45}{subsubsection.7.4.5}% 
-\contentsline {subsubsection}{\numberline {7.4.6}MOTA}{46}{subsubsection.7.4.6}% 
-\contentsline {subsubsection}{\numberline {7.4.7}IDF1}{46}{subsubsection.7.4.7}% 
-\contentsline {subsection}{\numberline {7.5}Dataset utilizzato per tracking su video}{46}{subsection.7.5}% 
-\contentsline {subsubsection}{\numberline {7.5.1}Impostazione parametri tracking}{46}{subsubsection.7.5.1}% 
-\contentsline {subsection}{\numberline {7.6}Risultati ottenuti nel tracking su video}{46}{subsection.7.6}% 
-\contentsline {section}{\numberline {8}Glossario}{47}{section.8}% 
-\contentsline {paragraph}{A}{47}{section*.4}% 
-\contentsline {subparagraph}{Affidabilit\IeC {\`a}}{47}{section*.5}% 
-\contentsline {paragraph}{B}{47}{section*.6}% 
-\contentsline {subparagraph}{Bounding box}{47}{section*.7}% 
-\contentsline {paragraph}{C}{47}{section*.8}% 
-\contentsline {subparagraph}{Categoria}{47}{section*.9}% 
-\contentsline {paragraph}{L}{47}{section*.10}% 
-\contentsline {subparagraph}{Label}{47}{section*.11}% 
-\contentsline {paragraph}{O}{47}{section*.12}% 
-\contentsline {subparagraph}{Overlap}{47}{section*.13}% 
-\contentsline {paragraph}{R}{47}{section*.14}% 
-\contentsline {subparagraph}{Raggruppamento}{47}{section*.15}% 
-\contentsline {subparagraph}{Regione}{47}{section*.16}% 
-\contentsline {paragraph}{S}{48}{section*.17}% 
-\contentsline {subparagraph}{Score}{48}{section*.18}% 
-\contentsline {subparagraph}{Soglia di matching}{48}{section*.19}% 
-\contentsline {subparagraph}{Stride}{48}{section*.20}% 
-\contentsline {paragraph}{T}{48}{section*.21}% 
-\contentsline {subparagraph}{Tolleranza}{48}{section*.22}% 
-\contentsline {section}{\numberline {9}Bibliografia}{49}{section.9}% 
-\contentsline {section}{\numberline {10}Appendice}{51}{section.10}% 
+\contentsline {section}{\numberline {1}Introduzione}{6}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Note esplicative}{6}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Struttura del documento}{6}{subsection.1.2}% 
+\contentsline {section}{\numberline {2}Ambiente Aziendale}{8}{section.2}% 
+\contentsline {section}{\numberline {3}Analisi dei problemi}{9}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Tecniche di computer vision}{9}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Computer vision applicata su immagini ad alta risoluzione}{11}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Frammentazione dell'immagine}{12}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Tecniche di object tracking}{14}{subsection.3.4}% 
+\contentsline {subsection}{\numberline {3.5}Object tracking con continue object detections}{15}{subsection.3.5}% 
+\contentsline {section}{\numberline {4}Progettazione}{17}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Progettazione algoritmo per riconoscimento di elementi in un'immagine frammentata}{17}{subsection.4.1}% 
+\contentsline {subsubsection}{\numberline {4.1.1}Scomposizione del frame originale in regioni}{17}{subsubsection.4.1.1}% 
+\contentsline {subsubsection}{\numberline {4.1.2}Rimozione degli elementi individuati pi\IeC {\`u} volte all'interno delle aree di sovrapposizione}{18}{subsubsection.4.1.2}% 
+\contentsline {subsubsection}{\numberline {4.1.3}Creazione di raggruppamenti di labels correlate}{18}{subsubsection.4.1.3}% 
+\contentsline {subsubsection}{\numberline {4.1.4}Miglioramento: raggruppamenti di labels utilizzati come region proposal}{21}{subsubsection.4.1.4}% 
+\contentsline {subsection}{\numberline {4.2}Progettazione algoritmo per tracciamento di elementi}{22}{subsection.4.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1}Filtro di Kalman}{22}{subsubsection.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.2}Assegnazione detection-tracker}{23}{subsubsection.4.2.2}% 
+\contentsline {subsubsection}{\numberline {4.2.3}Gestione delle detections e dei trackers non assegnati}{25}{subsubsection.4.2.3}% 
+\contentsline {subsubsection}{\numberline {4.2.4}Utilizzo di metriche di supporto per l'assegnazione detection-tracker}{26}{subsubsection.4.2.4}% 
+\contentsline {section}{\numberline {5}Tecnologie}{28}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Python}{28}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Pycharm}{28}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Tensorflow}{29}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}OpenCV}{29}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {5.5}Numpy}{29}{subsection.5.5}% 
+\contentsline {subsection}{\numberline {5.6}Matplotlib}{30}{subsection.5.6}% 
+\contentsline {subsection}{\numberline {5.7}Pytest}{30}{subsection.5.7}% 
+\contentsline {section}{\numberline {6}Sviluppo}{31}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Sviluppo algoritmo per ricomposizione delle labels in un'immagine frammentata}{31}{subsection.6.1}% 
+\contentsline {subsubsection}{\numberline {6.1.1}Implementazione}{31}{subsubsection.6.1.1}% 
+\contentsline {subsubsection}{\numberline {6.1.2}Test di integrazione}{33}{subsubsection.6.1.2}% 
+\contentsline {subsubsection}{\numberline {6.1.3}Pipeline completa}{33}{subsubsection.6.1.3}% 
+\contentsline {subsection}{\numberline {6.2}Sviluppo sistema di tracking}{35}{subsection.6.2}% 
+\contentsline {section}{\numberline {7}Risultati ottenuti}{37}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Metriche utilizzate per detection su singole immagini}{37}{subsection.7.1}% 
+\contentsline {subsubsection}{\numberline {7.1.1}Precision}{37}{subsubsection.7.1.1}% 
+\contentsline {subsubsection}{\numberline {7.1.2}Recall}{37}{subsubsection.7.1.2}% 
+\contentsline {subsubsection}{\numberline {7.1.3}F1}{38}{subsubsection.7.1.3}% 
+\contentsline {subsubsection}{\numberline {7.1.4}Intersection over union}{38}{subsubsection.7.1.4}% 
+\contentsline {subsubsection}{\numberline {7.1.5}Average Precision}{38}{subsubsection.7.1.5}% 
+\contentsline {subsubsection}{\numberline {7.1.6}Mean Average Precision}{39}{subsubsection.7.1.6}% 
+\contentsline {subsection}{\numberline {7.2}Dataset utilizzato per detection su singole immagini}{39}{subsection.7.2}% 
+\contentsline {subsubsection}{\numberline {7.2.1}Impostazione parametri detection}{40}{subsubsection.7.2.1}% 
+\contentsline {subsection}{\numberline {7.3}Risultati ottenuti nella detection su singole immagini}{41}{subsection.7.3}% 
+\contentsline {subsubsection}{\numberline {7.3.1}Risultati per categoria}{41}{subsubsection.7.3.1}% 
+\contentsline {subsubsection}{\numberline {7.3.2}Risultati per parametri}{45}{subsubsection.7.3.2}% 
+\contentsline {subsection}{\numberline {7.4}Metriche utilizzate per tracking su video}{45}{subsection.7.4}% 
+\contentsline {subsubsection}{\numberline {7.4.1}Mostly Tracked Trajectories}{46}{subsubsection.7.4.1}% 
+\contentsline {subsubsection}{\numberline {7.4.2}Mostly Lost Trajectories}{46}{subsubsection.7.4.2}% 
+\contentsline {subsubsection}{\numberline {7.4.3}ID switches}{46}{subsubsection.7.4.3}% 
+\contentsline {subsubsection}{\numberline {7.4.4}Fragments}{46}{subsubsection.7.4.4}% 
+\contentsline {subsubsection}{\numberline {7.4.5}MOTP}{46}{subsubsection.7.4.5}% 
+\contentsline {subsubsection}{\numberline {7.4.6}MOTA}{47}{subsubsection.7.4.6}% 
+\contentsline {subsubsection}{\numberline {7.4.7}IDF1}{47}{subsubsection.7.4.7}% 
+\contentsline {subsection}{\numberline {7.5}Dataset utilizzato per tracking su video}{47}{subsection.7.5}% 
+\contentsline {subsubsection}{\numberline {7.5.1}Impostazione parametri tracking}{48}{subsubsection.7.5.1}% 
+\contentsline {subsection}{\numberline {7.6}Risultati ottenuti nel tracking su video}{49}{subsection.7.6}% 
+\contentsline {subsubsection}{\numberline {7.6.1}Risultati per categoria}{49}{subsubsection.7.6.1}% 
+\contentsline {subsubsection}{\numberline {7.6.2}Risultati per parametri}{50}{subsubsection.7.6.2}% 
+\contentsline {section}{\numberline {8}Glossario}{51}{section.8}% 
+\contentsline {paragraph}{A}{51}{section*.4}% 
+\contentsline {subparagraph}{Affidabilit\IeC {\`a}}{51}{section*.5}% 
+\contentsline {paragraph}{B}{51}{section*.6}% 
+\contentsline {subparagraph}{Bounding box}{51}{section*.7}% 
+\contentsline {paragraph}{C}{51}{section*.8}% 
+\contentsline {subparagraph}{Categoria}{51}{section*.9}% 
+\contentsline {paragraph}{L}{51}{section*.10}% 
+\contentsline {subparagraph}{Label}{51}{section*.11}% 
+\contentsline {paragraph}{O}{51}{section*.12}% 
+\contentsline {subparagraph}{Overlap}{51}{section*.13}% 
+\contentsline {paragraph}{R}{51}{section*.14}% 
+\contentsline {subparagraph}{Raggruppamento}{51}{section*.15}% 
+\contentsline {subparagraph}{Regione}{51}{section*.16}% 
+\contentsline {paragraph}{S}{52}{section*.17}% 
+\contentsline {subparagraph}{Score}{52}{section*.18}% 
+\contentsline {subparagraph}{Soglia di matching}{52}{section*.19}% 
+\contentsline {subparagraph}{Stride}{52}{section*.20}% 
+\contentsline {paragraph}{T}{52}{section*.21}% 
+\contentsline {subparagraph}{Tolleranza}{52}{section*.22}% 
+\contentsline {section}{\numberline {9}Bibliografia}{53}{section.9}% 
+\contentsline {section}{\numberline {10}Appendice}{55}{section.10}% 
