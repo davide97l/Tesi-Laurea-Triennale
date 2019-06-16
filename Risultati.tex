@@ -325,3 +325,41 @@ SV & SC & SA & IDF1 & Rcll & Prcn & MT & ML & FP & FN & IDs & FM & MOTA & MOTP\\
 \caption{Risultati tracking per parametri}
 \label{risultati tracking per parametri}
 \end{table}
+
+Nella tabella si può notare che all'aumentare del valore della \textbf{soglia di validazione} diminuisce il numero di falsi positivi, scambi di ID e di traiettorie frammentate in quanto vengono tracciati meno elementi ma in modo più efficace. Allo stesso tempo, però, le altre metriche tendono a diminuire in quanto elementi di breve comparsa nei video verranno ignorati o solo parzialmente tracciati. All'aumentare della \textbf{soglia di cancellazione} aumenta di molto il numero di falsi positivi al guadagno di una leggera riduzione del numero di falsi negativi ma le altre metriche tendono a rimanere costanti o addirittura peggiorare. Questo è dovuto anche al fatto che in questo caso le detections sono perfette ed il rischio di perdere un elemento tracciato si verifica solo in caso di forte sovrapposizione con altri elementi. Inoltre, le metriche ottenute con \textbf{soglia di accettazione} maggiore sono quasi sempre leggermente inferiori a quelle ottenute con la soglia più bassa, questo perché una soglia alta tende a scartare molte coppie tracker-detection che in realtà sarebbero state corrette, d'altra parte una soglia bassa comporta il rischio di associazioni errate. 
+
+\clearpage
+\subsubsection{Risultati per parametri con detection}
+La seguente tabella mostra i risultati ottenuti applicando il tracking sul set di video utilizzato in precedenza, questa volta però, gli oggetti sono stati individuati utilizzando un modello per eseguire la detection piuttosto che tramite le loro labels esatte. In questo modo si va a testare il sistema di tracking completo in condizioni reali dove le labels individuate per mezzo della detection non sono esatte ma possono contenere degli errori in grado di influenzare il risultato del tracking stesso. Anche le combinazioni di parametri sono le stesse in modo da poter confrontare i risultati di questa tabella con quelli ottenuti nella tabella precedente.
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+SV & SC & SA & IDF1 & Rcll & Prcn & MT & ML & FP & FN & IDs & FM & MOTA & MOTP\\ [0.5ex] 
+\hline
+1 & 1 & 0.1 & 50.0 & 68.2 & 81.2 & 69.6 & 16.1 & 5007 & 10076 & 702 & 477 & 50.2 & 84.1\\
+1 & 1 & 0.5 & 50.0 & 68.2 & 81.2 & 69.6 & 16.1 & 5009 & 10079 & 702 & 473 & 50.2 & 84.1\\
+1 & 5 & 0.1 & 50.2 & 70.0 & 76.5 & 70.5 & 15.6 & 6832 & 9518 & 609 & 431 & 46.5 & 83.6\\
+1 & 5 & 0.5 & 49.9 & 70.0 & 76.4 & 70.5 & 15.6 & 6867 & 9512 & 606 & 426 & 46.4 & 83.6\\
+1 & 10 & 0.1 & 49.9 & 70.7 & 73.3 & 71.4 & 15.2 & 8155 & 9299 & 578 & 420 & 43.1 & 83.4\\
+1 & 10 & 0.5 & 49.7 & 70.7 & 73.2 & 71.4 & 15.2 & 8206 & 9287 & 575 & 418 & 43.0 & 83.4\\
+3 & 1 & 0.1 & 50.9 & 66.8 & 83.3 & 69.2 & 16.1 & 4251 & 10535 & 642 & 444 & 51.3 & 84.5\\
+3 & 1 & 0.5 & 50.9 & 66.7 & 83.3 & 69.2 & 16.1 & 4249 & 10543 & 641 & 440 & 51.3 & 84.5\\
+3 & 5 & 0.1 & 51.0 & 69.1 & 78.5 & 69.6 & 16.1 & 5996 & 9795 & 584 & 412 & 48.3 & 83.8\\
+3 & 5 & 0.5 & 50.7 & 69.1 & 78.5 & 70.1 & 16.1 & 6006 & 9794 & 581 & 405 & 48.3 & 83.8\\
+3 & 10 & 0.1 & 50.6 & 69.9 & 75.2 & 70.5 & 16.1 & 7324 & 9541 & 561 & 409 & 45.0 & 83.6\\
+3 & 10 & 0.5 & 50.4 & 69.9 & 75.2 & 70.5 & 16.1 & 7316 & 9538 & 558 & 406 & 45.1 & 83.6\\
+5 & 1 & 0.1 & 51.5 & 65.6 & 84.6 & 68.7 & 16.1 & 3801 & 10893 & 613 & 420 & 51.7 & 84.8\\
+5 & 1 & 0.5 & 51.5 & 65.6 & 84.6 & 68.7 & 16.1 & 3797 & 10900 & 614 & 418 & 51.7 & 84.8\\
+5 & 5 & 0.1 & 51.5 & 68.4 & 80.1 & 69.2 & 16.1 & 5398 & 10021 & 574 & 400 & 49.5 & 84.0\\
+5 & 5 & 0.5 & 51.2 & 68.4 & 80.0 & 69.2 & 16.1 & 5403 & 10021 & 571 & 396 & 49.5 & 84.0\\
+5 & 10 & 0.1 & 51.1 & 69.3 & 76.7 & 69.6 & 16.1 & 6674 & 9721 & 552 & 339 & 46.5 & 83.7\\
+5 & 10 & 0.5 & 50.9 & 69.3 & 76.7 & 69.6 & 16.1 & 6658 & 9725 & 549 & 397 & 46.6 & 83.7\\
+\hline
+\end{tabular}
+\caption{Risultati tracking per parametri}
+\label{risultati tracking per parametri}
+\end{table}
+
+Come è facile aspettarsi, quasi tutte le metriche mostrano risultati sensibilmente peggiori rispetto a quelli mostrati nella tabella precedente. In particolare, a causa degli errori introdotti dalla detection risultano esserci molti più falsi negativi e falsi positivi rispetto al tracciamento eseguito con le labels delle detections esatte. A causa del significativo aumento dei falsi negativi è presente una lieve diminuzione del numero di scambi degli ID. Questo comporta un valore MOTA praticamente dimezzato rispetto alla versione precedente mentre la metrica MOTP subisce solo una moderata diminuzione. Per lo stesso motivo anche le metriche Rcll e Prcn presentano valori più bassi riducendo di conseguenza il valore di IDF1.\\
+Anche in questo caso i parametri giocano un ruolo fondamentale nel determinare il risultato migliore. Nello specifico, valori alti della \textbf{soglia di validazione} e della \textbf{soglia di cancellazione} aumentano la robustezza del tracciamento a discapito della sua qualità. Infatti i valori di IDs e FM minimi si hanno in corrispondenza dei valori dei parametri SV e SC maggiori. Valori maggiori di SV, filtrando le detections errate, diminuiscono il numero dei falsi positivi mentre valori maggiori di SC, prolungando la durata del tracciamento anche in caso di scomparsa dell'elemento tracciato, riducono il numero di falsi negativi. La metrica IDF1 rimane più o meno stabile per tutte le combinazioni di parametri significando quindi che essa è più influenzata dalla qualità della detection che da quella del tracking. In generale, aumentando le soglie di cancellazione e di validazioni si ha un tracciamento migliore e più resistente agli errori mentre diminuendole si ha un tracking meno preciso ma più completo in quanto verrebbero tracciati più elementi.

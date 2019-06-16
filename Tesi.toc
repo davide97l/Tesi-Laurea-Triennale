@@ -61,25 +61,26 @@
 \contentsline {subsection}{\numberline {7.6}Risultati ottenuti nel tracking su video}{49}{subsection.7.6}% 
 \contentsline {subsubsection}{\numberline {7.6.1}Risultati per categoria}{49}{subsubsection.7.6.1}% 
 \contentsline {subsubsection}{\numberline {7.6.2}Risultati per parametri}{50}{subsubsection.7.6.2}% 
-\contentsline {section}{\numberline {8}Glossario}{51}{section.8}% 
-\contentsline {paragraph}{A}{51}{section*.4}% 
-\contentsline {subparagraph}{Affidabilit\IeC {\`a}}{51}{section*.5}% 
-\contentsline {paragraph}{B}{51}{section*.6}% 
-\contentsline {subparagraph}{Bounding box}{51}{section*.7}% 
-\contentsline {paragraph}{C}{51}{section*.8}% 
-\contentsline {subparagraph}{Categoria}{51}{section*.9}% 
-\contentsline {paragraph}{L}{51}{section*.10}% 
-\contentsline {subparagraph}{Label}{51}{section*.11}% 
-\contentsline {paragraph}{O}{51}{section*.12}% 
-\contentsline {subparagraph}{Overlap}{51}{section*.13}% 
-\contentsline {paragraph}{R}{51}{section*.14}% 
-\contentsline {subparagraph}{Raggruppamento}{51}{section*.15}% 
-\contentsline {subparagraph}{Regione}{51}{section*.16}% 
-\contentsline {paragraph}{S}{52}{section*.17}% 
-\contentsline {subparagraph}{Score}{52}{section*.18}% 
-\contentsline {subparagraph}{Soglia di matching}{52}{section*.19}% 
-\contentsline {subparagraph}{Stride}{52}{section*.20}% 
-\contentsline {paragraph}{T}{52}{section*.21}% 
-\contentsline {subparagraph}{Tolleranza}{52}{section*.22}% 
-\contentsline {section}{\numberline {9}Bibliografia}{53}{section.9}% 
-\contentsline {section}{\numberline {10}Appendice}{55}{section.10}% 
+\contentsline {subsubsection}{\numberline {7.6.3}Risultati per parametri con detection}{52}{subsubsection.7.6.3}% 
+\contentsline {section}{\numberline {8}Glossario}{54}{section.8}% 
+\contentsline {paragraph}{A}{54}{section*.4}% 
+\contentsline {subparagraph}{Affidabilit\IeC {\`a}}{54}{section*.5}% 
+\contentsline {paragraph}{B}{54}{section*.6}% 
+\contentsline {subparagraph}{Bounding box}{54}{section*.7}% 
+\contentsline {paragraph}{C}{54}{section*.8}% 
+\contentsline {subparagraph}{Categoria}{54}{section*.9}% 
+\contentsline {paragraph}{L}{54}{section*.10}% 
+\contentsline {subparagraph}{Label}{54}{section*.11}% 
+\contentsline {paragraph}{O}{54}{section*.12}% 
+\contentsline {subparagraph}{Overlap}{54}{section*.13}% 
+\contentsline {paragraph}{R}{54}{section*.14}% 
+\contentsline {subparagraph}{Raggruppamento}{54}{section*.15}% 
+\contentsline {subparagraph}{Regione}{54}{section*.16}% 
+\contentsline {paragraph}{S}{55}{section*.17}% 
+\contentsline {subparagraph}{Score}{55}{section*.18}% 
+\contentsline {subparagraph}{Soglia di matching}{55}{section*.19}% 
+\contentsline {subparagraph}{Stride}{55}{section*.20}% 
+\contentsline {paragraph}{T}{55}{section*.21}% 
+\contentsline {subparagraph}{Tolleranza}{55}{section*.22}% 
+\contentsline {section}{\numberline {9}Bibliografia}{56}{section.9}% 
+\contentsline {section}{\numberline {10}Appendice}{58}{section.10}% 
