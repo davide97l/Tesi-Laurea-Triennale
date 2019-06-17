@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.5)  16 JUN 2019 20:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.5)  17 JUN 2019 10:24
 entering extended mode
 **./Tesi.tex
 (Tesi.tex
@@ -504,23 +504,16 @@ l.34 ...}Implementazione}{31}{subsubsection.6.1.1}
 \openout6 = `Tesi.lof'.
 
  [5] (Introduzione.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--3
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 10.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 8.
 ("C:\Users\Davide\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
-) [6] [7] (Azienda.tex
-<images/studiomapp.jpg, id=425, 387.69844pt x 77.53969pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10.
+
+[6]) [7] (Azienda.tex
+<images/studiomapp.jpg, id=427, 387.69844pt x 77.53969pt>
 File: images/studiomapp.jpg Graphic file (type jpg)
 <use images/studiomapp.jpg>
 Package pdftex.def Info: images/studiomapp.jpg  used on input line 5.
@@ -542,34 +535,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--14
                                                   \fi \fi 
 l.16 	\newpage
                <./images/studiomapp.jpg>] (Analisi.tex
-<images/esempio-detection.jpg, id=431, 602.25pt x 401.5pt>
+<images/esempio-detection.jpg, id=433, 602.25pt x 401.5pt>
 File: images/esempio-detection.jpg Graphic file (type jpg)
 <use images/esempio-detection.jpg>
-Package pdftex.def Info: images/esempio-detection.jpg  used on input line 8.
+Package pdftex.def Info: images/esempio-detection.jpg  used on input line 9.
 (pdftex.def)             Requested size: 328.82706pt x 219.22668pt.
  [9] [10pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.17 \subsection
+l.18 \subsection
                 {Computer vision applicata su immagini ad alta risoluzione} <./
 images/esempio-detection.jpg>]
-<images/Esempio-4K-video-frame.png, id=444, 853.1875pt x 479.7925pt>
+<images/Esempio-4K-video-frame.png, id=446, 853.1875pt x 479.7925pt>
 File: images/Esempio-4K-video-frame.png Graphic file (type png)
 <use images/Esempio-4K-video-frame.png>
 Package pdftex.def Info: images/Esempio-4K-video-frame.png  used on input line 
-22.
+23.
 (pdftex.def)             Requested size: 328.82706pt x 184.922pt.
  [11]
-<images/esempio-frammentazione.jpg, id=455, 4015.0pt x 3011.25pt>
+<images/esempio-frammentazione.jpg, id=457, 4015.0pt x 3011.25pt>
 File: images/esempio-frammentazione.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione.jpg>
 Package pdftex.def Info: images/esempio-frammentazione.jpg  used on input line 
-30.
+31.
 (pdftex.def)             Requested size: 234.87749pt x 176.11836pt.
 
-Underfull \hbox (badness 1701) in paragraph at lines 31--31
+Underfull \hbox (badness 1701) in paragraph at lines 32--32
 []\OT1/cmr/m/n/12 Figura 4: []Esempio di un'im-ma-gi-ne in al-ta ri-so-lu-zio-n
 e sud-di-vi-sa in re-gio-ni sen-za
  []
@@ -579,7 +572,7 @@ e sud-di-vi-sa in re-gio-ni sen-za
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.34 T
+l.35 T
       uttavia questo procedimento non è esente da difficoltà.  Nel caso in...
  <./images/Esempio-4K-video-frame.png>] [13pdfTeX warning (ext4): destination w
 ith the same identifier (name{figure.4}) has been already used, duplicate ignor
@@ -587,13 +580,13 @@ ed
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.37 \subsection
+l.38 \subsection
                 {Tecniche di object tracking} <./images/esempio-frammentazione.
 jpg>]
-<images/esempio-tracking.jpg, id=468, 1542.36224pt x 443.85825pt>
+<images/esempio-tracking.jpg, id=470, 1542.36224pt x 443.85825pt>
 File: images/esempio-tracking.jpg Graphic file (type jpg)
 <use images/esempio-tracking.jpg>
-Package pdftex.def Info: images/esempio-tracking.jpg  used on input line 41.
+Package pdftex.def Info: images/esempio-tracking.jpg  used on input line 42.
 (pdftex.def)             Requested size: 469.75499pt x 135.18353pt.
  [14]) [15pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.5}) has been already used, duplicate ignored
@@ -602,25 +595,25 @@ ure.5}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.18 	\newpage
                <./images/esempio-tracking.jpg>] [16] (Progetto.tex [17]
-<images/esempio-frammentazione-1.jpg, id=492, 135.50626pt x 196.93575pt>
+<images/esempio-frammentazione-1.jpg, id=494, 135.50626pt x 196.93575pt>
 File: images/esempio-frammentazione-1.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-1.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-1.jpg  used on input lin
 e 21.
 (pdftex.def)             Requested size: 93.95221pt x 137.13286pt.
-<images/esempio-frammentazione-4.jpg, id=493, 122.859pt x 186.6975pt>
+<images/esempio-frammentazione-4.jpg, id=495, 122.859pt x 186.6975pt>
 File: images/esempio-frammentazione-4.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-4.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-4.jpg  used on input lin
 e 22.
 (pdftex.def)             Requested size: 93.95493pt x 137.13127pt.
-<images/esempio-frammentazione-6.jpg, id=494, 123.46124pt x 165.61874pt>
+<images/esempio-frammentazione-6.jpg, id=496, 123.46124pt x 165.61874pt>
 File: images/esempio-frammentazione-6.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-6.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-6.jpg  used on input lin
 e 23.
 (pdftex.def)             Requested size: 93.95395pt x 137.12993pt.
-<images/esempio-frammentazione-5.jpg, id=495, 125.268pt x 171.039pt>
+<images/esempio-frammentazione-5.jpg, id=497, 125.268pt x 171.039pt>
 File: images/esempio-frammentazione-5.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-5.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-5.jpg  used on input lin
@@ -636,25 +629,25 @@ l.39 \begin{enumerate}
                        <./images/esempio-frammentazione-1.jpg> <./images/esempi
 o-frammentazione-4.jpg> <./images/esempio-frammentazione-6.jpg> <./images/esemp
 io-frammentazione-5.jpg>]
-<images/esempio-frammentazione-2.jpg, id=509, 154.176pt x 193.32225pt>
+<images/esempio-frammentazione-2.jpg, id=511, 154.176pt x 193.32225pt>
 File: images/esempio-frammentazione-2.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-2.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-2.jpg  used on input lin
 e 59.
 (pdftex.def)             Requested size: 93.95074pt x 137.12996pt.
-<images/esempio-frammentazione-3.jpg, id=510, 127.677pt x 193.9245pt>
+<images/esempio-frammentazione-3.jpg, id=512, 127.677pt x 193.9245pt>
 File: images/esempio-frammentazione-3.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-3.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-3.jpg  used on input lin
 e 60.
 (pdftex.def)             Requested size: 93.95152pt x 137.12512pt.
-<images/esempio-frammentazione-8.jpg, id=511, 146.34676pt x 208.98074pt>
+<images/esempio-frammentazione-8.jpg, id=513, 146.34676pt x 208.98074pt>
 File: images/esempio-frammentazione-8.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-8.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-8.jpg  used on input lin
 e 61.
 (pdftex.def)             Requested size: 93.94966pt x 137.13051pt.
-<images/esempio-frammentazione-7.jpg, id=512, 145.14224pt x 212.59425pt>
+<images/esempio-frammentazione-7.jpg, id=514, 145.14224pt x 212.59425pt>
 File: images/esempio-frammentazione-7.jpg Graphic file (type jpg)
 <use images/esempio-frammentazione-7.jpg>
 Package pdftex.def Info: images/esempio-frammentazione-7.jpg  used on input lin
@@ -679,7 +672,7 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 97.
 
 [23]
-<images/detection-tracker-assignment.png, id=544, 755.82375pt x 509.905pt>
+<images/detection-tracker-assignment.png, id=546, 755.82375pt x 509.905pt>
 File: images/detection-tracker-assignment.png Graphic file (type png)
 <use images/detection-tracker-assignment.png>
 Package pdftex.def Info: images/detection-tracker-assignment.png  used on input
@@ -694,12 +687,12 @@ l.119 \subsubsection
                     {Utilizzo di metriche di supporto per l'assegnazione det...
  <./images/detection-tracker-assignment.png (PNG copy)>]) [26] [27]
 (Tecnologie.tex
-<images/logo-python.png, id=571, 582.175pt x 164.615pt>
+<images/logo-python.png, id=573, 582.175pt x 164.615pt>
 File: images/logo-python.png Graphic file (type png)
 <use images/logo-python.png>
 Package pdftex.def Info: images/logo-python.png  used on input line 14.
 (pdftex.def)             Requested size: 328.82706pt x 92.98001pt.
-<images/logo-tensorflow.png, id=572, 225.84375pt x 225.84375pt>
+<images/logo-tensorflow.png, id=574, 225.84375pt x 225.84375pt>
 File: images/logo-tensorflow.png Graphic file (type png)
 <use images/logo-tensorflow.png>
 Package pdftex.def Info: images/logo-tensorflow.png  used on input line 30.
@@ -729,12 +722,12 @@ nput line 8.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
  [32] [33] [34]
-<images/diagramma-classi-tracking.png, id=694, 523.35526pt x 364.36125pt>
+<images/diagramma-classi-tracking.png, id=697, 513.71925pt x 360.74776pt>
 File: images/diagramma-classi-tracking.png Graphic file (type png)
 <use images/diagramma-classi-tracking.png>
 Package pdftex.def Info: images/diagramma-classi-tracking.png  used on input li
 ne 108.
-(pdftex.def)             Requested size: 422.77661pt x 294.3415pt.
+(pdftex.def)             Requested size: 422.77661pt x 296.89946pt.
  [35pdfTeX warning (ext4): destination with the same identifier (name{figure.11
 }) has been already used, duplicate ignored
 
@@ -743,7 +736,7 @@ ne 108.
 l.116 \begin{enumerate}
                         <./images/diagramma-classi-tracking.png>]) [36]
 (Risultati.tex [37]
-<images/unione-intersezione.jpg, id=720, 1606.0pt x 780.9175pt>
+<images/unione-intersezione.jpg, id=723, 1606.0pt x 780.9175pt>
 File: images/unione-intersezione.jpg Graphic file (type jpg)
 <use images/unione-intersezione.jpg>
 Package pdftex.def Info: images/unione-intersezione.jpg  used on input line 36.
@@ -756,7 +749,7 @@ Package pdftex.def Info: images/unione-intersezione.jpg  used on input line 36.
                                                   \fi \fi 
 l.44 \]
         <./images/unione-intersezione.jpg>]
-<images/immagine-satellite.jpg, id=726, 1866.37276pt x 1777.842pt>
+<images/immagine-satellite.jpg, id=729, 1866.37276pt x 1777.842pt>
 File: images/immagine-satellite.jpg Graphic file (type jpg)
 <use images/immagine-satellite.jpg>
 Package pdftex.def Info: images/immagine-satellite.jpg  used on input line 61.
@@ -769,12 +762,12 @@ re.13}) has been already used, duplicate ignored
 l.75 \item \textbf
                   {Soglia di matching}. <./images/immagine-satellite.jpg>]
 [41] [42]
-<images/auto1-satellite.jpg, id=750, 120.45pt x 102.3825pt>
+<images/auto1-satellite.jpg, id=753, 120.45pt x 102.3825pt>
 File: images/auto1-satellite.jpg Graphic file (type jpg)
 <use images/auto1-satellite.jpg>
 Package pdftex.def Info: images/auto1-satellite.jpg  used on input line 175.
 (pdftex.def)             Requested size: 187.91776pt x 137.13403pt.
-<images/auto2-satellite.jpg, id=751, 82.50826pt x 85.5195pt>
+<images/auto2-satellite.jpg, id=754, 82.50826pt x 85.5195pt>
 File: images/auto2-satellite.jpg Graphic file (type jpg)
 <use images/auto2-satellite.jpg>
 Package pdftex.def Info: images/auto2-satellite.jpg  used on input line 176.
@@ -847,22 +840,28 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 33.
  (Tesi.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 33.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 33.
-Package rerunfilecheck Info: File `Tesi.out' has not changed.
-(rerunfilecheck)             Checksum: E76A08F74E5894A50F2188D43EE56A2E;5226.
 
+
+Package rerunfilecheck Warning: File `Tesi.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Tesi.out':
+(rerunfilecheck)             Before: E76A08F74E5894A50F2188D43EE56A2E;5226
+(rerunfilecheck)             After:  68B0C431284DB62F51281D5C786AE21D;5422.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 33.
  ) 
 Here is how much of TeX's memory you used:
- 9520 strings out of 492946
- 136617 string characters out of 3125823
- 684841 words of memory out of 3000000
+ 9523 strings out of 492946
+ 136659 string characters out of 3125823
+ 684840 words of memory out of 3000000
  12938 multiletter control sequences out of 15000+200000
  14836 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,12n,43p,3607b,2049s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,12n,43p,3644b,2049s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Davide/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmbx12.pfb><C:/Users/Davide/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmbx8.pfb><C:/Users/Davide/AppData/Local/Programs/MiKTeX 2.9
@@ -883,9 +882,9 @@ public/amsfonts/cm/cmsy8.pfb><C:/Users/Davide/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Davide/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/Davide/AppDat
 a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Tesi.pdf (59 pages, 8389392 bytes).
+Output written on Tesi.pdf (59 pages, 8396574 bytes).
 PDF statistics:
- 992 PDF objects out of 1000 (max. 8388607)
- 291 named destinations out of 1000 (max. 500000)
+ 995 PDF objects out of 1000 (max. 8388607)
+ 294 named destinations out of 1000 (max. 500000)
  631 words of extra memory for PDF output out of 10000 (max. 10000000)
 

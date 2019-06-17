@@ -100,8 +100,8 @@ Nella tabella sottostante vengono riportate tutte le 60 categorie coinvolte nel 
 
 \hline
 
-\caption{Lista delle categorie del dataset utilizzato per effettuare i test con relativo AP}
-\label{lista categorie} \\
+\caption{Risultati detection per categoria}
+\label{risultati detection per categoria} \\
 
 \endlastfoot
 
@@ -208,8 +208,8 @@ Affidabilità & Stride & Overlap & Tolleranza & Match(\%) & F1 & mAP(NMS) & mAP\
 0.2 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
 \hline
 \end{tabular}
-\caption{Risultati generali detection con diversi parametri}
-\label{lista risultati}
+\caption{Risultati detection con diversi parametri}
+\label{risultati detection con diversi parametri}
 \end{table}
 
 \subsection{Metriche utilizzate per tracking su video}
@@ -322,8 +322,8 @@ SV & SC & SA & IDF1 & Rcll & Prcn & MT & ML & FP & FN & IDs & FM & MOTA & MOTP\\
 5 & 10 & 0.5 & 85.3 & 94.1 & 93.6 & 81.7 & 4.6 & 4594 & 4214 & 440 & 265 & 87.1 & 92.1\\
 \hline
 \end{tabular}
-\caption{Risultati tracking per parametri}
-\label{risultati tracking per parametri}
+\caption{Risultati tracking con diversi parametri}
+\label{risultati tracking con diversi parametri}
 \end{table}
 
 Nella tabella si può notare che all'aumentare del valore della \textbf{soglia di validazione} diminuisce il numero di falsi positivi, scambi di ID e di traiettorie frammentate in quanto vengono tracciati meno elementi ma in modo più efficace. Allo stesso tempo, però, le altre metriche tendono a diminuire in quanto elementi di breve comparsa nei video verranno ignorati o solo parzialmente tracciati. All'aumentare della \textbf{soglia di cancellazione} aumenta di molto il numero di falsi positivi al guadagno di una leggera riduzione del numero di falsi negativi ma le altre metriche tendono a rimanere costanti o addirittura peggiorare. Questo è dovuto anche al fatto che in questo caso le detections sono perfette ed il rischio di perdere un elemento tracciato si verifica solo in caso di forte sovrapposizione con altri elementi. Inoltre, le metriche ottenute con \textbf{soglia di accettazione} maggiore sono quasi sempre leggermente inferiori a quelle ottenute con la soglia più bassa, questo perché una soglia alta tende a scartare molte coppie tracker-detection che in realtà sarebbero state corrette, d'altra parte una soglia bassa comporta il rischio di associazioni errate. 
@@ -357,8 +357,8 @@ SV & SC & SA & IDF1 & Rcll & Prcn & MT & ML & FP & FN & IDs & FM & MOTA & MOTP\\
 5 & 10 & 0.5 & 50.9 & 69.3 & 76.7 & 69.6 & 16.1 & 6658 & 9725 & 549 & 397 & 46.6 & 83.7\\
 \hline
 \end{tabular}
-\caption{Risultati tracking per parametri}
-\label{risultati tracking per parametri}
+\caption{Risultati tracking con diversi parametri e detection}
+\label{risultati tracking con diversi parametri e detection}
 \end{table}
 
 Come è facile aspettarsi, quasi tutte le metriche mostrano risultati sensibilmente peggiori rispetto a quelli mostrati nella tabella precedente. In particolare, a causa degli errori introdotti dalla detection risultano esserci molti più falsi negativi e falsi positivi rispetto al tracciamento eseguito con le labels delle detections esatte. A causa del significativo aumento dei falsi negativi è presente una lieve diminuzione del numero di scambi degli ID. Questo comporta un valore MOTA praticamente dimezzato rispetto alla versione precedente mentre la metrica MOTP subisce solo una moderata diminuzione. Per lo stesso motivo anche le metriche Rcll e Prcn presentano valori più bassi riducendo di conseguenza il valore di IDF1.\\
