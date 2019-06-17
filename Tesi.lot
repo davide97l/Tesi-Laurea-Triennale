@@ -1,7 +1,7 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
-\contentsline {table}{\numberline {1}{Lista delle categorie del dataset utilizzato per effettuare i test con relativo AP}}{43}{table.1}% 
-\contentsline {table}{\numberline {2}{\ignorespaces Risultati generali detection con diversi parametri}}{45}{table.2}% 
-\contentsline {table}{\numberline {3}{\ignorespaces Risultati tracking per categoria}}{49}{table.3}% 
-\contentsline {table}{\numberline {4}{\ignorespaces Risultati tracking per parametri}}{50}{table.4}% 
-\contentsline {table}{\numberline {5}{\ignorespaces Risultati tracking per parametri}}{52}{table.5}% 
+\contentsline {table}{\numberline {1}{Risultati detection per categoria}}{44}{table.1}% 
+\contentsline {table}{\numberline {2}{\ignorespaces Risultati detection con diversi parametri}}{46}{table.2}% 
+\contentsline {table}{\numberline {3}{\ignorespaces Risultati tracking per categoria}}{50}{table.3}% 
+\contentsline {table}{\numberline {4}{\ignorespaces Risultati tracking con diversi parametri}}{51}{table.4}% 
+\contentsline {table}{\numberline {5}{\ignorespaces Risultati tracking con diversi parametri e detection}}{53}{table.5}% 
