@@ -1,34 +1,52 @@
 \section{Glossario}
 
-\paragraph{A}
-\subparagraph{Affidabilità}
-Soglia di probabilità minima che lo score di una labels deve possedere per essere considerata come affidabile e non venire scartata.
-
 \paragraph{B}
 \subparagraph{Bounding box}
-E' un rettangolo che identifica il perimetro entro quale l'oggetto riconosciuto si trova.
+E' un rettangolo che delimita l'area entro la quale si trova un oggetto che è stato riconosciuto.
 
 \paragraph{C}
 \subparagraph{Categoria}
-L'obiettivo della classificazione è quello di assegnare all'oggetto individuato la sua categoria di appartenenza.
+Classe di oggetti simili tra loro alla quale un oggetto che è stato riconosciuto e classificato può venire assegnato.
+
+\paragraph{F}
+\subparagraph{Frammentazione}
+Tecnica che consiste nel suddividere un'immagine in diverse sotto-immagini di dimensioni minori, eventualmente con sovrapposizione, in modo che ciascuna di esse sia gestibile da una rete neurale senza perdita di qualità. 
 
 \paragraph{L}
 \subparagraph{Label}
-Etichetta che viene data ad ogni elemento riconosciuto e ne indica la categoria di appartenenza, una bounding box ed uno score.
+Rappresentazione di un elemento riconosciuto e classificato che ne mostra la sua categoria di appartenenza, la sua bounding box ed il suo score. Nel caso del tracking verrà mostrato anche l'ID dell'elemento.
 
 \paragraph{O}
-\subparagraph{Overlap} L'overlap indica lo spessore in pixels dei confini delle regioni. E' usato per sapere se un' entità interseca un confine o meno.
+\subparagraph{Overlap}
+L'overlap indica lo spessore in pixels dei confini delle regioni. E' usato per sapere se un' entità interseca un confine o meno.
 
 \paragraph{R}
 \subparagraph{Raggruppamento}
-Insieme di labels correlate tra loro tale che da una qualsiasi label del gruppo sia possibile raggiungere qualsiasi altra label dello stesso insieme passando solo per label \textit{vicine} \footnote{Due label sono considerate vicine se sono intersecate tra di loro ed intersecano lo stesso confine di regione}.
-\subparagraph{Regione} Una sezione di un'immagine con un'area di dimensione minore dell'area dell'immagine originale.
+Insieme di labels logicamente correlate tra loro tale che da una qualsiasi label del gruppo sia possibile raggiungere qualsiasi altra label dello stesso insieme passando solo per label \textit{vicine} \footnote{Due label sono considerate vicine se sono intersecate tra di loro ed intersecano lo stesso confine di regione}.
+\subparagraph{Regione} 
+Una sezione di un'immagine con un'area di dimensione minore dell'area dell'immagine originale.
 
 \paragraph{S}
-\subparagraph{Score} La probabilità che la categoria associata all'elemento riconosciuto sia quella corretta.
+\subparagraph{Score} La probabilità che la categoria associata all'elemento classificato sia quella corretta.
+\subparagraph{Soglia di affidabilità}
+Soglia di probabilità minima che lo score di una labels deve possedere per essere considerata come affidabile e non venire scartata.
+\subparagraph{Soglia di assegnazione}
+Durante l'associazione tracker-detection del tracking, indica la soglia oltre la quale il valore di matching tra la bounding box predetta da un tracker e quella individuata da una detection deve essere maggiore per poter confermare l'associazione.
+\subparagraph{Soglia di cancellazione}
+Numero di frames consecutivi trascorsi senza che un tracker venga associato al suo oggetto tracciato oltre il quale esso verrà cancellato e l'oggetto verrà considerato come sparito dal video.
 \subparagraph{Soglia di matching}
-Proporzione entro la quale le dimensioni di due bounding boxes devono combaciare per poter essere unite.
-\subparagraph{Stride} E' un attributo da tenere conto in fase di frammentazione di un'immagine ed indica quanti pixels della regione tralasciare, sia in verticale che in orizzontale, prima che cominci quella successiva. Lo stride orizzontale può avere dimensione diversa da quello verticale. La sua applicazione ha come scopo quello di creare delle zone di sovrapposizione tra le varie regioni.
+Proporzione entro la quale le dimensioni di due bounding boxes devono combaciare per poter essere considerate come correlate tra loro. Essa è una condizione necessaria ma non sufficiente affinché due labels possano considerarsi correlate.
+\subparagraph{Soglia di validazione}
+Numero di frames consecutivi nei quali ad un tracker deve venire assegnato un oggetto prima prima che il legame diventi valido. Una volta validato, verrà assegnato un ID al tracker e la label dell'oggetto tracciato verrà mostrata a video.
+\subparagraph{Stride} 
+E' un attributo da tenere conto in fase di frammentazione di un'immagine ed indica quanti pixels della regione tralasciare, sia in verticale che in orizzontale, prima che cominci quella successiva. Lo stride orizzontale può avere dimensione diversa da quello verticale. La sua applicazione ha come scopo quello di creare delle zone di sovrapposizione tra le varie regioni in modo da migliorare la qualità della detection.
 
 \paragraph{T}
-\subparagraph{Tolleranza} La distanza in pixels per la quale una label può discostare da una zona di interesse per cui sia ancora considerata essere intersecata con la zona di interesse.
+\subparagraph{Tolleranza} 
+La distanza in pixels entro la quale una label può discostare da una zona di interesse per cui sia ancora considerata essere intersecata con la zona stessa.
+\subparagraph{Tracker}
+Un tracker ha il compito di tracciare un singolo elemento attraverso i frames di un video.
+
+\paragraph{V}
+\subparagraph{Valore di matching} 
+E' un valore che viene assegnato tra due bounding boxes, una predetta dal filtro di un tracker e l'altra individuata da una detection. Più questo valore è alto, maggiore è la probabilità che quel tracker e quella detection vengano associate tra loro.

@@ -69,24 +69,31 @@
 \contentsline {subsection}{\numberline {8.1}Esperienze acquisite}{55}{subsection.8.1}% 
 \contentsline {subsection}{\numberline {8.2}Difficolt\IeC {\`a} incontrate}{55}{subsection.8.2}% 
 \contentsline {section}{\numberline {9}Glossario}{56}{section.9}% 
-\contentsline {paragraph}{A}{56}{section*.4}% 
-\contentsline {subparagraph}{Affidabilit\IeC {\`a}}{56}{section*.5}% 
-\contentsline {paragraph}{B}{56}{section*.6}% 
-\contentsline {subparagraph}{Bounding box}{56}{section*.7}% 
-\contentsline {paragraph}{C}{56}{section*.8}% 
-\contentsline {subparagraph}{Categoria}{56}{section*.9}% 
+\contentsline {paragraph}{B}{56}{section*.4}% 
+\contentsline {subparagraph}{Bounding box}{56}{section*.5}% 
+\contentsline {paragraph}{C}{56}{section*.6}% 
+\contentsline {subparagraph}{Categoria}{56}{section*.7}% 
+\contentsline {paragraph}{F}{56}{section*.8}% 
+\contentsline {subparagraph}{Frammentazione}{56}{section*.9}% 
 \contentsline {paragraph}{L}{56}{section*.10}% 
 \contentsline {subparagraph}{Label}{56}{section*.11}% 
 \contentsline {paragraph}{O}{56}{section*.12}% 
 \contentsline {subparagraph}{Overlap}{56}{section*.13}% 
 \contentsline {paragraph}{R}{56}{section*.14}% 
 \contentsline {subparagraph}{Raggruppamento}{56}{section*.15}% 
-\contentsline {subparagraph}{Regione}{56}{section*.16}% 
+\contentsline {subparagraph}{Regione}{57}{section*.16}% 
 \contentsline {paragraph}{S}{57}{section*.17}% 
 \contentsline {subparagraph}{Score}{57}{section*.18}% 
-\contentsline {subparagraph}{Soglia di matching}{57}{section*.19}% 
-\contentsline {subparagraph}{Stride}{57}{section*.20}% 
-\contentsline {paragraph}{T}{57}{section*.21}% 
-\contentsline {subparagraph}{Tolleranza}{57}{section*.22}% 
-\contentsline {section}{\numberline {10}Bibliografia}{58}{section.10}% 
-\contentsline {section}{\numberline {11}Appendice}{60}{section.11}% 
+\contentsline {subparagraph}{Soglia di affidabilit\IeC {\`a}}{57}{section*.19}% 
+\contentsline {subparagraph}{Soglia di assegnazione}{57}{section*.20}% 
+\contentsline {subparagraph}{Soglia di cancellazione}{57}{section*.21}% 
+\contentsline {subparagraph}{Soglia di matching}{57}{section*.22}% 
+\contentsline {subparagraph}{Soglia di validazione}{57}{section*.23}% 
+\contentsline {subparagraph}{Stride}{57}{section*.24}% 
+\contentsline {paragraph}{T}{57}{section*.25}% 
+\contentsline {subparagraph}{Tolleranza}{58}{section*.26}% 
+\contentsline {subparagraph}{Tracker}{58}{section*.27}% 
+\contentsline {paragraph}{V}{58}{section*.28}% 
+\contentsline {subparagraph}{Valore di matching}{58}{section*.29}% 
+\contentsline {section}{\numberline {10}Bibliografia}{59}{section.10}% 
+\contentsline {section}{\numberline {11}Appendice}{61}{section.11}% 
