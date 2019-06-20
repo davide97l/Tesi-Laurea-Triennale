@@ -5,7 +5,7 @@ Nell'ambito della computer vision vengono tipicamente utilizzate due tipi di met
 \item Corretta determinazione della posizione degli oggetti;
 \item Rilevamento dell'esistenza degli oggetti nell'immagine e la loro corretta classificazione.
 \end{itemize}
-Le metriche utilizzate per misurare la bontà dei risultati del progetto sono F1, AP (Average Precision) e mAp (mean Average Precision) le quali misurano la seconda proprietà sopra elencata.
+Le metriche utilizzate per misurare la bontà dei risultati del progetto sono F1, AP (Average Precision) e mAp (mean Average Precision)\cite{detectionmetrics} le quali misurano la seconda proprietà sopra elencata.
 Prima di iniziare a descrivere le metriche è necessario definire alcuni concetti che saranno poi coinvolti per il calcolo dei valori delle metriche.
 \subsubsection{Precision}
 La precision misura l'accuratezza delle classificazioni ed indica la percentuale di classificazioni corrette sulla base di quelle totali e viene calcolata come:
@@ -18,19 +18,19 @@ La recall misura quanti oggetti sono stati individuati e classificati correttame
 \[
     recall = \frac{TP}{TP + FN}
 \]
-Dove TP (True Positives) è sempre il numero di classificazioni corrette mentre FN (False Negatives) è il numero di di oggetti che non sono stati individuati ma che se sarebbe stato corretto individuare. Questa metrica fornisce un'idea sulla completezza dei risultati.
+Dove TP (True Positives) è sempre il numero di classificazioni corrette mentre FN (False Negatives) è il numero di di oggetti che non sono stati individuati ma che sarebbe stato corretto individuare. Questa metrica fornisce un'idea sulla completezza dei risultati.
 \subsubsection{F1}
-F1 è una metrica che combina la precision con il recall e può essere interpretata come la media armonica tra la precision e la recall. Il valore massimo ottenibile è 1 raggiungibile nel caso in cui sia la precision che la recall siano pari ad 1 mentre il valore minimo è 0 ottenuto quando entrambe le metriche che lo compongono assumono valore pari a 0. Viene calcolato come:
+F1 è una metrica che combina la precision con la recall e può essere interpretata come la media armonica tra le due metriche. Il valore massimo ottenibile è 1 raggiungibile nel caso in cui sia la precision che la recall siano pari ad 1 mentre il valore minimo è 0 ottenuto quando entrambe le metriche che lo compongono assumono valore pari a 0. Viene calcolato come:
 \[
     F1 = 2 \times \frac{precision \times recall}{precision + recall}
 \]
 \subsubsection{Intersection over union}
-L'intersection over union (IoU) misura il grado di sovrapposizione tra due aree e viene usato per misurare il grado di sovrapposizione tra la box dell'oggetto individuato e la box dell'oggetto reale. Viene calcolata come:
+L'intersection over union (IoU) misura il grado di sovrapposizione tra due aree e viene usato per misurare il grado di sovrapposizione tra la box dell'oggetto individuato e la box dell'oggetto reale (ground truth). Viene calcolata come:
 \[
     IoU = \frac{AI}{AU}
 \]
-Dove AI (Area dell'Intersezione) corrisponde all'area dell'intersezione tra le due bounding boxes e AU (Area dell'Unione) corrisponde all'area dell'unione tra le due bounding boxes.
-Una label per essere considerata come corretta deve avere un valore di IoU maggiore di una soglia stabilità (per esempio 0.5).
+Dove AI (Area dell'Intersezione) corrisponde all'area dell'intersezione tra le due bounding boxes e AU (Area dell'Unione) corrisponde all'area della loro unione.
+Una label per essere considerata come corretta deve avere un valore di IoU con la sua ground truth maggiore di una soglia stabilità. (per esempio 0.5).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{images/unione-intersezione.jpg}
@@ -38,7 +38,7 @@ Una label per essere considerata come corretta deve avere un valore di IoU maggi
 	\label{Esempio di intersezione e di unione}
 \end{figure}
 \subsubsection{Average Precision}
-Un'altra delle metriche utilizzate è l'average precision (AP) e per calcolarla si fa la media delle precisioni di undici diversi valori di recall equamente distribuiti. Questa metrica viene applicata ad una sola categoria di elementi e viene calcolata tramite la seguente formula:
+Un'altra delle metriche utilizzate è l'average precision (AP) e per calcolarla si fa la media della precisione di undici diversi valori di recall equamente distribuiti. Questa metrica viene applicata ad una sola categoria di elementi e viene calcolata tramite la seguente formula:
 \[
     AP = \frac{1}{11}\sum_{Recall\ped{i}}^{} Precision(Recall\ped{i})
 \]
@@ -55,7 +55,7 @@ La mean average precision (mAP) è la media delle AP di tutte le categorie calco
 Dove \textit{i} è il numero totale di categorie sulle quali è stata calcolata la propria AP e \textit{x} rappresenta diverse soglie di IoU.
 
 \subsection{Dataset utilizzato per detection su singole immagini}
-I test sono stati eseguiti su un dataset di immagini satellitari in alta risoluzione con circa 3000 pixels di altezza e 4000 di larghezza. Il modello di rete è stato allenato per riconoscere elementi appartenenti a sessanta categorie, le quali, verranno riportate nella tabella 1 insieme ai loro relativi risultati. Il dataset utilizzato è particolarmente impegnativo da analizzare a causa delle ambiguità tra molte delle sue categorie in quanto molte di esse rappresentano lo stesso elemento ma sotto forma di tipologie diverse. Per esempio, gli oggetti appartenenti alle categorie dalla 8 alla 17 sono tutti dei camion, ma di diversa tipologia, tanto che perfino un essere umano, se non esperto in materia, farebbe fatica a distinguerli. La seconda difficoltà viene aggiunta dal fatto che le immagini sono state prese da satelliti i quali orbitano ad un'altezza di migliaia di kilometri dalla superficie terrestre. Data l'enorme distanza, gli oggetti di dimensioni minori come le automobili sono molto difficili da individuare ed ancora più complesso lo è classificarli nella loro corretta categoria. E' per questo motivo che viene applicata la frammentazione visto che risulta fondamentale non perdere risoluzione durante la detection. In seguito, svolge un ruolo fondamentale l'algoritmo di ricostruzione dell'immagine frammentata in quanto permette di ricomporre le bounding boxes di quegli elementi che sono stati suddivisi su più regioni. In seguito viene mostrata una delle immagini presa dal dataset utilizzato per calcolare le metriche.
+I test sono stati eseguiti sul dataset xView composto da diverse immagini satellitari in alta risoluzione con circa 3000 pixels di altezza e 4000 di larghezza. Il modello di rete è stato allenato per riconoscere elementi appartenenti a sessanta categorie, le quali, verranno riportate nella tabella 1 insieme ai loro valori di AP. Il dataset utilizzato è particolarmente impegnativo da analizzare a causa delle ambiguità tra molte delle sue categorie in quanto molte di esse rappresentano lo stesso elemento ma sotto forma di tipologie diverse. Per esempio, gli oggetti appartenenti alle categorie dalla 8 alla 17 sono tutti dei camion, ma di diversa tipologia, tanto che perfino un essere umano, se non esperto in materia, farebbe fatica a distinguerli. La seconda difficoltà viene aggiunta dal fatto che le immagini sono state prese da satelliti, i quali, orbitano ad un'altezza di migliaia di kilometri dalla superficie terrestre. Data l'enorme distanza, gli oggetti di dimensioni minori, come le automobili, risultano molto difficili da individuare ed ancora più complesso lo è classificarli nella loro corretta categoria. E' per questo motivo che viene applicata la frammentazione visto che risulta fondamentale non perdere risoluzione durante la detection. In seguito, svolge un ruolo fondamentale l'algoritmo di ricostruzione dell'immagine frammentata in quanto permette di ricomporre le bounding boxes di quegli elementi che sono stati suddivisi su più regioni. In seguito viene mostrata una delle immagini presa dal dataset utilizzato per calcolare le metriche.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/immagine-satellite.jpg}
@@ -64,9 +64,8 @@ I test sono stati eseguiti su un dataset di immagini satellitari in alta risoluz
 \end{figure}
 
 \subsubsection{Impostazione parametri detection}
-Il parametro utilizzato per determinare quali labels tenere tra tutte quelle risultanti da una detection è
-l' \textbf{affidabilità}.\\
-Nella seguente listea vengono elencati i parametri che intervengono in fase di ricostruzione delle labels a seguito della detection:
+Il parametro utilizzato per determinare quali labels tenere tra tutte quelle risultanti da una detection è l' \textbf{affidabilità}, labels con un valore di affidabilità troppo basso verranno scartate in quanto potrebbe trattarsi di falsi positivi.\\
+Nella seguente lista vengono elencati i parametri che intervengono in fase di ricostruzione delle labels a seguito della frammentazione:
 \begin{itemize}
 \item \textbf{Dimensione regioni};
 \item \textbf{Dimensione stride};
@@ -75,15 +74,16 @@ Nella seguente listea vengono elencati i parametri che intervengono in fase di r
 \item \textbf{Soglia di matching}.
 \end{itemize}
 Una spiegazione più dettagliata riguardo ai parametri la si può trovare in sezione \textit{4.1} o nel \textit{Glossario}.
-Ogni immagine è stata suddivisa in regioni di dimensioni fisse da 640x640 pixels. A causa della difficoltà nell'individuazione degli elementi, il loro score sarà relativamente basso risultando quindi in una scarsa affidabilità. La \textbf{soglia di affidabilità} per la \textbf{condizione di correlazione} necessaria per effettuare un match è stata perciò impostata a 0. Di conseguenza, due labels di diversa categoria non potranno mai venire unite. Le altre funzioni ridefinibili sono state lasciate con il loro comportamento di default descritto in sezione \textit{4.1}. I restanti parametri sono invece variabili e ne sono state testate diverse combinazioni ai fini di ricercare quelle combinazioni di parametri in grado di fornire i risultati migliori.
-\\
-La detection è stata effettuata su 100 immagini dove per ciascuna sono state testate 4 soglie diverse di \textbf{affidabilità}=[0.01, 0.1, 0.2, 0.3], 5 valori di \textbf{overlap}=[0, 1, 2, 3, 4], 5 di \textbf{tolleranza}=[0, 1, 2, 4, 4], 4 \textbf{soglie di matching}=[20\%, 40\%, 60\%, 80\%] per un totale di 625 combinazioni di parametri diverse. Le metriche sono state calcolate come media delle metriche per ogni combinazione di parametri e per ogni singola immagine.\\
+Durante la frammentazione ogni immagine è stata suddivisa in regioni di dimensioni fisse da 640x640 pixels. A causa della difficoltà nell'individuazione degli elementi, il loro valore di score sarà relativamente basso risultando quindi in una scarsa affidabilità.\\
+Di conseguenza, la \textbf{soglia di affidabilità} per la \textbf{condizione di correlazione} necessaria per effettuare un match tra due labels è stata perciò impostata a 0. A causa di questa soglia nulla, due labels di diversa categoria non potranno mai venire unite.\\
+Le altre funzioni ridefinibili sono state lasciate con il loro comportamento di default descritto in sezione \textit{4.1}. I restanti parametri sono invece variabili e ne sono state testate diverse combinazioni ai fini di ricercare quelle combinazioni di parametri in grado di fornire i risultati migliori.\\
+La detection è stata effettuata su 100 immagini dove, per ciascuna, sono state testate 4 soglie diverse di \textbf{affidabilità}=[0.01, 0.1, 0.2, 0.3], 5 valori di \textbf{overlap}=[0, 1, 2, 3, 4], 5 di \textbf{tolleranza}=[0, 1, 2, 3, 4], 4 \textbf{soglie di matching}=[20\%, 40\%, 60\%, 80\%] per un totale di 625 combinazioni di parametri diverse. Le metriche sono state calcolate come media delle metriche per ogni combinazione di parametri e per ogni singola immagine.\\
 Per quanto riguarda il test, una bounding box individuata tramite detection è considerata come corretta solo se la sua IoU con la bounding box reale è maggiore di una certa soglia di Iou. Questa soglia è la stessa soglia utilizzata per il calcolo di dell'mAP. Per effettuare i test questa soglia è stata fissata al 50\%.
 
 \subsection{Risultati ottenuti nella detection su singole immagini}
 Nella seguente sezione vengono riportati i risultati ottenuti per misurare la qualità della detection e della frammentazione.
 \subsubsection{Risultati per categoria}
-Nella tabella sottostante vengono riportate tutte le 60 categorie coinvolte nel test insieme al loro AP. I valori mostrati sono quelli relativi alla migliore combinazione di parametri per ogni specifica categoria. La detection è stata effettuata con \textbf{affidabilità} 0.01 in quanto questo è il valore che massimizza i valori di AP e mAP. AP (Original) mostra il valore dell'AP dopo avere effettuato la detection con frammentazione, AP (NMS) è il valore dell'AP dopo aver applicato NMS ed infine AP è il valore dell'AP calcolato dopo aver applicato l'algoritmo di ricostruzione dell'immagine frammentata.
+Nella tabella sottostante vengono riportate tutte le 60 categorie coinvolte nel test insieme al loro AP. I valori mostrati sono quelli relativi alla migliore combinazione di parametri per ogni specifica categoria. La detection è stata effettuata con \textbf{affidabilità} 0.01 in quanto questo è il valore che massimizza i valori di AP e mAP. AP (Original) mostra il valore dell'AP dopo avere effettuato la detection con frammentazione senza ricostruzione delle labels, AP (NMS) è il valore dell'AP dopo aver applicato NMS ed infine AP è il valore dell'AP calcolato dopo aver applicato l'algoritmo di ricostruzione delle labels nell'immagine frammentata.
 
 \newpage
 \begin{center}
@@ -169,7 +169,9 @@ Nella tabella sottostante vengono riportate tutte le 60 categorie coinvolte nel 
 \end{longtable}
 \end{center}
 
-Osservando i risultati si può subito notare che per ogni categoria si ha che AP$>=$AP(NMS) notando quindi un miglioramento delle metriche a seguito dell'applicazione dell'algoritmo. Per alcune categorie si ha che AP$=$AP(NMS), in questi casi significa che nessuna delle bounding boxes relative a quella categoria è stata coinvolta nella frammentazione. Per alcune categorie può succedere che AP(Original) risulti maggiore sia di AP(NMS) che di AP, questo fenomeno si verifica con più frequenza in presenza di molti oggetti parzialmente sovrapposti tra loro. In questo caso NMS potrebbe causare delle imprecisioni scartando delle bounding boxes che dovrebbero essere in realtà mantenute. Alcune categorie come la numero 5 e la numero 8 presentano un valore di AP particolarmente basso. Si tratta di oggetti che a causa della bassa risoluzione risultano molto piccoli ed ambigui perfino per un occhio umano, per cui, anche il modello spesso commette errori nella loro individuazione e classificazione.
+Osservando i risultati si può subito notare che per ogni categoria si ha che AP$>=$AP(NMS) notando quindi un miglioramento delle metriche per tutte le categorie a seguito dell'applicazione dell'algoritmo. Per alcune categorie si ha che AP$=$AP(NMS), in questi casi significa che nessuna delle bounding boxes relative a quella categoria è stata coinvolta nella frammentazione.\\
+Per altre categorie può succedere che AP(Original) risulti maggiore sia di AP(NMS) che di AP, questo fenomeno si verifica con più frequenza in presenza di molti oggetti parzialmente sovrapposti tra loro. In questo caso NMS potrebbe causare delle imprecisioni scartando delle bounding boxes che dovrebbero essere in realtà mantenute. Tuttavia, al seguito dell'applicazione dell'algoritmo il valore dell'AP finale tende ad aumentare spesso superando quello di AP(Original).\\
+Alcune categorie come la numero 5 e la numero 8 presentano un valore di AP particolarmente basso. Si tratta di oggetti che a causa della bassa risoluzione risultano molto piccoli ed ambigui perfino per un occhio umano, per cui, anche il modello spesso commette errori nella loro individuazione e classificazione.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.4\textwidth, height=0.25\textheight]{images/auto1-satellite.jpg}
@@ -184,28 +186,32 @@ La seguente tabella mostra riporta alcuni dei risultati ottenuti con diverse com
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|} 
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|} 
 \hline
-Affidabilità & Stride & Overlap & Tolleranza & Match(\%) & F1 & mAP(NMS) & mAP\\ [0.5ex] 
+Aff & Str & Ov & Tol & Ma & F1(NMS) & F1 & mAP(NMS) & mAP\\ [0.5ex] 
 \hline
-0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.01 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.1 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 0 & 0 & 50 & 0 & 0.249199 & 0.250742(+0.0\%)\\
-0.2 & 640 & 2 & 4 & 60 & 0 & 0.249199 & 0.253616(+0.0\%)\\
-0.2 & 640 & 4 & 4 & 80 & 0 & 0.249199 & 0.252815(+0.0\%)\\
-0.2 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 0 & 0 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.01 & 640 & 1 & 0 & 60 & 0.054280 & 0.056489(+4.1\%) & 0.245527 & 0.248995(+1.4\%)\\
+0.01 & 640 & 1 & 0 & 40 & 0.054280 & 0.056565(+4.2\%) & 0.245527 & 0.248294(+1.1\%)\\
+0.01 & 640 & 1 & 2 & 60 & 0.054280 & 0.058707(+8.2\%) & 0.245527 & 0.249630(+1.7\%)\\
+0.01 & 640 & 1 & 2 & 40 & 0.054280 & 0.058663(+8.1\%) & 0.245527 & 0.248333(+1.1\%)\\
+0.01 & 640 & 0 & 0 & 60 & 0.054280 & 0.056486(+4.1\%) & 0.245527 & 0.248761(+1.3\%)\\
+0.01 & 640 & 0 & 0 & 40 & 0.054280 & 0.056565(+4.2\%) & 0.245527 & 0.248294(+1.1\%)\\
+0.01 & 640 & 2 & 2 & 60 & 0.054280 & 0.056489(+4.1\%) & 0.245527 & 0.245772(+0.1\%)\\
+0.01 & 640 & 2 & 2 & 40 & 0.054280 & 0.058561(+7.9\%) & 0.245527 & 0.244511(-0.4\%)\\
+0.01 & 638 & 1 & 0 & 60 & 0.054929 & 0.059184(+7.7\%) & 0.237468 & 0.239846(+1.0\%)\\
+0.01 & 638 & 1 & 2 & 60 & 0.054929 & 0.059431(+8.2\%) & 0.237468 & 0.230824(-2.8\%)\\
+0.01 & 638 & 2 & 2 & 60 & 0.054929 & 0.059431(+8.2\%) & 0.237468 & 0.236532(-0.4\%)\\
+0.2 & 640 & 1 & 0 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 1 & 0 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 1 & 2 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 1 & 2 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 2 & 0 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 2 & 0 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 2 & 2 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 2 & 2 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 638 & 2 & 0 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 638 & 2 & 2 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 638 & 2 & 2 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
 \hline
 \end{tabular}
 \caption{Risultati detection con diversi parametri}
@@ -213,7 +219,7 @@ Affidabilità & Stride & Overlap & Tolleranza & Match(\%) & F1 & mAP(NMS) & mAP\
 \end{table}
 
 \subsection{Metriche utilizzate per tracking su video}
-L'obiettivo del tracking è quello di identificare tutti gli oggetti in un video e tracciarli nel tempo. Quest'ultimo compito viene svolto assegnando un ID unico a ciascun oggetto assicurandosi che esso rimanga lo stesso per tutta la durata del video. Di conseguenza nel tracking sono due gli aspetti fondamentali di cui tenere conto:
+L'obiettivo del tracking è quello di identificare tutti gli oggetti in un video e tracciarli attraverso i vari frames. Quest'ultimo compito viene svolto assegnando un ID unico a ciascun oggetto assicurandosi che esso rimanga lo stesso per tutta la durata del video. Di conseguenza nel tracking sono due gli aspetti fondamentali di cui tenere conto:
 \begin{itemize}
 \item Precisione con cui viene determinata la locazione di un oggetto;
 \item Correttezza del tracciamento (anche in presenza di occultamento, perdita di qualità, etc...)
@@ -221,34 +227,35 @@ L'obiettivo del tracking è quello di identificare tutti gli oggetti in un video
 In seguito vengono descritte le metriche utilizzare per valutare la qualità del tracciamento.
 
 \subsubsection{Mostly Tracked Trajectories}
-Mostly Tracked Trajectories (MT), misura la percentuale di elementi, rispetto a quelli totali, che sono stati tracciati correttamente per almeno l'80\% della loro traiettoria. Indica quindi la correttezza del tracciamento, valori più alti sono considerati migliori.
+Mostly Tracked Trajectories (MT), misura la percentuale di elementi, rispetto a quelli totali, che sono stati tracciati correttamente per almeno l'80\% della loro traiettoria. Indica quindi la correttezza del tracciamento. Valori più alti sono considerati migliori.
 \subsubsection{Mostly Lost Trajectories}
 Mostly Lost Trajectories (ML), misura la percentuale di elementi, rispetto a quelli totali, che sono stati tracciati correttamente per non più del 20\% della loro traiettoria. Al contrario di MT, valori più bassi sono considerati migliori.
 \subsubsection{ID switches}
 ID switches (IDs), viene definito come il numero di volte che un oggetto tracciato cambia il suo ID assegnato. Questo può accadere per esempio nel momento in cui due elementi simili incrociano le loro traiettorie ed i trackers non sono in grado di distinguerli. Anche in questo caso, valori minori esprimono risultati migliori.
 \subsubsection{Fragments}
-Fragments (FM) conta il numero di volte che una traiettoria viene interrotta durante il tracciamento. Può accadere per esempio a seguito di un occultamento di un elemento, in questo caso un oggetto verrebbe momentaneamente perso e di conseguenza la sua traiettoria risulterebbe frammentata. Valori minori sono considerati migliori. 
+Fragments (FM) conta il numero di volte che una traiettoria viene interrotta durante il tracciamento. Può accadere per esempio a seguito di un occultamento di un elemento: in questo caso un oggetto verrebbe momentaneamente perso e di conseguenza la sua traiettoria risulterebbe frammentata. Valori minori sono considerati migliori. 
 \subsubsection{MOTP}
-MOTP (Multiple Object Tracking Precision) rappresenta la capacità del sistema di tracking nello stimare con precisione la posizione degli elementi del video attraverso tutti i suoi frames. Viene calcolata nel seguente modo:
+MOTP (Multiple Object Tracking Precision)\cite{MOTmetrics} rappresenta la capacità del sistema di tracking nello stimare con precisione la posizione degli elementi del video attraverso tutti i suoi frames. Viene calcolata nel seguente modo:
 \[
 MOTP = \frac{\sum_{t}^{}\sum_{i}^{}d\ped{t}\ap{i}}{\sum_{t}^{}c\ped{t}}
 \]
-Dove \textit{t}=[1,...,n] è l'indice dei frames del video ed \textit{n} è il numero di frames totali, \textit{i}=[1,...,\textit{c\ped{t}}] è l'indice delle associazioni detection-tracker effettuate nel frame \textit{t}, \textit{d\ped{t}\ap{i}} è la distanza tra la posizione reale dell'oggetto \textit{i} e la sua corrispondente posizione stimata nel frame \textit{t}, \textit{c\ped{t}} è il numero di associazioni detection-tracker effettuate nel frame \textit{t}.
+Dove \textit{t}=[1,...,n] è l'indice dei frames del video ed \textit{n} è il numero di frames totali, \textit{i}=[1,...,\textit{c\ped{t}}] è l'indice delle associazioni tracker-detection effettuate nel frame \textit{t}, \textit{d\ped{t}\ap{i}} è la distanza tra la posizione reale dell'oggetto \textit{i} e la sua corrispondente posizione stimata nel frame \textit{t}, \textit{c\ped{t}} è il numero di associazioni detection-tracker effettuate nel frame \textit{t}.
 \subsubsection{MOTA}
-MOTA (Multiple Object Tracking Accuracy) fornisce una misura delle prestazioni del sistema di tracking nel riconoscere gli oggetti presenti nel video e costruire le loro traiettorie. Viene calcolata nel seguente modo:
+MOTA (Multiple Object Tracking Accuracy)\cite{MOTmetrics} fornisce una misura delle prestazioni del sistema di tracking nel riconoscere gli oggetti presenti nel video e costruire le loro traiettorie. Viene calcolata nel seguente modo:
 \[
 MOTA = 1-\frac{\sum_{t}^{}(fn\ped{t}+fp\ped{t}+mme\ped{t})}{\sum_{t}^{}g\ped{t}}
 \]
-Dove \textit{fn\ped{t}} è il numero di falsi negativi, fp\ped{t} è il numero di falsi positivi, mme\ped{t} è il numero di mismatches. Un mismatch avviene quando durante l'associazione detection-tracker un tracker viene associato ad una detection che rappresenta un oggetto diverso da quello associato nel frame precedente. Infine  \textit{g\ped{t}} è il numero di oggetti presenti nel frame \textit{t}.
+Dove \textit{fn\ped{t}} è il numero di falsi negativi, fp\ped{t} è il numero di falsi positivi, mme\ped{t} è il numero di mismatches. Un mismatch avviene quando durante l'associazione detection-tracker un tracker viene associato ad una detection che rappresenta un oggetto diverso da quello associato nel frame precedente. Infine  \textit{g\ped{t}} è il numero di oggetti presenti nel frame \textit{t}. E' da notare che questa metrica può anche assumere valori negativi, questo può accadere nel caso in cui i falsi negativi o i falsi positivi siano così tanti tali che il numeratore della frazione sia maggiore del denominatore.
 \subsubsection{IDF1}
-IDF1 è una metrica molto simile ad F1 utilizzata come metrica per singole immagini. Questa metrica applicata nell'ambito del tracking fornisce un bilanciamento tra la \textit{precision} media e la \textit{recall} media attraverso la loro media armonica. 
+IDF1\cite{IDF1} è una metrica molto simile ad F1 utilizzata come metrica per singole immagini. Questa metrica applicata nell'ambito del tracking fornisce un bilanciamento tra la \textit{precision} media e la \textit{recall} media attraverso la loro media armonica calcolata su tutti i frames. 
 \[
 IDF1 = \frac{2IDTP}{2IDTP+IDFP+IDFN}
 \]
 Dove IDTP, IDFP, IDFN rispettivamente sono la media del numero di detections avvenute correttamente, falsi positivi e falsi negativi calcolati su tutti i frames. 
 
 \subsection{Dataset utilizzato per tracking su video}
-Per testare la correttezza del tracciamento sono stati utilizzati alcuni video messi a disposizione dalla sfida VisDrone2019, così come lo è anche lo script utilizzato per calcolare le metriche. I video sono stati girati da alcune telecamere montate su dei droni fatti volare riprendendo diversi scenari che spaziano da aree urbane a zone rurali. I video sono stati girati sotto diverse condizioni meteo, di luminosità a diverse altezze ed angolazioni rendendo quindi particolarmente impegnativi sia il tracking che la detection. Un' ulteriore difficoltà è dovuta al fatto che alcuni frames presentano effetti di sfocatura causata dal movimento. Le dimensioni dei frames variano da video a video così come varia la lunghezza in frames di ogni video. Questa volta sono presenti solamente 5 categorie di oggetti diversi e facilmente distinguibili tra loro:
+Per testare la correttezza del tracciamento sono stati utilizzati alcuni video messi a disposizione dalla sfida VisDrone2019, così come lo è anche lo script utilizzato per calcolare le metriche. I video sono stati girati da alcune telecamere montate su dei droni fatti volare riprendendo diversi scenari che spaziano da aree urbane a zone rurali.\\
+I video sono stati girati sotto diverse condizioni meteo, di luminosità a diverse altezze ed angolazioni rendendo quindi particolarmente impegnativi sia il tracking che la detection. Un' ulteriore difficoltà è dovuta al fatto che alcuni frames presentano effetti di sfocatura causata dal movimento. Le dimensioni dei frames variano da video a video così come varia la lunghezza in frames di ogni video. Questa volta sono presenti solamente 5 categorie di oggetti diversi e facilmente distinguibili tra loro:
 \begin{itemize}
 \item Auto;
 \item Bus;
@@ -266,15 +273,17 @@ Nel tracking entrano in gioco 3 parametri variabili ovvero:
 \item \textbf{Soglia di assegnazione}.
 \end{itemize}
 Una spiegazione più dettagliata riguardo ai parametri la si può trovare in sezione \textit{4.2} o nel \textit{Glossario}.
-Per effettuare i test, durante la detection è stata tenuta una \textbf{Soglia di affidabilità} pari a 0.3 e non è stata applicata la frammentazione ai singoli frames in quanto l'operazione sarebbe stata troppo onerosa in termini di tempo mentre usando una Faster-RCNN su ogni frame completo si possono raggiungere qualità di frame-rate accettabili anche per elaborazioni in tempo reale (circa 2 frames al secondo senza utilizzare GPU e con CPU Intel core i5).
+Per effettuare i test, durante la detection è stata tenuta una \textbf{Soglia di affidabilità} pari a 0.3 e non è stata applicata la frammentazione ai singoli frames in quanto l'operazione sarebbe stata troppo onerosa in termini di tempo mentre usando una Faster R-CNN su ogni frame completo si possono raggiungere qualità di frame-rate accettabili anche per elaborazioni in tempo reale (circa 2 frames al secondo senza utilizzare GPU e con CPU Intel core i5).
 Il test è stato effettuato su 7 video, con 3 valori di \textbf{soglia di validazione}=[1, 3, 5], 3 valori di \textbf{soglia di cancellazione}=[1, 5, 10] e due valori di \textbf{soglia di assegnazione}=[0.1, 0.5] per un totale di 18 combinazioni di parametri diverse. Le metriche sono state calcolate su ogni video, su ogni categoria e come media delle metriche per ogni combinazione di parametri.\\
-Per quanto riguarda questione dello scambio dell'ID, è da sottolineare che se due oggetti che, incrociando le loro traiettorie, si dovessero ritrovare con un ID diverso, questo evento conterà come 2 scambi di ID invece di 1.
+Per quanto riguarda questione dello scambio dell'ID, è da sottolineare che se due oggetti che, incrociando le loro traiettorie, si dovessero ritrovare entrambi con un ID diverso, questo evento conterà come 2 scambi di ID invece di 1.
 
 \subsection{Risultati ottenuti nel tracking su video}
-Nella seguente sezione vengono riportati i risultati ottenuti per misurare la qualità del sistema di tracking. In quanto l'obiettivo è quello di misurare l'efficacia del tracking e non della detection, quest'ultima non è stata effettuata ma le labels di ogni frames sono state lette da un file di testo contenente le detections esatte, uguali a quelle contenute nel file con il quale vengono confrontati i risultati del tracking ottenuti ai fini di ricavarne le metriche. Successivamente verranno mostrati dei risultati eseguendo le detections con un modello vero e proprio. Le metriche IDF1, Rcll, Prcn, MT, ML, MOTA e MOTP sono espresse sotto forma di percentuali e, ad eccezione di ML, indicano risultati migliori per valori maggiori. Al contrario, le metriche FP, FN, IDs ed FM sono espresse in valore quantitativo ed indicano risultati migliori per valori minori.
+Nella seguente sezione vengono riportati i risultati ottenuti per misurare la qualità del sistema di tracking. In quanto l'obiettivo è quello di misurare l'efficacia del tracking e non della detection, quest'ultima non è stata effettuata ma le labels di ogni frames sono state lette da un file di testo contenente le detections esatte, uguali a quelle contenute nel file con il quale vengono confrontati i risultati del tracking ottenuti ai fini di ricavarne le metriche.\\
+Successivamente verranno mostrati dei risultati eseguendo le detections con un modello vero e proprio. Le metriche IDF1, Rcll, Prcn, MT, ML, MOTA e MOTP sono espresse sotto forma di percentuali e, ad eccezione di ML, indicano risultati migliori per valori maggiori. Al contrario, le metriche FP, FN, IDs ed FM sono espresse in valore quantitativo ed indicano risultati migliori per valori minori.
 
 \subsubsection{Risultati per categoria}
-Nella seguente tabella vengono riportate tutte le cinque categorie insieme ai relativi risultati. Le due metriche Rcll (recall) e Prcn (precision) sono le stesse che sono state utilizzate nella detection su singole immagini ma in questo ambito sono state calcolate come recall e precisione media su ogni frame e su ogni video. I seguenti valori sono stati ottenuti impostando una \textbf{soglia di cancellazione}=1, \textbf{soglia di validazione}=1 e \textbf{soglia di assegnazione}=0.1 in quanto questa combinazione di parametri ha permesso di ottenere risultati migliori rispetto alle altre per quanto riguarda la maggior parte delle metriche.
+Nella seguente tabella vengono riportate tutte le cinque categorie insieme ai relativi risultati. Le due metriche Rcll (recall) e Prcn (precision) sono le stesse che sono state utilizzate nella detection su singole immagini ma in questo ambito sono state calcolate come recall e precisione media su ogni frame e su ogni video.\\
+I seguenti valori sono stati ottenuti impostando una \textbf{soglia di cancellazione}=1, \textbf{soglia di validazione}=1 e \textbf{soglia di assegnazione}=0.1 in quanto questa combinazione di parametri ha permesso di ottenere risultati migliori rispetto alle altre per quanto riguarda la maggior parte delle metriche.
 \begin{table}[h!]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|} 
@@ -291,11 +300,12 @@ Furgone & 93.4 & 98.6 & 99.1 & 95.0 & 0 & 58 & 97 & 32 & 21 & 97.2 & 93.5\\
 \caption{Risultati tracking per categoria}
 \label{risultati tracking categoria}
 \end{table}
+\\
 In generale è la categoria Persona quella più difficile da tracciare sia per la numerosità delle persone stesse sia per il numero di sovrapposizioni che si verificano tra di esse, lo si può notare dal fatto che le relative metriche sono leggermente più basse rispetto a quelle delle altre categorie.  Le categorie Auto e Persona sono le più frequenti sia nei video sia nel mondo reale perciò è più difficile tracciarle ed aumenta la probabilità che vengano commessi degli errori.
 
 \clearpage
 \subsubsection{Risultati per parametri}
-La tabella sottostante riporta i risultati ottenuti nel tracking  utilizzando diverse combinazioni parametri SC (\textbf{soglia di cancellazione}), SV (\textbf{soglia di validazione}) ed SA (\textbf{soglia di assegnazione}). Per quanto riguarda il valore dei pesi delle metriche per decidere se validare un assegnazione o meno, è stato dato maggior peso all'IoU ed un peso minore alle metriche che misurano la differenza tra le aree e le dimensioni dei lati.
+La tabella sottostante riporta i risultati ottenuti nel tracking  utilizzando diverse combinazioni parametri SC (\textbf{soglia di cancellazione}), SV (\textbf{soglia di validazione}) ed SA (\textbf{soglia di assegnazione}). Per quanto riguarda il valore dei pesi delle metriche per decidere se validare un' assegnazione o meno, è stato dato maggior peso all'IoU ed un peso minore alle metriche che misurano la differenza tra le aree e le dimensioni dei lati.
 \begin{table}[h!]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -326,7 +336,9 @@ SV & SC & SA & IDF1 & Rcll & Prcn & MT & ML & FP & FN & IDs & FM & MOTA & MOTP\\
 \label{risultati tracking con diversi parametri}
 \end{table}
 
-Nella tabella si può notare che all'aumentare del valore della \textbf{soglia di validazione} diminuisce il numero di falsi positivi, scambi di ID e di traiettorie frammentate in quanto vengono tracciati meno elementi ma in modo più efficace. Allo stesso tempo, però, le altre metriche tendono a diminuire in quanto elementi di breve comparsa nei video verranno ignorati o solo parzialmente tracciati. All'aumentare della \textbf{soglia di cancellazione} aumenta di molto il numero di falsi positivi al guadagno di una leggera riduzione del numero di falsi negativi ma le altre metriche tendono a rimanere costanti o addirittura peggiorare. Questo è dovuto anche al fatto che in questo caso le detections sono perfette ed il rischio di perdere un elemento tracciato si verifica solo in caso di forte sovrapposizione con altri elementi. Inoltre, le metriche ottenute con \textbf{soglia di accettazione} maggiore sono quasi sempre leggermente inferiori a quelle ottenute con la soglia più bassa, questo perché una soglia alta tende a scartare molte coppie tracker-detection che in realtà sarebbero state corrette, d'altra parte una soglia bassa comporta il rischio di associazioni errate. 
+Nella tabella si può notare che all'aumentare del valore della \textbf{soglia di validazione} diminuisce il numero di falsi positivi, degli scambi di ID e delle traiettorie frammentate in quanto vengono tracciati meno elementi ma in modo più efficace. Allo stesso tempo, però, le altre metriche tendono a diminuire in quanto elementi di breve comparsa nei video verranno ignorati o solo parzialmente tracciati.\\
+All'aumentare della \textbf{soglia di cancellazione} aumenta di molto il numero di falsi positivi al guadagno di una leggera riduzione del numero di falsi negativi ma le altre metriche tendono a rimanere costanti o addirittura peggiorare. Questo è dovuto anche al fatto che in questo caso le detections sono perfette perciò non è presente il rischio di non individuare un elemento tracciato a causa di un occultamento, in questo caso ed il rischio di perdere un elemento si verifica solo in caso di forte sovrapposizione con altri elementi.\\
+Inoltre, le metriche ottenute con \textbf{soglia di assegnazione} maggiore sono quasi sempre leggermente inferiori a quelle ottenute con la soglia più bassa, questo perché una soglia alta tende a scartare molte coppie tracker-detection che in realtà sarebbero state corrette. D'altra parte una soglia bassa comporta il rischio di associazioni errate.
 
 \clearpage
 \subsubsection{Risultati per parametri con detection}
@@ -361,5 +373,6 @@ SV & SC & SA & IDF1 & Rcll & Prcn & MT & ML & FP & FN & IDs & FM & MOTA & MOTP\\
 \label{risultati tracking con diversi parametri e detection}
 \end{table}
 
-Come è facile aspettarsi, quasi tutte le metriche mostrano risultati sensibilmente peggiori rispetto a quelli mostrati nella tabella precedente. In particolare, a causa degli errori introdotti dalla detection risultano esserci molti più falsi negativi e falsi positivi rispetto al tracciamento eseguito con le labels delle detections esatte. A causa del significativo aumento dei falsi negativi è presente una lieve diminuzione del numero di scambi degli ID. Questo comporta un valore MOTA praticamente dimezzato rispetto alla versione precedente mentre la metrica MOTP subisce solo una moderata diminuzione. Per lo stesso motivo anche le metriche Rcll e Prcn presentano valori più bassi riducendo di conseguenza il valore di IDF1.\\
-Anche in questo caso i parametri giocano un ruolo fondamentale nel determinare il risultato migliore. Nello specifico, valori alti della \textbf{soglia di validazione} e della \textbf{soglia di cancellazione} aumentano la robustezza del tracciamento a discapito della sua qualità. Infatti i valori di IDs e FM minimi si hanno in corrispondenza dei valori dei parametri SV e SC maggiori. Valori maggiori di SV, filtrando le detections errate, diminuiscono il numero dei falsi positivi mentre valori maggiori di SC, prolungando la durata del tracciamento anche in caso di scomparsa dell'elemento tracciato, riducono il numero di falsi negativi. La metrica IDF1 rimane più o meno stabile per tutte le combinazioni di parametri significando quindi che essa è più influenzata dalla qualità della detection che da quella del tracking. In generale, aumentando le soglie di cancellazione e di validazioni si ha un tracciamento migliore e più resistente agli errori mentre diminuendole si ha un tracking meno preciso ma più completo in quanto verrebbero tracciati un numero maggiore di elementi.
+Come è facile aspettarsi, quasi tutte le metriche mostrano risultati sensibilmente peggiori rispetto a quelli mostrati nella tabella precedente. In particolare, a causa degli errori introdotti dalla detection, risultano esserci molti più falsi negativi e falsi positivi rispetto al tracciamento eseguito con le labels esatte.\\ Questo comporta un valore MOTA praticamente dimezzato rispetto alla versione precedente mentre la metrica MOTP subisce solo una moderata diminuzione. Per lo stesso motivo anche le metriche Rcll e Prcn presentano valori più bassi riducendo di conseguenza il valore di IDF1. Inoltre, a causa del significativo aumento dei falsi negativi è presente una lieve diminuzione del numero di scambi degli ID.\\
+Anche in questo caso i parametri giocano un ruolo fondamentale nel determinare il risultato migliore. Nello specifico, valori alti della \textbf{soglia di validazione} e della \textbf{soglia di cancellazione} aumentano la robustezza del tracciamento a discapito della sua qualità. Infatti i valori di IDs e FM minimi si hanno in corrispondenza dei valori dei parametri SV e SC maggiori. Valori maggiori di SV, filtrando le detections errate, diminuiscono il numero dei falsi positivi mentre valori maggiori di SC, prolungando la durata del tracciamento anche in caso di scomparsa dell'elemento tracciato, riducono il numero di falsi negativi.\\ 
+La metrica IDF1 rimane più o meno stabile per tutte le combinazioni di parametri significando quindi che essa è più influenzata dalla qualità della detection che da quella del tracking. In generale, aumentando le soglie di cancellazione e di validazione si ha un tracciamento migliore e più resistente agli errori mentre diminuendole si ha un tracking meno preciso ma più completo in quanto verrebbero tracciati un numero maggiore di elementi.
