@@ -54,15 +54,15 @@
 \contentsline {subsection}{\numberline {7.4}Metriche utilizzate per tracking su video}{48}{subsection.7.4}% 
 \contentsline {subsubsection}{\numberline {7.4.1}Mostly Tracked Trajectories}{48}{subsubsection.7.4.1}% 
 \contentsline {subsubsection}{\numberline {7.4.2}Mostly Lost Trajectories}{48}{subsubsection.7.4.2}% 
-\contentsline {subsubsection}{\numberline {7.4.3}ID switches}{48}{subsubsection.7.4.3}% 
-\contentsline {subsubsection}{\numberline {7.4.4}Fragments}{48}{subsubsection.7.4.4}% 
+\contentsline {subsubsection}{\numberline {7.4.3}ID switches}{49}{subsubsection.7.4.3}% 
+\contentsline {subsubsection}{\numberline {7.4.4}Fragments}{49}{subsubsection.7.4.4}% 
 \contentsline {subsubsection}{\numberline {7.4.5}MOTP}{49}{subsubsection.7.4.5}% 
 \contentsline {subsubsection}{\numberline {7.4.6}MOTA}{49}{subsubsection.7.4.6}% 
-\contentsline {subsubsection}{\numberline {7.4.7}IDF1}{49}{subsubsection.7.4.7}% 
+\contentsline {subsubsection}{\numberline {7.4.7}IDF1}{50}{subsubsection.7.4.7}% 
 \contentsline {subsection}{\numberline {7.5}Dataset utilizzato per tracking su video}{50}{subsection.7.5}% 
-\contentsline {subsubsection}{\numberline {7.5.1}Impostazione parametri tracking}{50}{subsubsection.7.5.1}% 
+\contentsline {subsubsection}{\numberline {7.5.1}Impostazione parametri tracking}{51}{subsubsection.7.5.1}% 
 \contentsline {subsection}{\numberline {7.6}Risultati ottenuti nel tracking su video}{51}{subsection.7.6}% 
-\contentsline {subsubsection}{\numberline {7.6.1}Risultati per categoria}{51}{subsubsection.7.6.1}% 
+\contentsline {subsubsection}{\numberline {7.6.1}Risultati per categoria}{52}{subsubsection.7.6.1}% 
 \contentsline {subsubsection}{\numberline {7.6.2}Risultati per parametri}{53}{subsubsection.7.6.2}% 
 \contentsline {subsubsection}{\numberline {7.6.3}Risultati per parametri con detection}{55}{subsubsection.7.6.3}% 
 \contentsline {section}{\numberline {8}Conclusioni}{57}{section.8}% 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.5)  20 JUN 2019 22:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.5)  22 JUN 2019 16:52
 entering extended mode
 **./Tesi.tex
 (Tesi.tex
@@ -756,32 +756,31 @@ re.13}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.73 \item \textbf
                   {Tolleranza}; <./images/immagine-satellite.jpg>] [42]
-[43] [44]
-<images/auto1-satellite.jpg, id=834, 120.45pt x 102.3825pt>
+[43]
+<images/auto1-satellite.jpg, id=829, 120.45pt x 102.3825pt>
 File: images/auto1-satellite.jpg Graphic file (type jpg)
 <use images/auto1-satellite.jpg>
 Package pdftex.def Info: images/auto1-satellite.jpg  used on input line 177.
 (pdftex.def)             Requested size: 187.91776pt x 137.13403pt.
-<images/auto2-satellite.jpg, id=835, 82.50826pt x 85.5195pt>
+<images/auto2-satellite.jpg, id=830, 82.50826pt x 85.5195pt>
 File: images/auto2-satellite.jpg Graphic file (type jpg)
 <use images/auto2-satellite.jpg>
 Package pdftex.def Info: images/auto2-satellite.jpg  used on input line 178.
 (pdftex.def)             Requested size: 187.9168pt x 137.13017pt.
 
-Overfull \hbox (2.89568pt too wide) in paragraph at lines 172--182
+Overfull \hbox (2.89568pt too wide) in paragraph at lines 172--185
 []\OT1/cmr/m/n/12 Osservando i ri-sul-ta-ti si puo su-bi-to no-ta-re che per o
 gni ca-te-go-ria si ha che AP$\OML/cmm/m/it/12 >\OT1/cmr/m/n/12 =$AP(NMS)
  []
 
-[45] [46pdfTeX warning (ext4): destination with the same identifier (name{figur
+[44] [45pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.14}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.183 \clearpage
-                 <./images/auto1-satellite.jpg> <./images/auto2-satellite.jpg>]
-
-Overfull \hbox (10.9481pt too wide) in paragraph at lines 189--217
+l.185 
+       <./images/auto1-satellite.jpg> <./images/auto2-satellite.jpg>] [46]
+Overfull \hbox (10.9481pt too wide) in paragraph at lines 193--221
  [][] 
  []
 
@@ -792,19 +791,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.223 \begin{itemize}
-                     ] [48] [49] [50]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[51] [52pdfTeX warning (ext4): destination with the same identifier (name{table
-.3}) has been already used, duplicate ignored
+l.228 
+      ] [48] [49] [50] [51] [52pdfTeX warning (ext4): destination with the same
+ identifier (name{table.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.306 \clearpage
+l.315 \clearpage
                 ]
-Overfull \hbox (10.77238pt too wide) in paragraph at lines 311--335
+Overfull \hbox (10.77238pt too wide) in paragraph at lines 320--344
  [][] 
  []
 
@@ -815,9 +810,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.342 
+l.351 
       ] [54]
-Overfull \hbox (19.42784pt too wide) in paragraph at lines 348--372
+Overfull \hbox (19.42784pt too wide) in paragraph at lines 357--381
  [][] 
  []
 
@@ -866,7 +861,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
 Here is how much of TeX's memory you used:
  9567 strings out of 492946
  137397 string characters out of 3125823
- 685082 words of memory out of 3000000
+ 685114 words of memory out of 3000000
  12955 multiletter control sequences out of 15000+200000
  14836 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -891,7 +886,7 @@ public/amsfonts/cm/cmsy8.pfb><C:/Users/Davide/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Davide/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/Davide/AppDat
 a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Tesi.pdf (66 pages, 12110757 bytes).
+Output written on Tesi.pdf (66 pages, 12115376 bytes).
 PDF statistics:
  1103 PDF objects out of 1200 (max. 8388607)
  317 named destinations out of 1000 (max. 500000)

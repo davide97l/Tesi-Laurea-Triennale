@@ -78,24 +78,24 @@ Durante la frammentazione ogni immagine è stata suddivisa in regioni di dimensi
 Di conseguenza, la \textbf{soglia di affidabilità} per la \textbf{condizione di correlazione} necessaria per effettuare un match tra due labels è stata perciò impostata a 0. A causa di questa soglia nulla, due labels di diversa categoria non potranno mai venire unite.\\
 Le altre funzioni ridefinibili sono state lasciate con il loro comportamento di default descritto in sezione \textit{4.1}. I restanti parametri sono invece variabili e ne sono state testate diverse combinazioni ai fini di ricercare quelle combinazioni di parametri in grado di fornire i risultati migliori.\\
 La detection è stata effettuata su 100 immagini dove, per ciascuna, sono state testate 4 soglie diverse di \textbf{affidabilità}=[0.01, 0.1, 0.2, 0.3], 5 valori di \textbf{overlap}=[0, 1, 2, 3, 4], 5 di \textbf{tolleranza}=[0, 1, 2, 3, 4], 4 \textbf{soglie di matching}=[20\%, 40\%, 60\%, 80\%] per un totale di 625 combinazioni di parametri diverse. Le metriche sono state calcolate come media delle metriche per ogni combinazione di parametri e per ogni singola immagine.\\
-Per quanto riguarda il test, una bounding box individuata tramite detection è considerata come corretta solo se la sua IoU con la bounding box reale è maggiore di una certa soglia di Iou. Questa soglia è la stessa soglia utilizzata per il calcolo di dell'mAP. Per effettuare i test questa soglia è stata fissata al 50\%.
+Per quanto riguarda il test, una bounding box individuata tramite detection è considerata come corretta solo se la sua IoU con la bounding box reale è maggiore di una certa soglia di Iou. Questa soglia è la stessa soglia utilizzata per il calcolo dell'mAP. Per effettuare i test questa soglia è stata fissata al 50\%.
 
 \subsection{Risultati ottenuti nella detection su singole immagini}
 Nella seguente sezione vengono riportati i risultati ottenuti per misurare la qualità della detection e della frammentazione.
 \subsubsection{Risultati per categoria}
-Nella tabella sottostante vengono riportate tutte le 60 categorie coinvolte nel test insieme al loro AP. I valori mostrati sono quelli relativi alla migliore combinazione di parametri per ogni specifica categoria. La detection è stata effettuata con \textbf{affidabilità} 0.01 in quanto questo è il valore che massimizza i valori di AP e mAP. AP (Original) mostra il valore dell'AP dopo avere effettuato la detection con frammentazione senza ricostruzione delle labels, AP (NMS) è il valore dell'AP dopo aver applicato NMS ed infine AP è il valore dell'AP calcolato dopo aver applicato l'algoritmo di ricostruzione delle labels nell'immagine frammentata.
+Nella tabella sottostante vengono riportate tutte le 60 categorie coinvolte nel test insieme al loro AP. I valori mostrati sono quelli relativi alla migliore combinazione di parametri per ogni specifica categoria. La detection è stata effettuata con \textbf{affidabilità} 0.01 in quanto questo è il valore che massimizza i valori di AP e mAP. AP (Original) mostra il valore dell'AP dopo avere effettuato la detection con frammentazione senza ricostruzione delle labels, AP (NMS) è il valore dell'AP dopo aver applicato NMS ed infine AP è il valore dell'AP calcolato dopo aver applicato l'algoritmo di ricostruzione delle labels nell'immagine frammentata.\\
+Le categorie sono anche state suddivide in diversi sottogruppi a seconda delle loro dimensioni che possono variare da piccole (S), medie (M) o grandi (L) ed in base loro frequenza di apparizione che le contraddistingue in categorie comuni (C) oppure rare (R). Gli oggetti appartenenti alle categorie rare compaiono in totale non più di 1000 volte in tutto il dataset.
 
-\newpage
 \begin{center}
-\begin{longtable}{|c|l|c|c|c|}
+\begin{longtable}{|c|l|c|c|c|c|c|}
 
-\hline \multicolumn{1}{|c|}{\textbf{Numero}} &
-\multicolumn{1}{c|}{\textbf{Categoria}} & \multicolumn{1}{c|}{\textbf{AP (Original)}} &\multicolumn{1}{c|}{\textbf{AP (NMS)}} &\multicolumn{1}{c|}{\textbf{AP}} \\ \hline\endfirsthead
+\hline \multicolumn{1}{|c|}{\textbf{Num}} &
+\multicolumn{1}{c|}{\textbf{Categoria}} & \multicolumn{1}{c|}{\textbf{D}} & \multicolumn{1}{c|}{\textbf{R}} & \multicolumn{1}{c|}{\textbf{AP (Original)}} &\multicolumn{1}{c|}{\textbf{AP (NMS)}} &\multicolumn{1}{c|}{\textbf{AP}} \\ \hline\endfirsthead
 
-\hline \multicolumn{1}{|c|}{\textbf{Numero}} &
-\multicolumn{1}{c|}{\textbf{Categoria}} &\multicolumn{1}{c|}{\textbf{AP (Original)}} &\multicolumn{1}{c|}{\textbf{AP (NMS)}} &\multicolumn{1}{c|}{\textbf{AP}}\\ \hline \endhead
+\hline \multicolumn{1}{|c|}{\textbf{Num}} &
+\multicolumn{1}{c|}{\textbf{Categoria}} & \multicolumn{1}{c|}{\textbf{D}} & \multicolumn{1}{c|}{\textbf{R}} &\multicolumn{1}{c|}{\textbf{AP (Original)}} &\multicolumn{1}{c|}{\textbf{AP (NMS)}} &\multicolumn{1}{c|}{\textbf{AP}}\\ \hline \endhead
 
-\hline \multicolumn{5}{|c|}{{------ Continua nella pagina successiva ------}} \\ \hline
+\hline \multicolumn{7}{|c|}{{------ Continua nella pagina successiva ------}} \\ \hline
 \endfoot
 
 \hline
@@ -106,72 +106,72 @@ Nella tabella sottostante vengono riportate tutte le 60 categorie coinvolte nel 
 \endlastfoot
 
 
-1 & Fixed-wing Aircraft & 0.224319 & 0.225709 & 0.234913\\
-2 & Small Aircraft & 0.423006 & 0.421561 & 0.487984\\
-3 & Cargo Plane & 0.793246 & 0.780495 & 0.809706\\
-4 & Helicopter & 0.343750 & 0.343750 & 0.455165\\
-5 & Passenger Vehicle & 0.000514 & 0.000561 & 0.000616\\
-6 & Small Car & 0.360364 & 0.349376 & 0.354816\\
-7 & Bus & 0.320155 & 0.319980 & 0.322155\\
-8 & Pickup Truck & 0.004013 & 0.003817 & 0.003832\\
-9 & Utility Truck & 0.022319 & 0.022180 & 0.022249\\
-10 & Truck & 0.093073 & 0.096008 & 0.097272\\
-11 & Cargo Truck & 0.112346 & 0.110611 & 0.113069\\
-12 & Truck w/Box & 0.405223 & 0.382302 & 0.389924\\
-13 & Truck Tractor & 0.011702 & 0.011205 & 0.011360\\
-14 & Trailer & 0.128112 & 0.118257 & 0.121111\\
-15 & Truck w/Flatbed & 0.083729 & 0.084326 & 0.086383\\
-16 & Truck w/Liquid & 0.028560 & 0.029433 & 0.029457\\
-17 & Crane Truck & 0.070424 & 0.070487 & 0.103344\\
-18 & Railway Vehicle & 0.00000 & 0.00000 & 0.00000\\
-19 & Passenger Car & 0.621967 & 0.634951 & 0.653586\\
-20 & Cargo Car & 0.528376 & 0.535936 & 0.537790\\
-21 & Flat Car & 0.408165 & 0.436869 & 0.436869\\
-22 & Tank Car & 0.000501 & 0.000552 & 0.000563\\
-23 & Locomotive & 0.492844 & 0.498693 & 0.500454\\
-24 & Maritime Vessel & 0.132787 & 0.122395 & 0.137974\\
-25 & Motorboat & 0.304536 & 0.309246 & 0.317420\\
-26 & Sailboat & 0.476163 & 0.492080 & 0.501056\\
-27 & Tugboat & 0.375028 & 0.379075 & 0.385908\\
-28 & Barge & 0.229450 & 0.232367 & 0.237915\\
-29 & Fishing Vessel & 0.131085 & 0.134347 & 0.145607\\
-30 & Ferry & 0.451626 & 0.445131 & 0.494575\\
-31 & Yacht & 0.554554 & 0.561531 & 0.583826\\
-32 & Container Ship & 0.562968 & 0.555579 & 0.624139\\
-33 & Oil Tanker & 0.562263 & 0.615124 & 0.615124\\
-34 & Engineering Vehicle & 0.114510 & 0.114657 & 0.116365\\
-35 & Tower Crane & 0.012496 & 0.007083 & 0.007517\\
-36 & Container Crane & 0.053083 & 0.050028 & 0.060336\\
-37 & Reach Stacker & 0.314528 & 0.317667 & 0.320265\\
-38 & Straddle Carrier & 0.573863 & 0.572912 & 0.574765\\
-39 & Mobile Crane & 0.131302 & 0.139258 & 0.155806\\
-40 & Dump Truck & 0.166618 & 0.169499 & 0.169579\\
-41 & Haul Truck & 0.868698 & 0.859369 & 0.889144\\
-42 & Scraper/Tractor & 0.028915 & 0.028613 & 0.031487\\
-43 & Front Loader/Bulldozer & 0.129784 & 0.138587 & 0.140348\\
-44 & Excavator & 0.340663 & 0.335421 & 0.336678\\
-45 & Cement Mixer & 0.173915 & 0.182477 & 0.182591\\
-46 & Ground Grader & 0.266859 & 0.265571 & 0.265616\\
-47 & Hut/Tent & 0.025208 & 0.023967 & 0.026293\\
-48 & Shed & 0.009840 & 0.009854 & 0.010107\\
-49 & Building & 0.535869 & 0.482216 & 0.490359\\
-50 & Aircraft Hangar & 0.019961 & 0.025452 & 0.027149\\
-51 & Damaged Building & 0.020142 & 0.021223 & 0.022819\\
-52 & Facility & 0.125133 & 0.114053 & 0.139637\\
-53 & Construction Site & 0.017198 & 0.016450 & 0.016892\\
-54 & Vehicle Lot & 0.087038 & 0.081471 & 0.095994\\
-55 & Helipad & 0.020963 & 0.022512 & 0.022866\\
-56 & Storage Tank & 0.453776 & 0.452578 & 0.474606\\
-57 & Shipping Container Lot & 0.159574 & 0.140996 & 0.149238\\
-58 & Shipping Container & 0.101220 & 0.102641 & 0.102708\\
-59 & Pylon & 0.657612 & 0.661616 & 0.661769\\
-60 & Tower & 0.070426 & 0.071527 & 0.071872\\
+1 & Fixed-wing Aircraft & M & R & 0.224319 & 0.225709 & 0.234913\\
+2 & Small Aircraft & M & R & 0.423006 & 0.421561 & 0.487984\\
+3 & Cargo Plane & L & C & 0.793246 & 0.780495 & 0.809706\\
+4 & Helicopter & M & R & 0.343750 & 0.343750 & 0.455165\\
+5 & Passenger Vehicle & S & C & 0.000514 & 0.000561 & 0.000616\\
+6 & Small Car & S & C & 0.360364 & 0.349376 & 0.354816\\
+7 & Bus & S & C & 0.320155 & 0.319980 & 0.322155\\
+8 & Pickup Truck & S & C & 0.004013 & 0.003817 & 0.003832\\
+9 & Utility Truck & S & C & 0.022319 & 0.022180 & 0.022249\\
+10 & Truck & S & C & 0.093073 & 0.096008 & 0.097272\\
+11 & Cargo Truck & S & C & 0.112346 & 0.110611 & 0.113069\\
+12 & Truck w/Box & M & C & 0.405223 & 0.382302 & 0.389924\\
+13 & Truck Tractor & S & C & 0.011702 & 0.011205 & 0.011360\\
+14 & Trailer & S & C & 0.128112 & 0.118257 & 0.121111\\
+15 & Truck w/Flatbed & S & C & 0.083729 & 0.084326 & 0.086383\\
+16 & Truck w/Liquid & M & R & 0.028560 & 0.029433 & 0.029457\\
+17 & Crane Truck & S & R & 0.070424 & 0.070487 & 0.103344\\
+18 & Railway Vehicle & M & R & 0.000000 & 0.000000 & 0.000000\\
+19 & Passenger Car & M & C & 0.621967 & 0.634951 & 0.653586\\
+20 & Cargo Car & M & C & 0.528376 & 0.535936 & 0.537790\\
+21 & Flat Car & M & R & 0.408165 & 0.436869 & 0.436869\\
+22 & Tank Car & M & R & 0.000501 & 0.000552 & 0.000563\\
+23 & Locomotive & M & R & 0.492844 & 0.498693 & 0.500454\\
+24 & Maritime Vessel & L & R & 0.132787 & 0.122395 & 0.137974\\
+25 & Motorboat & S & C & 0.304536 & 0.309246 & 0.317420\\
+26 & Sailboat & M & R & 0.476163 & 0.492080 & 0.501056\\
+27 & Tugboat & M & R & 0.375028 & 0.379075 & 0.385908\\
+28 & Barge & L & R & 0.229450 & 0.232367 & 0.237915\\
+29 & Fishing Vessel & M & C & 0.131085 & 0.134347 & 0.145607\\
+30 & Ferry & L & R & 0.451626 & 0.445131 & 0.494575\\
+31 & Yacht & M & R & 0.554554 & 0.561531 & 0.583826\\
+32 & Container Ship & L & R & 0.562968 & 0.555579 & 0.624139\\
+33 & Oil Tanker & L & R & 0.562263 & 0.615124 & 0.615124\\
+34 & Engineering Vehicle & M & R & 0.114510 & 0.114657 & 0.116365\\
+35 & Tower Crane & L & R & 0.012496 & 0.007083 & 0.007517\\
+36 & Container Crane & L & R & 0.053083 & 0.050028 & 0.060336\\
+37 & Reach Stacker & M & R & 0.314528 & 0.317667 & 0.320265\\
+38 & Straddle Carrier & L & R & 0.573863 & 0.572912 & 0.574765\\
+39 & Mobile Crane & M & R & 0.131302 & 0.139258 & 0.155806\\
+40 & Dump Truck & S & C & 0.166618 & 0.169499 & 0.169579\\
+41 & Haul Truck & M & R & 0.868698 & 0.859369 & 0.889144\\
+42 & Scraper/Tractor & S & R & 0.028915 & 0.028613 & 0.031487\\
+43 & Front Loader/Bulldozer & S & C & 0.129784 & 0.138587 & 0.140348\\
+44 & Excavator & S & C & 0.340663 & 0.335421 & 0.336678\\
+45 & Cement Mixer & S & R & 0.173915 & 0.182477 & 0.182591\\
+46 & Ground Grader & S & R & 0.266859 & 0.265571 & 0.265616\\
+47 & Hut/Tent & M & C & 0.025208 & 0.023967 & 0.026293\\
+48 & Shed & M & C & 0.009840 & 0.009854 & 0.010107\\
+49 & Building & M & C & 0.535869 & 0.482216 & 0.490359\\
+50 & Aircraft Hangar & L & R & 0.019961 & 0.025452 & 0.027149\\
+51 & Damaged Building & M & C & 0.020142 & 0.021223 & 0.022819\\
+52 & Facility & L & C & 0.125133 & 0.114053 & 0.139637\\
+53 & Construction Site & L & C & 0.017198 & 0.016450 & 0.016892\\
+54 & Vehicle Lot & L & C & 0.087038 & 0.081471 & 0.095994\\
+55 & Helipad & M & R & 0.020963 & 0.022512 & 0.022866\\
+56 & Storage Tank & M & C & 0.453776 & 0.452578 & 0.474606\\
+57 & Shipping Container Lot & L & C & 0.159574 & 0.140996 & 0.149238\\
+58 & Shipping Container & S & C & 0.101220 & 0.102641 & 0.102708\\
+59 & Pylon & M & R & 0.657612 & 0.661616 & 0.661769\\
+60 & Tower & M & R & 0.070426 & 0.071527 & 0.071872\\
 \end{longtable}
 \end{center}
 
-Osservando i risultati si può subito notare che per ogni categoria si ha che AP$>=$AP(NMS) notando quindi un miglioramento delle metriche per tutte le categorie a seguito dell'applicazione dell'algoritmo. Per alcune categorie si ha che AP$=$AP(NMS), in questi casi significa che nessuna delle bounding boxes relative a quella categoria è stata coinvolta nella frammentazione.\\
-Per altre categorie può succedere che AP(Original) risulti maggiore sia di AP(NMS) che di AP, questo fenomeno si verifica con più frequenza in presenza di molti oggetti parzialmente sovrapposti tra loro. In questo caso NMS potrebbe causare delle imprecisioni scartando delle bounding boxes che dovrebbero essere in realtà mantenute. Tuttavia, al seguito dell'applicazione dell'algoritmo il valore dell'AP finale tende ad aumentare spesso superando quello di AP(Original).\\
-Alcune categorie come la numero 5 e la numero 8 presentano un valore di AP particolarmente basso. Si tratta di oggetti che a causa della bassa risoluzione risultano molto piccoli ed ambigui perfino per un occhio umano, per cui, anche il modello spesso commette errori nella loro individuazione e classificazione.
+Osservando i risultati si può subito notare che per ogni categoria si ha che AP$>=$AP(NMS) notando quindi un miglioramento delle metriche per tutte le categorie a seguito dell'applicazione dell'algoritmo. Per quanto riguarda quelle categorie dove si ha che AP$=$AP(NMS) come per esempio la numero 18 e la 33, in questi casi significa che nessuna delle bounding boxes relative a quella categoria è stata coinvolta nella frammentazione. Si tratta infatti di oggetti molto rari che quindi è meno probabile che le loro bounding boxes intersechino un confine per essere frammentate e poi ricomposte. E' interessante notare che la categoria numero 18 presenta un valore nullo per tutti i tipi di mAP calcolati, questo è dovuto al fatto che di quella categoria di oggetti non è stato trovato con successo nemmeno un elemento. \\
+Per altre categorie può succedere che AP(Original) risulti maggiore sia di AP(NMS) che di AP, questo fenomeno riguarda con maggiore frequenza gli oggetti appartenenti alle categorie comune e si verifica in presenza di molti oggetti diversi ma parzialmente sovrapposti tra loro. In questo caso NMS potrebbe causare delle imprecisioni scartando delle bounding boxes che dovrebbero essere in realtà mantenute diminuendo quindi il valore dell'AP. Tuttavia, al seguito dell'applicazione dell'algoritmo, il valore dell'AP finale tende ad aumentare spesso superando quello dell'AP(Original).\\
+Alcune categorie come la numero 5 e la numero 8 presentano un valore di AP particolarmente basso. Si tratta di oggetti che a causa della bassa risoluzione risultano molto piccoli ed ambigui perfino per un occhio umano, per cui, anche il modello spesso commette errori nella loro individuazione e classificazione.\\
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.4\textwidth, height=0.25\textheight]{images/auto1-satellite.jpg}
@@ -179,10 +179,14 @@ Alcune categorie come la numero 5 e la numero 8 presentano un valore di AP parti
 \end{center}
 \caption{Esempi di oggetti molto difficili da individuare e classificare}
 \end{figure}
+I valori dell'AP di queste sessanta categorie unite tra loro risultano in un valore dell'mAP pari a 0.256316. Questo è quindi un limite superiore dell'mAP ottenibile con l'algoritmo in quanto è stato calcolato impostando i parametri ottimali per ogni classe e \textbf{soglia di affidabilità} minima (0.01).\\
+Suddividendo le categorie in base alla loro dimensione si ha che le categorie di dimensione piccola (S) hanno un mAP pari a 0.146454, le categorie di dimensione media (M) hanno un mAP pari a 0.318717 ed infine le categorie di dimensione grande (L) hanno un mAP pari a 0.285068. Il risultato non è sorprendente, infatti, gli oggetti piccoli sono più difficili da individuare, classificare ed eventualmente ricomporre le loro bounding boxes frammentate rispetto agli oggetti più grandi.\\
+Gli oggetti appartenenti alle categorie comuni (C) risultano in un mAP pari a 0.212488 mentre gli oggetti appartenenti alle categorie rare (R) risultano in un mAP pari a 0.297316. Questo risultato è dovuto a diversi fattori, analizzando le categorie con molta attenzione si nota che gli oggetti rari sono molto spesso anche oggetti medi o grandi i quali hanno un valore dell'mAP molto più altro rispetto agli oggetti piccoli. In secondo luogo, gli oggetti rari è più probabile che compaiano isolati piuttosto che sovrapposti con altri oggetti della stessa categoria usufruendo quindi di una maggiore efficacia da parte dell'algoritmo di ricostruzione delle labels.
 
 \clearpage
 \subsubsection{Risultati per parametri}
-La seguente tabella mostra riporta alcuni dei risultati ottenuti con diverse combinazioni di parametri mostrando i valori di F1 e mAP. mAP(NMS) indica il valore dell'mAp calcolato dopo aver effettuato NMS sull'immagine frammentata mentre mAP è il valore dell'mAP calcolato dopo aver applicato l'algoritmo di ricostruzione dell'immagine frammentata riportandone anche l'aumento in percentuale. Affidabilità è il valore della \textbf{soglia di affidabilità} sopra la quale non scartare una detection.
+La seguente tabella mostra riporta alcuni dei risultati ottenuti con diverse combinazioni di parametri mostrando i valori di F1 e mAP. mAP(NMS) indica il valore dell'mAP calcolato dopo aver effettuato NMS sull'immagine frammentata mentre mAP è il valore dell'mAP calcolato dopo aver applicato l'algoritmo di ricostruzione dell'immagine frammentata riportandone anche l'aumento in percentuale. Affidabilità è il valore della \textbf{soglia di affidabilità} sopra la quale non scartare una detection.\\
+Le colonne D ed R indicano rispettivamente la dimensione e la rarità della relativa categoria.
 
 \begin{table}[h!]
 \centering
@@ -196,27 +200,32 @@ Aff & Str & Ov & Tol & Ma & F1(NMS) & F1 & mAP(NMS) & mAP\\ [0.5ex]
 0.01 & 640 & 1 & 2 & 40 & 0.054280 & 0.058663(+8.1\%) & 0.245527 & 0.248333(+1.1\%)\\
 0.01 & 640 & 0 & 0 & 60 & 0.054280 & 0.056486(+4.1\%) & 0.245527 & 0.248761(+1.3\%)\\
 0.01 & 640 & 0 & 0 & 40 & 0.054280 & 0.056565(+4.2\%) & 0.245527 & 0.248294(+1.1\%)\\
-0.01 & 640 & 2 & 2 & 60 & 0.054280 & 0.056489(+4.1\%) & 0.245527 & 0.245772(+0.1\%)\\
-0.01 & 640 & 2 & 2 & 40 & 0.054280 & 0.058561(+7.9\%) & 0.245527 & 0.244511(-0.4\%)\\
+0.01 & 640 & 2 & 2 & 60 & 0.054280 & 0.058707(+8.2\%) & 0.245527 & 0.249630(+1.7\%)\\
+0.01 & 640 & 2 & 2 & 40 & 0.054280 & 0.058663(+8.1\%) & 0.245527 & 0.248333(+1.1\%)\\
 0.01 & 638 & 1 & 0 & 60 & 0.054929 & 0.059184(+7.7\%) & 0.237468 & 0.239846(+1.0\%)\\
 0.01 & 638 & 1 & 2 & 60 & 0.054929 & 0.059431(+8.2\%) & 0.237468 & 0.230824(-2.8\%)\\
 0.01 & 638 & 2 & 2 & 60 & 0.054929 & 0.059431(+8.2\%) & 0.237468 & 0.236532(-0.4\%)\\
-0.2 & 640 & 1 & 0 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 1 & 0 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 1 & 2 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 1 & 2 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 2 & 0 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 2 & 0 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 2 & 2 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 640 & 2 & 2 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 638 & 2 & 0 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 638 & 2 & 2 & 60 & 0 & 0 & 0 & 0 (+0.0\%)\\
-0.2 & 638 & 2 & 2 & 20 & 0 & 0 & 0 & 0 (+0.0\%)\\
+0.2 & 640 & 1 & 0 & 60 & 0.252156 & 0.254726(+1.0\%) & 0.229414 & 0.231004(+0.7\%)\\
+0.2 & 640 & 1 & 0 & 40 & 0.252156 & 0.254731(+1.0\%) & 0.229414 & 0.230812(+0.6\%)\\
+0.2 & 640 & 1 & 2 & 60 & 0.252156 & 0.257842(+2.3\%) & 0.229414 & 0.233041(+1.6\%)\\
+0.2 & 640 & 1 & 2 & 40 & 0.252156 & 0.257272(+2.0\%) & 0.229414 & 0.231223(+0.8\%)\\
+0.2 & 640 & 0 & 0 & 60 & 0.252156 & 0.253802(+0.7\%) & 0.229414 & 0.231004(+0.7\%)\\
+0.2 & 640 & 0 & 0 & 40 & 0.252156 & 0.253718(+0.6\%) & 0.229414 & 0.230812(+0.6\%)\\
+0.2 & 640 & 2 & 2 & 60 & 0.252156 & 0.257842(+2.3\%) & 0.229414 & 0.233041(+1.6\%)\\
+0.2 & 640 & 2 & 2 & 40 & 0.252156 & 0.257272(+2.0\%) & 0.229414 & 0.231223(+0.8\%)\\
+0.2 & 638 & 1 & 0 & 60 & 0.254927 & 0.259848(+1.9\%) & 0.220950 & 0.222846(+0.9\%)\\
+0.2 & 638 & 1 & 2 & 60 & 0.254927 & 0.259214(+1.7\%) & 0.220950 & 0.219586(-0.6\%)\\
+0.2 & 638 & 2 & 2 & 60 & 0.254927 & 0.259214(+1.7\%) & 0.220950 & 0.219586(-0.6\%)\\
 \hline
 \end{tabular}
 \caption{Risultati detection con diversi parametri}
 \label{risultati detection con diversi parametri}
 \end{table}
+Dopo aver applicato l'algoritmo si nota che nella maggior parte dei casi c'è un miglioramento delle metriche. Nello specifico, l'aumento della metrica F1 è maggiore rispetto a quello dell'mAP indipendentemente dalla configurazione di parametri utilizzata.\\
+Le detections effettuate con soglia di affidabilità più bassa presentano un mAP leggermente migliore ma un valore di F1 molto peggiore rispetto alle stesse metriche calcolate su detections effettuate con la soglia di affidabilità più alta. Questo è dovuto al fatto che con una soglia di affidabilità pari a 0.01 vengono individuati molti falsi positivi diminuendo quindi la precision della detection senza però aumentare la recall. L'mAP è invece maggiore detections con soglia di affidabilità più bassa risultano sempre in mAP maggiore rispetto a quelle effettuate con soglia di affidabilità più alta.\\
+Si nota inoltre che avere overlap e size non nulli comporta un lieve miglioramento delle metriche, soprattutto per quanto riguarda F1 dove si ha un incremento maggiore.\\
+La soglia di matching influisce sul risultato finale in base alla forma degli oggetti. Per esempio, una soglia di matching minore è utile per unire oggetti obliqui ma potrebbe generare degli errori cercando di unire più oggetti sovrapposti, infatti può accadere che una porzione di un oggetto venga unita con quella di un altro oggetto e viceversa.
+
 
 \subsection{Metriche utilizzate per tracking su video}
 L'obiettivo del tracking è quello di identificare tutti gli oggetti in un video e tracciarli attraverso i vari frames. Quest'ultimo compito viene svolto assegnando un ID unico a ciascun oggetto assicurandosi che esso rimanga lo stesso per tutta la durata del video. Di conseguenza nel tracking sono due gli aspetti fondamentali di cui tenere conto:
