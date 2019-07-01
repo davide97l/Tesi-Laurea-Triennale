@@ -30,7 +30,7 @@ L'intersection over union (IoU) misura il grado di sovrapposizione tra due aree 
     IoU = \frac{AI}{AU}
 \]
 Dove AI (Area dell'Intersezione) corrisponde all'area dell'intersezione tra le due bounding boxes e AU (Area dell'Unione) corrisponde all'area della loro unione.
-Una label per essere considerata come corretta deve avere un valore di IoU con la sua ground truth maggiore di una soglia stabilità. (per esempio 0.5).
+Una label per essere considerata come corretta deve avere un valore di IoU con la sua ground truth maggiore di una soglia stabilità (per esempio 0.5).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{images/unione-intersezione.jpg}
@@ -188,8 +188,8 @@ Gli oggetti appartenenti alle categorie comuni (C) risultano in un mAP pari a 0.
 
 \clearpage
 \subsubsection{Risultati per parametri}
-La seguente tabella riporta alcuni dei risultati ottenuti con diverse combinazioni di parametri mostrando i valori di F1 e mAP. F1(NMS) e mAP(NMS) indicano i valori dell'F1 e dell'mAP calcolati dopo aver effettuato NMS sull'immagine frammentata mentre F1 e mAP sono ii valore dell'F1 e dell'mAP calcolati dopo aver applicato l'algoritmo di ricostruzione dell'immagine frammentata riportandone anche l'aumento in percentuale. Affidabilità (Aff) è il valore della \textbf{soglia di affidabilità} sopra la quale non scartare una detection.\\
-Le colonne Str, Ov e Tol indicano rispettivamente il valore dello stride, dell'overlap e della tolleranza in pixels mentre la colonna Ma indica il valore della soglia di match in percentuale.
+La seguente tabella riporta alcuni dei risultati ottenuti con diverse combinazioni di parametri mostrando i valori di F1 e mAP. F1(NMS) e mAP(NMS) indicano i valori dell'F1 e dell'mAP calcolati dopo aver effettuato NMS sull'immagine frammentata mentre F1 e mAP sono i valori dell'F1 e dell'mAP calcolati dopo aver applicato l'algoritmo di ricostruzione dell'immagine frammentata riportandone anche l'aumento in percentuale. Affidabilità (\textit{Aff}) è il valore della \textbf{soglia di affidabilità} sopra la quale non scartare una detection.\\
+Le colonne \textit{Str}, \textit{Ov} e \textit{Tol} indicano rispettivamente il valore dello stride, dell'overlap e della tolleranza in pixels mentre la colonna \textit{Ma} indica il valore della soglia di match in percentuale.
 
 
 \begin{table}[h!]
@@ -270,7 +270,7 @@ Dove IDTP, IDFP, IDFN rispettivamente sono la media del numero di detections avv
 
 \subsection{Dataset utilizzato per tracking su video}
 Per testare la correttezza del tracciamento sono stati utilizzati alcuni video messi a disposizione dalla sfida VisDrone2019, così come lo è anche lo script utilizzato per calcolare le metriche. I video sono stati girati da alcune telecamere montate su dei droni fatti volare riprendendo diversi scenari che spaziano da aree urbane a zone rurali.\\
-I video sono stati girati sotto diverse condizioni meteo, di luminosità a diverse altezze ed angolazioni rendendo quindi particolarmente impegnativi sia il tracking che la detection. Un' ulteriore difficoltà è dovuta al fatto che alcuni frames presentano effetti di sfocatura causata dal movimento. Le dimensioni dei frames variano da video a video così come varia la lunghezza in frames di ogni video. Questa volta sono presenti solamente 5 categorie di oggetti diversi e facilmente distinguibili tra loro:
+Le riprese sono state effettuate sotto diverse condizioni meteo, di luminosità a diverse altezze ed angolazioni rendendo quindi particolarmente impegnativi sia il tracking che la detection. Un' ulteriore difficoltà è dovuta al fatto che alcuni frames presentano effetti di sfocatura causata dal movimento. Le dimensioni dei frames variano da video a video così come varia la lunghezza in frames di ogni video. Questa volta sono presenti solamente 5 categorie di oggetti diversi e facilmente distinguibili tra loro:
 \begin{itemize}
 \item Auto;
 \item Bus;
@@ -288,8 +288,8 @@ Nel tracking entrano in gioco 3 parametri variabili ovvero:
 \item \textbf{Soglia di assegnazione}.
 \end{itemize}
 Una spiegazione più dettagliata riguardo ai parametri la si può trovare in sezione \textit{4.2} o nel \textit{Glossario}.
-Per effettuare i test, durante la detection è stata tenuta una \textbf{Soglia di affidabilità} pari a 0.3 e non è stata applicata la frammentazione ai singoli frames in quanto l'operazione sarebbe stata troppo onerosa in termini di tempo mentre usando una Faster R-CNN su ogni frame completo si possono raggiungere qualità di frame-rate accettabili anche per elaborazioni in tempo reale (circa 4 frames al secondo senza utilizzare GPU e con CPU Intel core i5).
-Il test è stato effettuato su 7 video, con 3 valori di \textbf{soglia di validazione}=[1, 3, 5], 3 valori di \textbf{soglia di cancellazione}=[1, 5, 10] e due valori di \textbf{soglia di assegnazione}=[0.1, 0.5] per un totale di 18 combinazioni di parametri diverse. Le metriche sono state calcolate su ogni video, su ogni categoria e come media delle metriche per ogni combinazione di parametri.\\
+Per effettuare i test, durante la detection è stata tenuta una soglia di affidabilità pari a 0.3 e non è stata applicata la frammentazione ai singoli frames in quanto l'operazione sarebbe stata troppo onerosa in termini di tempo mentre usando una Faster R-CNN su ogni frame completo si possono raggiungere qualità di frame-rate accettabili anche per elaborazioni in tempo reale (circa 4 frames al secondo senza utilizzare GPU e con CPU Intel core i5).
+Il test è stato effettuato su 7 video, con 3 valori di soglia di validazione=[1, 3, 5], 3 valori di soglia di cancellazione=[1, 5, 10] e due valori di soglia di assegnazione=[0.1, 0.5] per un totale di 18 combinazioni di parametri diverse. Le metriche sono state calcolate su ogni video, su ogni categoria e come media delle metriche per ogni combinazione di parametri.\\
 Per quanto riguarda la questione dello scambio dell'ID, è da sottolineare che se due oggetti che, incrociando le loro traiettorie, si dovessero ritrovare entrambi con un ID diverso, questo evento conterà come 2 scambi di ID invece di 1.
 
 \subsection{Risultati ottenuti nel tracking su video}
