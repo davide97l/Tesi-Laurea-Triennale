@@ -206,9 +206,9 @@ Aff & Str & Ov & Tol & Ma & F1(NMS) & F1 & mAP(NMS) & mAP\\ [0.5ex]
 0.01 & 640 & 0 & 0 & 40 & 0.054280 & 0.056565(+4.2\%) & 0.245527 & 0.248294(+1.1\%)\\
 0.01 & 640 & 2 & 2 & 60 & 0.054280 & 0.058707(+8.2\%) & 0.245527 & 0.249630(+1.7\%)\\
 0.01 & 640 & 2 & 2 & 40 & 0.054280 & 0.058663(+8.1\%) & 0.245527 & 0.248333(+1.1\%)\\
-0.01 & 638 & 1 & 0 & 60 & 0.054929 & 0.059184(+7.7\%) & 0.237468 & 0.239846(+1.0\%)\\
-0.01 & 638 & 1 & 2 & 60 & 0.054929 & 0.059431(+8.2\%) & 0.237468 & 0.230824(-2.8\%)\\
-0.01 & 638 & 2 & 2 & 60 & 0.054929 & 0.059431(+8.2\%) & 0.237468 & 0.236532(-0.4\%)\\
+0.01 & 620 & 1 & 0 & 60 & 0.056013 & 0.064972(+16.0\%) & 0.241894 & 0.238295(-1.5\%)\\
+0.01 & 620 & 1 & 2 & 60 & 0.056013 & 0.065482(+16.9\%) & 0.241894 & 0.235734(-2.5\%)\\
+0.01 & 620 & 2 & 2 & 60 & 0.056013 & 0.065489(+16.9\%) & 0.241894 & 0.236368(-2.3\%)\\
 0.2 & 640 & 1 & 0 & 60 & 0.252156 & 0.254726(+1.0\%) & 0.229414 & 0.231004(+0.7\%)\\
 0.2 & 640 & 1 & 0 & 40 & 0.252156 & 0.254731(+1.0\%) & 0.229414 & 0.230812(+0.6\%)\\
 0.2 & 640 & 1 & 2 & 60 & 0.252156 & 0.257842(+2.3\%) & 0.229414 & 0.233041(+1.6\%)\\
@@ -217,18 +217,20 @@ Aff & Str & Ov & Tol & Ma & F1(NMS) & F1 & mAP(NMS) & mAP\\ [0.5ex]
 0.2 & 640 & 0 & 0 & 40 & 0.252156 & 0.253718(+0.6\%) & 0.229414 & 0.230812(+0.6\%)\\
 0.2 & 640 & 2 & 2 & 60 & 0.252156 & 0.257842(+2.3\%) & 0.229414 & 0.233041(+1.6\%)\\
 0.2 & 640 & 2 & 2 & 40 & 0.252156 & 0.257272(+2.0\%) & 0.229414 & 0.231223(+0.8\%)\\
-0.2 & 638 & 1 & 0 & 60 & 0.254927 & 0.259848(+1.9\%) & 0.220950 & 0.222846(+0.9\%)\\
-0.2 & 638 & 1 & 2 & 60 & 0.254927 & 0.259214(+1.7\%) & 0.220950 & 0.219586(-0.6\%)\\
-0.2 & 638 & 2 & 2 & 60 & 0.254927 & 0.259214(+1.7\%) & 0.220950 & 0.219586(-0.6\%)\\
+0.2 & 620 & 1 & 0 & 60 & 0.255906 & 0.257963(+0.8\%) & 0.226063 & 0.222796(-1.4\%)\\
+0.2 & 620 & 1 & 2 & 60 & 0.255906 & 0.256939(+0.4\%) & 0.226063 & 0.220337(-1.4\%)\\
+0.2 & 620 & 2 & 2 & 60 & 0.255906 & 0.257052(+0.4\%) & 0.226063 & 0.220968(-2.3\%)\\
 \hline
 \end{tabular}
 \caption{Risultati detection con diversi parametri}
 \label{risultati detection con diversi parametri}
 \end{table}
 Dopo aver applicato l'algoritmo si nota che nella maggior parte dei casi c'è un miglioramento delle metriche. Nello specifico, l'aumento della metrica F1 è maggiore rispetto a quello dell'mAP indipendentemente dalla configurazione di parametri utilizzata.\\
-Le detections effettuate con soglia di affidabilità più bassa presentano un mAP leggermente migliore ma un valore di F1 molto peggiore rispetto alle stesse metriche calcolate su detections effettuate con la soglia di affidabilità più alta. Questo è dovuto al fatto che con una soglia di affidabilità pari a 0.01 vengono individuati molti falsi positivi diminuendo quindi la precision della detection senza però aumentare la recall. L'mAP è invece maggiore detections con soglia di affidabilità più bassa risultano sempre in mAP maggiore rispetto a quelle effettuate con soglia di affidabilità più alta.\\
+Le detections effettuate con soglia di affidabilità più bassa presentano un mAP leggermente migliore ma un valore di F1 molto peggiore rispetto alle stesse metriche calcolate su detections effettuate con la soglia di affidabilità più alta. Questo è dovuto al fatto che con una soglia di affidabilità pari a 0.01 vengono individuati molti falsi positivi diminuendo quindi la precision della detection senza però aumentare la recall. L'mAP è invece maggiore nelle detections con soglia di affidabilità più bassa rispetto a quelle effettuate con soglia di affidabilità più alta, questa proprietà è garantita dal metodo con il quale viene calcolato l'mAP.\\
+Allo stesso tempo, l'algoritmo risulta più efficace quando applicato alle detections effettuate con soglia di affidabilità più bassa garantendo un maggiore aumento in percentuale delle metriche.\\
 Si nota inoltre che avere overlap e size non nulli comporta un lieve miglioramento delle metriche, soprattutto per quanto riguarda F1 dove si ha un incremento maggiore.\\
-La soglia di matching influisce sul risultato finale in base alla forma degli oggetti. Per esempio, una soglia di matching minore è utile per unire oggetti obliqui ma potrebbe generare degli errori cercando di unire più oggetti sovrapposti, infatti può accadere che una porzione di un oggetto venga unita con quella di un altro oggetto e viceversa.
+La soglia di matching influisce sul risultato finale in base alla forma degli oggetti. Per esempio, una soglia di matching minore è utile per unire oggetti obliqui ma potrebbe generare degli errori cercando di unire più oggetti sovrapposti, infatti può accadere che una porzione di un oggetto venga unita con quella di un altro oggetto e viceversa.\\
+Le detections effettuate con stride minore della dimensione di una regione presentano valori dei parametri più o meno simili a quelli calcolati con stride uguale alla dimensione di una regione, tuttavia,  gli incrementi delle metriche risultano molto variabili a seconda del tipo di metrica e del valore della soglia di affidabilità.
 
 
 \subsection{Metriche utilizzate per tracking su video}
