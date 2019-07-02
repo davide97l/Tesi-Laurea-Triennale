@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.5)  1 JUL 2019 15:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.5)  2 JUL 2019 14:42
 entering extended mode
 **./Tesi.tex
 (Tesi.tex
@@ -472,12 +472,12 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             ! on input line 3.
 \c@lstlisting=\count137
 (Copertina.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 32.
+LaTeX Font Info:    Try loading font information for U+msa on input line 36.
 
 ("C:\Users\Davide\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 32.
+LaTeX Font Info:    Try loading font information for U+msb on input line 36.
  ("C:\Users\Davide\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
 "
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -485,7 +485,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <images/unipd_logo.png, id=287, 198.14024pt x 199.947pt>
 File: images/unipd_logo.png Graphic file (type png)
 <use images/unipd_logo.png>
-Package pdftex.def Info: images/unipd_logo.png  used on input line 51.
+Package pdftex.def Info: images/unipd_logo.png  used on input line 55.
 (pdftex.def)             Requested size: 140.92792pt x 142.22269pt.
  [1
 
@@ -763,34 +763,32 @@ re.13}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.75 \item \textbf
                   {Overlap}; <./images/immagine-satellite.jpg>] [43] [44]
-Overfull \vbox (10.18268pt too high) has occurred while \output is active []
-
-
 [45]
 <images/auto1-satellite.jpg, id=840, 120.45pt x 102.3825pt>
 File: images/auto1-satellite.jpg Graphic file (type jpg)
 <use images/auto1-satellite.jpg>
-Package pdftex.def Info: images/auto1-satellite.jpg  used on input line 180.
+Package pdftex.def Info: images/auto1-satellite.jpg  used on input line 181.
 (pdftex.def)             Requested size: 187.91776pt x 137.13403pt.
 <images/auto2-satellite.jpg, id=841, 82.50826pt x 85.5195pt>
 File: images/auto2-satellite.jpg Graphic file (type jpg)
 <use images/auto2-satellite.jpg>
-Package pdftex.def Info: images/auto2-satellite.jpg  used on input line 181.
+Package pdftex.def Info: images/auto2-satellite.jpg  used on input line 182.
 (pdftex.def)             Requested size: 187.9168pt x 137.13017pt.
 
-Overfull \hbox (2.89568pt too wide) in paragraph at lines 175--188
+Overfull \hbox (2.89568pt too wide) in paragraph at lines 176--189
 []\OT1/cmr/m/n/12 Osservando i ri-sul-ta-ti si puo su-bi-to no-ta-re che per o
 gni ca-te-go-ria si ha che AP$\OML/cmm/m/it/12 >\OT1/cmr/m/n/12 =$AP(NMS)
  []
 
-[46pdfTeX warning (ext4): destination with the same identifier (name{figure.14}
-) has been already used, duplicate ignored
+[46] [47pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.14}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.188 
-       <./images/auto1-satellite.jpg> <./images/auto2-satellite.jpg>] [47]
-Overfull \hbox (16.82304pt too wide) in paragraph at lines 197--225
+l.190 \clearpage
+                 <./images/auto1-satellite.jpg> <./images/auto2-satellite.jpg>]
+
+Overfull \hbox (16.82304pt too wide) in paragraph at lines 198--226
  [][] 
  []
 
@@ -801,15 +799,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.234 
+l.235 
       ] [49] [50] [51] [52] [53pdfTeX warning (ext4): destination with the same
  identifier (name{table.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.322 \clearpage
+l.323 \clearpage
                 ] [54]
-Overfull \hbox (10.77238pt too wide) in paragraph at lines 327--351
+Overfull \hbox (10.77238pt too wide) in paragraph at lines 328--352
  [][] 
  []
 
@@ -820,9 +818,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.358 
+l.359 
       ] [56]
-Overfull \hbox (19.42784pt too wide) in paragraph at lines 364--388
+Overfull \hbox (19.42784pt too wide) in paragraph at lines 365--389
  [][] 
  []
 
@@ -871,7 +869,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
 Here is how much of TeX's memory you used:
  9620 strings out of 492946
  138226 string characters out of 3125823
- 666078 words of memory out of 3000000
+ 666122 words of memory out of 3000000
  13001 multiletter control sequences out of 15000+200000
  16730 words of font info for 63 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -898,7 +896,7 @@ ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Davide/AppDa
 ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users
 /Davide/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on Tesi.pdf (68 pages, 12128699 bytes).
+Output written on Tesi.pdf (68 pages, 12129277 bytes).
 PDF statistics:
  1119 PDF objects out of 1200 (max. 8388607)
  319 named destinations out of 1000 (max. 500000)

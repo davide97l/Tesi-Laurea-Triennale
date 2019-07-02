@@ -87,7 +87,7 @@ Per quanto riguarda il test, una bounding box individuata tramite detection è c
 Nella seguente sezione vengono riportati i risultati ottenuti per misurare la qualità della detection e della frammentazione.
 \subsubsection{Risultati per categoria}
 Nella tabella sottostante vengono riportate tutte le 60 categorie coinvolte nel test insieme al loro AP. I valori mostrati sono quelli relativi alla migliore combinazione di parametri per ogni specifica categoria. La detection è stata effettuata con \textbf{affidabilità} 0.01 in quanto questo è il valore che massimizza i valori di AP e mAP. AP (Original) mostra il valore dell'AP dopo avere effettuato la detection con frammentazione senza ricostruzione delle labels, AP (NMS) è il valore dell'AP dopo aver applicato NMS ed infine AP è il valore dell'AP calcolato dopo aver applicato l'algoritmo di ricostruzione delle labels nell'immagine frammentata.\\
-Le categorie sono anche state suddivide in diversi sottogruppi a seconda delle loro dimensioni che possono variare da piccole (S), medie (M) o grandi (L) ed in base loro frequenza di apparizione che le contraddistingue in categorie comuni (C) oppure rare (R). Gli oggetti appartenenti alle categorie rare compaiono in totale non più di 1000 volte in tutto il dataset di test che è composto da circa 100 immagini. Le colonne D ed R indicano rispettivamente la dimensione e la rarità della relativa categoria.
+Le categorie sono anche state suddivide in diversi sottogruppi a seconda delle loro dimensioni che possono variare da piccole (S), medie (M) o grandi (L) ed in base loro frequenza di apparizione che le contraddistingue in categorie comuni (C) oppure rare (R). Gli oggetti appartenenti alle categorie rare compaiono in totale non più di 1000 volte in tutto il dataset di test che è composto da circa 100 immagini. Nell'ultima riga della tabella vengono mostrate le stesse metriche mediate su tutte le classi (mAP). Le colonne D ed R indicano rispettivamente la dimensione e la rarità della relativa categoria.
 
 \begin{center}
 \begin{longtable}{|c|l|c|c|c|c|c|}
@@ -103,7 +103,7 @@ Le categorie sono anche state suddivide in diversi sottogruppi a seconda delle l
 
 \hline
 
-\caption{Risultati detection per categoria}
+\caption{Risultati detection per categoria, D ne indica la dimensione, R indica la rarità}
 \label{risultati detection per categoria} \\
 
 \endlastfoot
@@ -169,6 +169,7 @@ Le categorie sono anche state suddivide in diversi sottogruppi a seconda delle l
 58 & Shipping Container & S & C & 0.101220 & 0.102641 & 0.102708\\
 59 & Pylon & M & R & 0.657612 & 0.661616 & 0.661769\\
 60 & Tower & M & R & 0.070426 & 0.071527 & 0.071872\\
+- & \textbf{All} & - & - & \textbf{0.245606} & \textbf{0.245527} & \textbf{0.256316}\\
 \end{longtable}
 \end{center}
 
